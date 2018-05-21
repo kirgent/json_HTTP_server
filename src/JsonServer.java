@@ -33,16 +33,17 @@ public class JsonServer {
 
     public static void main(final String... args) throws IOException {
         final HttpServer server = HttpServer.create(new InetSocketAddress(HOSTNAME, PORT), BACKLOG);
-        server.createContext("/func1", he -> {
+
+        server.createContext("/func2", he -> {
             try {
                 final Headers headers = he.getResponseHeaders();
                 final String requestMethod = he.getRequestMethod().toUpperCase();
                 switch (requestMethod) {
                     case METHOD_GET:
                         final Map<String, List<String>> requestParameters = getRequestParameters(he.getRequestURI());
-                        System.out.println("Does URL contain key test1? : " + requestParameters.containsKey("test1"));
+                        System.out.println("Does URL contain key test2? : " + requestParameters.containsKey("test2"));
                         // do something with the request parameters
-                        final String responseBody = "['hello world!']";
+                        final String responseBody = "['TEST2 - hello world!']";
                         headers.set(HEADER_CONTENT_TYPE, String.format("application/json; charset=%s", CHARSET));
                         final byte[] rawResponseBody = responseBody.getBytes(CHARSET);
                         he.sendResponseHeaders(STATUS_OK, rawResponseBody.length);
