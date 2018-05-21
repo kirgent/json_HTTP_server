@@ -20,22 +20,26 @@ public class JsonServer {
     private static final int PORT = 8080;
     private static final int BACKLOG = 1;
 
-    private static final String HEADER_ALLOW = "Allow";
-    private static final String HEADER_CONTENT_TYPE = "Content-Type";
-
     private static final Charset CHARSET = StandardCharsets.UTF_8;
 
     private static final int STATUS_OK = 200;
+    private static final int STATUS_NOT_FOUND = 404;
     private static final int STATUS_METHOD_NOT_ALLOWED = 405;
 
     private static final int NO_RESPONSE_LENGTH = -1;
 
+    private static final String HEADER_ALLOW = "Allow";
+    private static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final String METHOD_GET = "GET";
+    private static final String METHOD_POST = "POST";
     private static final String METHOD_OPTIONS = "OPTIONS";
     private static final String ALLOWED_METHODS = METHOD_GET + "," + METHOD_OPTIONS;
 
     public static void main(final String... args) throws IOException {
+        common_api c = new common_api();
         final HttpServer server = HttpServer.create(new InetSocketAddress(HOSTNAME, PORT), BACKLOG);
+
+        c.read_config();
 
         server.createContext("/func2", he -> {
             try {
