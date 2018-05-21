@@ -1,20 +1,31 @@
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 class common_api {
 
-    void read_config() throws IOException {
-        Properties prop=new Properties();
-        String fileName= "/config.properties";
-        InputStream is=new FileInputStream(fileName);
+    ArrayList read_config() throws IOException {
+        ArrayList list = new ArrayList();
+        Properties p = new Properties();
+        String fileName= "src/main/resources/config.properties";
+        p.load(new FileInputStream(fileName));
 
-        prop.load(is);
+        list.add(0, p.getProperty("app.name", "default_name"));
+        list.add(1, p.getProperty("app.version", "default_version"));
+        list.add(2, p.getProperty("app.vendor","Java"));
 
-        System.out.println(prop.getProperty("app.name"));
-        System.out.println(prop.getProperty("app.version"));
+        System.out.println("app.name=" + list.get(0));
+        System.out.println("app.version=" + list.get(1));
+        System.out.println("app.vendor=" + list.get(2));
 
-        System.out.println(prop.getProperty("app.vendor","Java"));
+        return list;
+        }
+
+        void write_config(String key, String value) throws IOException {
+            Properties p = new Properties();
+            String fileName= "src/main/resources/config.properties";
+            p.load(new FileInputStream(fileName));
+            p.setProperty(key, value);
+
         }
 }

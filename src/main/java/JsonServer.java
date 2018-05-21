@@ -35,11 +35,19 @@ public class JsonServer {
     private static final String METHOD_OPTIONS = "OPTIONS";
     private static final String ALLOWED_METHODS = METHOD_GET + "," + METHOD_OPTIONS;
 
+    static ArrayList list_config_params = new ArrayList();
+
     public static void main(final String... args) throws IOException {
         common_api c = new common_api();
         final HttpServer server = HttpServer.create(new InetSocketAddress(HOSTNAME, PORT), BACKLOG);
 
-        c.read_config();
+        list_config_params = c.read_config();
+        c.write_config("app.name", "1231111111");
+        list_config_params = c.read_config();
+
+        System.out.println("app.name=" + list_config_params.get(0));
+        System.out.println("app.version=" + list_config_params.get(1));
+        System.out.println("app.vendor=" + list_config_params.get(2));
 
         server.createContext("/func2", he -> {
             try {
