@@ -55,5 +55,12 @@ class test_json_HTTP_server extends common_api {
         //server.stop(-1);
     }
 
+    @Test
+    void test_server_MyHandler() throws IOException, InterruptedException {
+        server_MyHandler handler = new server_MyHandler();
+        String actual = handler.start();
+        assertEquals(expected200, actual);
+    }
+
 
 }
