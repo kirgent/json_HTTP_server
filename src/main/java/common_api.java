@@ -2,43 +2,51 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.apache.http.HttpHeaders.ALLOW;
+import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 
 class common_api extends JsonHTTPServer {
 
-    List<String> testname;
-    List<String> macaddress;
-    List count_reminders;
-    List count_iterations;
+    private List<String> testname;
+    private List<String> macaddress;
+    private List<String> count_reminders;
+    private List<String> count_iterations;
 
-    String html = "Testing of reminders";
+    private String html = "json_HTTP_server:";
     /*private String list_params = "testname=" + testname.get(0) + ", " +
             "macaddress=" + macaddress.get(0) + ", " +
             "count_reminders="+ count_reminders.get(0) + ", " +
             "count_iterations=" + count_iterations.get(0);*/
-    ArrayList list_params;
+    private ArrayList list_params;
     final String expected200 = "200 OK";
     final String expected404 = "404 Not Found";
     final String expected500 = "500 Internal Server Error";
     final String expected504 = "504 Server data timeout";
-    private boolean show_debug_level = false;
-    private boolean show_info_level = false;
+    private boolean show_debug_level = true;
+    private boolean show_info_level = true;
     private boolean show_generated_json = true;
-    private int count_pairs = 10;
+    private boolean show_response_json = true;
+    private boolean show_response_body = false;
+    private int count_pairs = 5;
     String host = "localhost";
     int port = 8080;
-    private boolean show_response_body = true;
 
     private String prepare_url(String host, int port, String context){
         return "http://" + host + ":" + port + context;
@@ -49,7 +57,7 @@ class common_api extends JsonHTTPServer {
         //StringBuilder body = new StringBuilder();
         for (String line; (line = reader.readLine()) != null; ) {
             if(show_response_body) {
-                System.out.print(", response body: " + body.append(line));
+                System.out.print("[DBG] response body: " + body.append(line));
             }else{
                 body.append(line);
             }
@@ -62,76 +70,10 @@ class common_api extends JsonHTTPServer {
 
 
     private String check_body_response(String body) {
-        String result = "";
-               if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"Request not accomplished\"")){
-            result += "Request not accomplished";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-ST-001 Box is not registered\"")){
-            result += "REM-ST-001 Box is not registered";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"unknown MAC\"")){
-            result += "unknown MAC";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"STB not available\"")){
-            result += "STB not available";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"Timeout detected by BoxResponseTracker")){
-            result += "Timeout detected by BoxResponseTracker";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: missing program start\"")){
-            result += "REM-008 Reminders parsing error: missing program start";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: invalid program start\"")){
-            result += "REM-008 Reminders parsing error: invalid program start";
-        }
-        //if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: missing channel number\"")){
-        //result += "REM-008 Reminders parsing error: missing channel number";
+        String result = body;
+        //if(body.contains("responseCode\":\"ERROR_SCHEDULING_REMINDER")){
+            //result += "ERROR_SCHEDULING_REMINDER";
         //}
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: invalid channel number\"")){
-            result += "REM-008 Reminders parsing error: invalid channel number";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: missing offset\"")){
-            result += "REM-008 Reminders parsing error: missing offset";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: invalid offset\"")){
-            result += "REM-008 Reminders parsing error: invalid offset";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: incorrect reminderScheduleId\"")){
-            result += "REM-008 Reminders parsing error: incorrect reminderScheduleId";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"REM-008 Reminders parsing error: wrong number of reminders\"")){
-            result += "REM-008 Reminders parsing error: wrong number of reminders";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"Incorrect request: ChangeReminders\"")){
-            result += "Incorrect request: ChangeReminders";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"Incorrect request: blablabla\"")){
-            result += "Incorrect request: blablabla";
-        }
-        if(body.contains("\"status\":\"Failed\"") && body.contains("\"errorMessage\":\"name cannot be null\"")){
-            result += "name cannot be null";
-        }
-        if(body.contains("REM-008 Reminders parsing error: wrong deviceId")){
-            result += "REM-008 Reminders parsing error: wrong deviceId";
-        }
-        if(body.contains("REM-008 Reminders parsing error: wrong operation")){
-            result += "REM-008 Reminders parsing error: wrong operation";
-        }
-        if(body.contains("REM-008 Reminders parsing error: incorrect message format")){
-            result += "REM-008 Reminders parsing error: incorrect message format";
-        }
-        if(body.contains("REM-008 Reminders parsing error: incorrect reminderId")){
-            result += "REM-008 Reminders parsing error: incorrect reminderId";
-        }
-        if(body.contains("incorrect value")){
-            result += "incorrect value";
-        }
-        if(body.contains("SET-025 Unsupported data type: Not a JSON Object:")){
-            result += "SET-025 Unsupported data type: Not a JSON Object";
-        }
-        if(body.contains("responseCode\":\"ERROR_SCHEDULING_REMINDER")){
-            result += "ERROR_SCHEDULING_REMINDER";
-        }
         //if(Objects.equals(result, "")){
         //result = " ";
         //}
@@ -140,22 +82,81 @@ class common_api extends JsonHTTPServer {
     }
 
 
-    ArrayList request(String host, int port, String context) throws IOException {
-        //if(show_debug_info) {
-        /*System.out.println("[INF] " + new Date() + ": " + operation + " for macaddress=" + mac + " to ams_ip=" + ams_ip + ", "
-                + "count_reminders=" + count_reminders + ", "
-                + "reminderProgramStart=multi, "
-                + "reminderChannelNumber=" + reminderChannelNumber + ", "
-                + "reminderProgramId=" + reminderProgramId + ", "
-                + "reminderOffset=" + reminderOffset + ", "
-                + "reminderScheduleId=multi, "
-                + "reminderId=multi");*/
-        //}
+    ArrayList http_request(String method, String host, int port, String context, String json) throws IOException {
+        HttpClient client = HttpClientBuilder.create().build();
+        //HttpResponse httpresponse = null;
+        //try {
+            //if (Objects.equals(method, METHOD_GET)) {
+                print_out("vetka if GET");
+                HttpGet request = new HttpGet(prepare_url(host, port, context));
+                //request.addHeader("User-Agent", USER_AGENT);
+                request.setHeader("content-type", "application/json");
+                //request.setHeader("Connection", "close");
+                //request.setEntity(new StringEntity(generate_json()));
+                HttpResponse server_response = client.execute(request);
 
+            /*} else if (Objects.equals(method, METHOD_POST)) {
+                System.out.println("vetka if POST");
+                HttpPost request = new HttpPost(prepare_url(host, port, context));
+                request.setHeader("content-type", "application/x-www-form-urlencoded");
+                //request.setHeader("content-type", "application/json");
+                //request.setHeader("Connection", "close");
+                request.setEntity(new StringEntity(generate_json()));
+                httpresponse = client.execute(request);
+            }*/
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(0, server_response.getStatusLine().getStatusCode() + " " + server_response.getStatusLine().getReasonPhrase());
+            arrayList.add(1, check_body_response(read_response(new StringBuilder(),server_response).toString()));
+            print_out("[INF] response code: " + arrayList.get(0));
+            print_out("[INF] response body: " + arrayList.get(1));
+        //}
+        /*catch (Exception e) {
+            //todo: handle exception
+            System.out.println("catch exception! client.execute(request): " + e);
+            e.printStackTrace();
+        }*/
+
+        String responsejson = "";
+        try {
+            responsejson = EntityUtils.toString(server_response.getEntity(), "UTF-8");
+            if(show_response_json){
+                print_out("[INF] response_json: " + responsejson);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            JSONParser parser = new JSONParser();
+            Object resultObject = parser.parse(responsejson);
+            if (resultObject instanceof JSONArray) {
+                JSONArray array=(JSONArray)resultObject;
+                for (Object object : array) {
+                    JSONObject obj =(JSONObject)object;
+                    System.out.println(obj.get("measurements"));
+                }
+            } else if (resultObject instanceof JSONObject) {
+                JSONObject obj =(JSONObject)resultObject;
+                System.out.println(obj.get("temperature"));
+            }
+        } catch (ParseException e) {
+            //todo: handle exception
+            System.out.println("!!! catch exception: JSONParser: " + e);
+            arrayList.add(2, e);
+            //e.printStackTrace();
+        }
+        if(show_info_level) {
+            System.out.println("[INF] return data: " + arrayList + "\n");
+        }
+        return arrayList;
+    }
+
+    ArrayList request(String host, int port, String context) throws IOException {
         HttpPost request = new HttpPost(prepare_url(host, port, context));
         request.setHeader("Accept", "application/json");
         request.setHeader("Content-type", "application/json");
-        request.setEntity(new StringEntity(generate_json_reminder()));
+        request.setEntity(new StringEntity(generate_json()));
         if(show_debug_level) {
             System.out.println("[DBG] request string: " + request);
         }
@@ -166,10 +167,9 @@ class common_api extends JsonHTTPServer {
         int diff = (int)(finish-start);
         System.out.print("[INF] " + diff + "ms request");
 
-        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList = new ArrayList<>();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
         arrayList.add(1, check_body_response(read_response(new StringBuilder(),response).toString()));
-
 
         if(show_info_level) {
             System.out.println("[INF] return data: " + arrayList + "\n");
@@ -177,17 +177,17 @@ class common_api extends JsonHTTPServer {
         return arrayList;
     }
 
-    private String generate_json_reminder() {
+    private String generate_json() {
         JSONObject json = new JSONObject();
-
         JSONArray array_measurements = new JSONArray();
         json.put("measurements", array_measurements);
         for (int i = 0; i < count_pairs; i++) {
             JSONObject object_in_measurements = new JSONObject();
             object_in_measurements.put("date", new Date());
-            object_in_measurements.put("temperature", t_value());
+            object_in_measurements.put("temperature", generate_t_value());
             object_in_measurements.put("unit", "C");
-
+            //object_in_measurements.put("unit", "K");
+            //object_in_measurements.put("unit", "F");
             array_measurements.add(object_in_measurements);
         }
 
@@ -198,7 +198,7 @@ class common_api extends JsonHTTPServer {
         return result;
     }
 
-    private int t_value() {
+    private int generate_t_value() {
         Random random = new Random();
         return Math.abs(random.nextInt(1000));
     }
@@ -208,51 +208,31 @@ class common_api extends JsonHTTPServer {
             try {
                 Headers headers = httpExchange.getResponseHeaders();
                 String requestMethod = httpExchange.getRequestMethod().toUpperCase();
+                String responseBody = html + " " + requestMethod + " " + context + " " + list_params;
+                print_out(responseBody);
+                write_file(responseBody);
                 switch (requestMethod) {
                     case METHOD_GET:
-                        //<a href="URL">текст_ссылки</a>
-                        /*String example = "Example of reminders request: http://localhost:8080/reminders?" +
-                                "test=test1&" +
-                                "macaddress=123456789012&" +
-                                "count_reminders=X&" +
-                                "count_iterations=Y";*/
-                        /*String s1 = "List of tests for NewAPI:\n test1_Add_Purge, test2_Add_Delete_Purge, test3_Add_Modify_Delete_Purge\n\n" +
-                                "List of tests for OldAPI:\n" +
-                                "test1_Add_Purge, " +
-                                "test2_Add_Delete_Purge";*/
+                        print_out("case METHOD_GET");
                         Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
                         testname = requestParameters.get("testname");
                         macaddress = requestParameters.get("macaddress");
                         count_reminders = requestParameters.get("count_reminders");
                         count_iterations = requestParameters.get("count_iterations");
-
-                        String responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                context + "\n" +
-                                list_params;
-                        print_out(responseBody);
-                        print_out(String.valueOf(testname));
-                        write_file(responseBody);
-                        write_response(httpExchange, headers, responseBody);
+                        http_response(httpExchange, headers, responseBody);
+                        break;
+                    case METHOD_POST:
+                        print_out("case METHOD_POST");
+                        http_response(httpExchange, headers, responseBody);
                         break;
                     case METHOD_OPTIONS:
-                        responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                "/" + "\n" +
-                                list_params;
-                        print_out(responseBody);
-                        write_file(responseBody);
-                        headers.set(HEADER_ALLOW, ALLOWED_METHODS);
+                        print_out("case METHOD_OPTIONS");
+                        headers.set(ALLOW, ALLOWED_METHODS);
                         httpExchange.sendResponseHeaders(STATUS_OK, NO_RESPONSE_LENGTH);
                         break;
                     default:
-                        responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                "/" + "\n" +
-                                list_params;
-                        print_out(responseBody);
-                        write_file(responseBody);
-                        headers.set(HEADER_ALLOW, ALLOWED_METHODS);
+                        print_out("case default");
+                        headers.set(ALLOW, ALLOWED_METHODS);
                         httpExchange.sendResponseHeaders(STATUS_METHOD_NOT_ALLOWED, NO_RESPONSE_LENGTH);
                         break;
                 }
@@ -262,8 +242,8 @@ class common_api extends JsonHTTPServer {
         });
     }
 
-    ArrayList process_context_reminders(String context, HttpServer server) {
-        ArrayList arrayList = new ArrayList();
+    void process_context_reminders(String context, HttpServer server) {
+        //ArrayList arrayList = new ArrayList();
         server.createContext(context, httpExchange -> {
             try {
                 Headers headers = httpExchange.getResponseHeaders();
@@ -274,56 +254,27 @@ class common_api extends JsonHTTPServer {
                 macaddress = requestParameters.get("macaddress");
                 count_reminders = requestParameters.get("count_reminders");
                 count_iterations = requestParameters.get("count_iterations");
+                String responseBody = html + " " + requestMethod + " " + context + " " + list_params;
+                print_out(responseBody);
+                write_file(responseBody);
                 switch (requestMethod) {
                     case METHOD_GET:
+                        print_out("case METHOD_GET");
                         //Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
                         // do something with the request parameters
-
-                        /*if(macaddress.length()>12){
-                            System.out.println("Wrong macaddress !!!" + macaddress.length());
-                        }
-                        if(!count_reminders.getClass().equals("Integer")){
-                            System.out.println("Wrong count_reminders type !!!" + count_reminders.getClass());
-                        }*/
-
-                        String responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                "/reminders" + "\n" +
-                                //list_params;
-                                testname + "\n" +
-                                testname.get(0);
-                        print_out(responseBody);
-                        write_file(responseBody);
-                        write_response(httpExchange, headers, responseBody);
+                        http_response(httpExchange, headers, responseBody);
                         break;
                     case METHOD_POST:
-                        responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                context + "\n" +
-                                list_params;
-
-                        print_out(responseBody);
-                        write_file(responseBody);
+                        print_out("case METHOD_POST");
                         break;
                     case METHOD_OPTIONS:
-                        responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                context + "\n" +
-                                list_params;
-                        print_out(responseBody);
-                        write_file(responseBody);
-
-                        headers.set(HEADER_ALLOW, ALLOWED_METHODS);
+                        print_out("case METHOD_OPTIONS");
+                        headers.set(ALLOW, ALLOWED_METHODS);
                         httpExchange.sendResponseHeaders(STATUS_OK, NO_RESPONSE_LENGTH);
                         break;
                     default:
-                        responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                "/reminders" + "\n" +
-                                list_params;
-                        print_out(responseBody);
-                        write_file(responseBody);
-                        headers.set(HEADER_ALLOW, ALLOWED_METHODS);
+                        print_out("case default");
+                        headers.set(ALLOW, ALLOWED_METHODS);
                         httpExchange.sendResponseHeaders(STATUS_METHOD_NOT_ALLOWED, NO_RESPONSE_LENGTH);
                         break;
                 }
@@ -331,7 +282,6 @@ class common_api extends JsonHTTPServer {
                 httpExchange.close();
             }
         });
-        return arrayList;
     }
 
     void process_context_stop(String context, HttpServer server) {
@@ -344,27 +294,27 @@ class common_api extends JsonHTTPServer {
                 macaddress = requestParameters.get("macaddress");
                 count_reminders = requestParameters.get("count_reminders");
                 count_iterations = requestParameters.get("count_iterations");
+                String responseBody = html + " " + requestMethod + " " + context + " " + list_params;
+                print_out(responseBody);
+                write_file(responseBody);
                 switch (requestMethod) {
                     case METHOD_GET:
-                        String responseBody = html + "\n" +
-                                requestMethod + "\n" +
-                                context + "\n" +
-                                list_params;
-                        print_out(responseBody);
-                        write_file(responseBody);
-                        write_response(httpExchange, headers, responseBody);
+                        print_out("case METHOD_GET");
+                        http_response(httpExchange, headers, responseBody);
                         server.stop(0);
+                        break;
+                    default:
+                        print_out("case default");
                         break;
                 }
             } finally {
                 httpExchange.close();
             }
         });
-
     }
 
-    ArrayList read_config() throws IOException {
-        ArrayList list = new ArrayList();
+    ArrayList<String> read_config() throws IOException {
+        ArrayList<String> list = new ArrayList<>();
         Properties p = new Properties();
         String fileName= "src/main/resources/config.properties";
         p.load(new FileInputStream(fileName));
@@ -387,38 +337,38 @@ class common_api extends JsonHTTPServer {
                 FileOutputStream os = new FileOutputStream(new File("src/main/resources/config.properties"));
                 p.store(os, "Favorite Things");
                 os.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
+                System.out.println("catch exception! write_config: " + e);
                 e.printStackTrace();
             }
 
 
         }
 
-    void print_out(String string) {
+    private void print_out(String string) {
         System.out.println(string);
     }
 
-    void write_file(String string) throws IOException {
+    private void write_file(String string) throws IOException {
         FileWriter writer = new FileWriter("ServerLog.txt", true);
         writer.write(string);
         writer.append('\n');
         writer.flush();
     }
 
-    void write_response(HttpExchange httpExchange, Headers headers, String responseBody) throws IOException {
+    private void http_response(HttpExchange httpExchange, Headers headers, String responseBody) throws IOException {
         System.out.println(responseBody);
-        //headers.set(HEADER_CONTENT_TYPE, String.format("application/json; charset=%s", CHARSET));
-        headers.set(HEADER_CONTENT_TYPE, String.format("application/json; charset=%s", CHARSET));
-        //headers.set("HTTP/1.1", "200 OK");
+        headers.set(CONTENT_TYPE, String.format("application/json; charset=%s", CHARSET));
+        headers.set("HTTP/1.1", "200 OK");
         headers.set("Server", "JsonHTTPServer 0.1");
-        headers.set("Content-Length", responseBody);
+        //headers.set("Content-Length", responseBody);
         //headers.set("Connection", "close");
         byte[] rawResponseBody = responseBody.getBytes(CHARSET);
         httpExchange.sendResponseHeaders(STATUS_OK, rawResponseBody.length);
         httpExchange.getResponseBody().write(rawResponseBody);
     }
 
-    Map<String, List<String>> getRequestParameters(URI requestUri) {
+    private Map<String, List<String>> getRequestParameters(URI requestUri) {
         Map<String, List<String>> requestParameters = new LinkedHashMap<>();
         String requestQuery = requestUri.getRawQuery();
         if (requestQuery != null) {
@@ -437,8 +387,8 @@ class common_api extends JsonHTTPServer {
     private static String decodeUrlComponent(String urlComponent) {
         try {
             return URLDecoder.decode(urlComponent, CHARSET.name());
-        } catch (UnsupportedEncodingException ex) {
-            throw new InternalError(ex);
+        } catch (UnsupportedEncodingException e) {
+            throw new InternalError(e);
         }
     }
 
