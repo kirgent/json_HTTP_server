@@ -26,7 +26,7 @@ public class JsonHTTPServer {
     private static ArrayList list_params;
 
     public static void main(final String... args) throws IOException {
-        common_api api = new common_api();
+        common_API api = new common_API();
         HttpServer server = HttpServer.create(new InetSocketAddress(host, port), BACKLOG);
 
         //list_params = api.read_config();

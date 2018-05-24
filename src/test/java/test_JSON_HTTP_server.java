@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class test_json_HTTP_server extends common_api {
-    private common_api api = new common_api();
+class test_JSON_HTTP_server extends common_API {
+    private common_API api = new common_API();
 
     @Test
     void test_context_reminders() throws IOException {

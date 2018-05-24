@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.util.ArrayList;
 import java.util.Date;
 
 class server_MyHandler implements HttpHandler {
@@ -25,13 +24,17 @@ class server_MyHandler implements HttpHandler {
     }
 
     String start() throws IOException, InterruptedException {
+        System.out.println(new Date() + " : 1");
         HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8000),-1);
+        System.out.println(new Date() + " : 2");
         server.createContext("/xxx", new server_MyHandler());
+        System.out.println(new Date() + " : 3");
         server.setExecutor(null); // creates a default executor
-        System.out.println(new Date() + " : before start");
+        System.out.println(new Date() + " : 4 before start");
         server.start();
-        System.out.println(new Date() + " : after start");
-        Thread.sleep(10000);
+        System.out.println(new Date() + " : 5 after start");
+        //Thread.sleep(10000);
+        System.out.println(new Date() + " : 6 after sleep");
         return "200 OK";
     }
 

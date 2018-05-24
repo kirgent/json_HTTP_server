@@ -22,7 +22,23 @@ import java.util.*;
 import static org.apache.http.HttpHeaders.ALLOW;
 import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 
-class common_api extends JsonHTTPServer {
+class common_API extends JsonHTTPServer {
+
+    final String expected200 = "200 OK";
+    final String expected201 = "201 Created";
+    final String expected400 = "400 Bad Request";
+    final String expected404 = "404 Not Found";
+    final String expected500 = "500 Internal Server Error";
+    final String expected504 = "504 Server data timeout";
+
+    private boolean show_debug_level = true;
+    private boolean show_info_level = true;
+    private boolean show_generated_json = true;
+    boolean show_response_json = true;
+    boolean show_response_body = true;
+    private int count_pairs = 5;
+    String host = "localhost";
+    int port = 8080;
 
     private List<String> testname;
     private List<String> macaddress;
@@ -35,29 +51,19 @@ class common_api extends JsonHTTPServer {
             "count_reminders="+ count_reminders.get(0) + ", " +
             "count_iterations=" + count_iterations.get(0);*/
     private ArrayList list_params;
-    final String expected200 = "200 OK";
-    final String expected404 = "404 Not Found";
-    final String expected500 = "500 Internal Server Error";
-    final String expected504 = "504 Server data timeout";
-    private boolean show_debug_level = true;
-    private boolean show_info_level = true;
-    private boolean show_generated_json = true;
-    private boolean show_response_json = true;
-    private boolean show_response_body = false;
-    private int count_pairs = 5;
-    String host = "localhost";
-    int port = 8080;
+
+
 
     private String prepare_url(String host, int port, String context){
         return "http://" + host + ":" + port + context;
     }
 
-    private StringBuilder read_response(StringBuilder body, HttpResponse response) throws IOException {
+    StringBuilder read_response(StringBuilder body, HttpResponse response) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         //StringBuilder body = new StringBuilder();
         for (String line; (line = reader.readLine()) != null; ) {
             if(show_response_body) {
-                System.out.print("[DBG] response body: " + body.append(line));
+                System.out.print("response body: " + body.append(line));
             }else{
                 body.append(line);
             }
@@ -69,11 +75,11 @@ class common_api extends JsonHTTPServer {
     }
 
 
-    private String check_body_response(String body) {
-        String result = body;
-        //if(body.contains("responseCode\":\"ERROR_SCHEDULING_REMINDER")){
-            //result += "ERROR_SCHEDULING_REMINDER";
-        //}
+    String check_body_response(String body) {
+        String result = "";
+        if(body.contains("<!doctype html>")){
+            result += "<!doctype html>";
+        }
         //if(Objects.equals(result, "")){
         //result = " ";
         //}
