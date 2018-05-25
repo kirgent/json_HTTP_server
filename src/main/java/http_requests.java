@@ -18,22 +18,21 @@ import static org.apache.http.HttpHeaders.USER_AGENT;
 class http_requests extends common_API {
 
 
-    ArrayList get(String url) throws IOException {
+    ArrayList get(String url, ArrayList patterns) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(url);
         request.addHeader("User-Agent", USER_AGENT);
+        long start = System.currentTimeMillis();
         HttpResponse response = client.execute(request);
-        ArrayList result = new ArrayList();
-        result.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+        long finish = System.currentTimeMillis();
+        System.out.println("request time: " + (int)(finish-start) + "ms");
 
-        /*BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-        StringBuffer buffer = new StringBuffer();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            buffer.append(line);
-        }
-        result.add(1, buffer);*/
-        result.add(1, check_body_response(read_response(new StringBuilder(),response).toString()));
+        ArrayList result = new ArrayList();
+        patterns = check_body_response(read_buffer(new StringBuilder(),response).toString(),patterns);
+
+        result.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+        result.add(1, patterns.get(1));
+        result.add(2, patterns.get(2));
         System.out.println("response data: " + result);
         return result;
     }
@@ -49,15 +48,14 @@ class http_requests extends common_API {
         urlParameters.add(new BasicNameValuePair("locale", ""));
         urlParameters.add(new BasicNameValuePair("caller", ""));
         urlParameters.add(new BasicNameValuePair("num", "12345"));
-
         post.setEntity(new UrlEncodedFormEntity(urlParameters));
 
+        long start = System.currentTimeMillis();
         HttpResponse response = client.execute(post);
+        long finish = System.currentTimeMillis();
+        System.out.println("request time: " + (int)(finish-start));
         ArrayList result = new ArrayList();
         result.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        System.out.println("response data: " + result);
-
-
 
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));

@@ -27,6 +27,7 @@ class common_API extends JsonHTTPServer {
     final String expected200 = "200 OK";
     final String expected201 = "201 Created";
     final String expected400 = "400 Bad Request";
+    final String expected403 = "403 Forbidden";
     final String expected404 = "404 Not Found";
     final String expected500 = "500 Internal Server Error";
     final String expected504 = "504 Server data timeout";
@@ -35,7 +36,7 @@ class common_API extends JsonHTTPServer {
     private boolean show_info_level = true;
     private boolean show_generated_json = true;
     boolean show_response_json = true;
-    boolean show_response_body = true;
+    boolean show_response_body = false;
     private int count_pairs = 5;
     String host = "localhost";
     int port = 8080;
@@ -58,32 +59,46 @@ class common_API extends JsonHTTPServer {
         return "http://" + host + ":" + port + context;
     }
 
-    StringBuilder read_response(StringBuilder body, HttpResponse response) throws IOException {
+    StringBuilder read_buffer(StringBuilder buffer, HttpResponse response) throws IOException {
+        /*//todo 1st: from www:
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        //StringBuffer buffer = new StringBuffer();
+        String line;
+        StringBuilder s = new StringBuilder();
+        while ((line = reader.readLine()) != null) {
+            s.append(buffer.append(line));
+            System.out.print("response body: " + s);
+        }
+        return buffer;*/
+
+
+        //todo 2nd my variant:
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-        //StringBuilder body = new StringBuilder();
-        for (String line; (line = reader.readLine()) != null; ) {
-            if(show_response_body) {
-                System.out.print("response body: " + body.append(line));
-            }else{
-                body.append(line);
-            }
+        //StringBuilder buffer = new StringBuilder();
+        for (String line; (line = reader.readLine()) != null;) {
+            buffer.append(line);
             if (reader.readLine() == null) {
                 System.out.println();
             }
         }
-        return body;
+        if(true){
+            System.out.println("response body: " + buffer);
+        }
+        return buffer;
     }
 
 
-    String check_body_response(String body) {
-        String result = "";
-        if(body.contains("<!doctype html>")){
-            result += "<!doctype html>";
-        }
-        //if(Objects.equals(result, "")){
-        //result = " ";
+    ArrayList check_body_response(String body, ArrayList patterns) {
+        ArrayList result = new ArrayList();
+        //if(body.contains("<!doctype html>")){
+            //result += "<!doctype html>";
         //}
-        //System.out.println("[DBG] check_body_for_statuscode: result: " + result);
+        for (int i=0; i<patterns.size(); i++){
+            if(body.contains(patterns.get(i).toString())) {
+                result.add(i,patterns.get(i));
+            }
+
+        }
         return result;
     }
 
@@ -112,7 +127,7 @@ class common_API extends JsonHTTPServer {
             }*/
             ArrayList arrayList = new ArrayList();
             arrayList.add(0, server_response.getStatusLine().getStatusCode() + " " + server_response.getStatusLine().getReasonPhrase());
-            arrayList.add(1, check_body_response(read_response(new StringBuilder(),server_response).toString()));
+            //arrayList.add(1, check_body_response(read_response(new StringBuilder(),server_response).toString()));
             print_out("[INF] response code: " + arrayList.get(0));
             print_out("[INF] response body: " + arrayList.get(1));
         //}
@@ -175,7 +190,7 @@ class common_API extends JsonHTTPServer {
 
         ArrayList arrayList = new ArrayList<>();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        arrayList.add(1, check_body_response(read_response(new StringBuilder(),response).toString()));
+        arrayList.add(1, check_body_response(read_buffer(new StringBuilder(),response).toString(), ""));
 
         if(show_info_level) {
             System.out.println("[INF] return data: " + arrayList + "\n");
