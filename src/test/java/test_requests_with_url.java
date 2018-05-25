@@ -59,22 +59,31 @@ class test_requests_with_url extends common_API {
     @Test
     void test_get_request__localhost________() throws IOException {
         common_API api = new common_API();
-        HttpServer server = HttpServer.create(new InetSocketAddress(host, port), BACKLOG);
+        HttpServer server = HttpServer.create(new InetSocketAddress(host, 8080), BACKLOG);
         api.process_context_main("/", server);
         api.process_context_reminders("/reminders", server);
         api.process_context_stop("/stop", server);
         server.start();
 
-
-
         ArrayList expected = new ArrayList();
         expected.add(0,"");
-        expected.add(1, "This is the response");
+        expected.add(1, "json_HTTP_server: GET /");
+        expected.add(2, "json_HTTP_server: GET /reminders");
+        expected.add(3, "json_HTTP_server: GET /stop");
 
-        //ArrayList actual = request.get("http://www.google.com/search?q=httpClient");
-        ArrayList actual = request.get("http://localhost:8080", expected);
+        ArrayList actual = request.get("http://localhost:8080/", expected);
         assertEquals(expected200, actual.get(0));
-        assertEquals(expected.get(1), actual.get(1));
+        assertEquals("json_HTTP_server: GET /", actual.get(1));
+
+
+        actual = request.get("http://localhost:8080/reminders", expected);
+        assertEquals(expected200, actual.get(0));
+        assertEquals("json_HTTP_server: GET /reminders", actual.get(2));
+
+
+        actual = request.get("http://localhost:8080/stop", expected);
+        assertEquals(expected200, actual.get(0));
+        assertEquals("json_HTTP_server: GET /stop", actual.get(3));
     }
 
 }

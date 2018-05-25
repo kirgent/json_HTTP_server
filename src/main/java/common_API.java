@@ -42,7 +42,7 @@ class common_API extends JsonHTTPServer {
     String host = "localhost";
     int port = 8080;
 
-    private List<String> testname;
+    private List<String> test;
     private List<String> macaddress;
     private List<String> count_reminders;
     private List<String> count_iterations;
@@ -52,9 +52,6 @@ class common_API extends JsonHTTPServer {
             "macaddress=" + macaddress.get(0) + ", " +
             "count_reminders="+ count_reminders.get(0) + ", " +
             "count_iterations=" + count_iterations.get(0);*/
-    private ArrayList list_params;
-
-
 
     private String prepare_url(String host, int port, String context){
         return "http://" + host + ":" + port + context;
@@ -239,27 +236,38 @@ class common_API extends JsonHTTPServer {
     }
 
     void process_context_main(String context, HttpServer server){
-        System.out.println("context:" + context);
+        System.out.println("process_context_main: " + context);
         server.createContext(context, httpExchange -> {
             try {
                 Headers headers = httpExchange.getResponseHeaders();
                 String requestMethod = httpExchange.getRequestMethod().toUpperCase();
-                String responseBody = html + " " + requestMethod + " " + context + " " + list_params;
-                print_out(responseBody);
-                write_file(responseBody);
+                Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
+                test = requestParameters.get("testname");
+                macaddress = requestParameters.get("macaddress");
+                count_reminders = requestParameters.get("count_reminders");
+                count_iterations = requestParameters.get("count_iterations");
+                String response = html + " " + requestMethod + " " + context;
+                if(test!=null){
+                    response += " " + test;
+                }
+                if(macaddress!=null){
+                    response += " " + macaddress;
+                }
+                if(count_reminders!=null){
+                    response += " " + count_reminders;
+                }
+                if(count_iterations!=null){
+                    response += " " + count_iterations;
+                }
                 switch (requestMethod) {
                     case METHOD_GET:
                         print_out("case METHOD_GET");
-                        Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
-                        testname = requestParameters.get("testname");
-                        macaddress = requestParameters.get("macaddress");
-                        count_reminders = requestParameters.get("count_reminders");
-                        count_iterations = requestParameters.get("count_iterations");
-                        http_response(httpExchange, headers, responseBody);
+
+                        http_response(httpExchange, headers, response);
                         break;
                     case METHOD_POST:
                         print_out("case METHOD_POST");
-                        http_response(httpExchange, headers, responseBody);
+                        http_response(httpExchange, headers, response);
                         break;
                     case METHOD_OPTIONS:
                         print_out("case METHOD_OPTIONS");
@@ -279,7 +287,7 @@ class common_API extends JsonHTTPServer {
     }
 
     void process_context_reminders(String context, HttpServer server) {
-        System.out.println("context:" + context);
+        System.out.println("process_context_reminders(): " + context);
         //ArrayList arrayList = new ArrayList();
         server.createContext(context, httpExchange -> {
             try {
@@ -287,19 +295,29 @@ class common_API extends JsonHTTPServer {
                 //System.out.println(headers.get(HEADER_CONTENT_TYPE).toString());
                 String requestMethod = httpExchange.getRequestMethod().toUpperCase();
                 Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
-                testname = requestParameters.get("testname");
+                test = requestParameters.get("testname");
                 macaddress = requestParameters.get("macaddress");
                 count_reminders = requestParameters.get("count_reminders");
                 count_iterations = requestParameters.get("count_iterations");
-                String responseBody = html + " " + requestMethod + " " + context + " " + list_params;
-                print_out(responseBody);
-                write_file(responseBody);
+                String response = html + " " + requestMethod + " " + context;
+                if(test!=null){
+                    response += " " + test;
+                }
+                if(macaddress!=null){
+                    response += " " + macaddress;
+                }
+                if(count_reminders!=null){
+                    response += " " + count_reminders;
+                }
+                if(count_iterations!=null){
+                    response += " " + count_iterations;
+                }
                 switch (requestMethod) {
                     case METHOD_GET:
                         print_out("case METHOD_GET");
                         //Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
                         // do something with the request parameters
-                        http_response(httpExchange, headers, responseBody);
+                        http_response(httpExchange, headers, response);
                         break;
                     case METHOD_POST:
                         print_out("case METHOD_POST");
@@ -322,23 +340,33 @@ class common_API extends JsonHTTPServer {
     }
 
     void process_context_stop(String context, HttpServer server) {
-        System.out.println("context:" + context);
+        System.out.println("process_context_stop(): " + context);
         server.createContext(context, httpExchange -> {
             try {
                 Headers headers = httpExchange.getResponseHeaders();
                 String requestMethod = httpExchange.getRequestMethod().toUpperCase();
                 Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
-                testname = requestParameters.get("testname");
+                test = requestParameters.get("testname");
                 macaddress = requestParameters.get("macaddress");
                 count_reminders = requestParameters.get("count_reminders");
                 count_iterations = requestParameters.get("count_iterations");
-                String responseBody = html + " " + requestMethod + " " + context + " " + list_params;
-                print_out(responseBody);
-                write_file(responseBody);
+                String response = html + " " + requestMethod + " " + context;
+                if(test!=null){
+                    response += " " + test;
+                }
+                if(macaddress!=null){
+                    response += " " + macaddress;
+                }
+                if(count_reminders!=null){
+                    response += " " + count_reminders;
+                }
+                if(count_iterations!=null){
+                    response += " " + count_iterations;
+                }
                 switch (requestMethod) {
                     case METHOD_GET:
                         print_out("case METHOD_GET");
-                        http_response(httpExchange, headers, responseBody);
+                        http_response(httpExchange, headers, response);
                         server.stop(0);
                         break;
                     default:
@@ -384,7 +412,7 @@ class common_API extends JsonHTTPServer {
         }
 
     private void print_out(String string) {
-        System.out.println(string);
+        System.out.println("print_out(): " + string);
     }
 
     private void write_file(String string) throws IOException {
@@ -395,7 +423,7 @@ class common_API extends JsonHTTPServer {
     }
 
     private void http_response(HttpExchange httpExchange, Headers headers, String responseBody) throws IOException {
-        System.out.println(responseBody);
+        System.out.println("http_response(): " + responseBody);
         headers.set(CONTENT_TYPE, String.format("application/json; charset=%s", CHARSET));
         headers.set("HTTP/1.1", "200 OK");
         headers.set("Server", "JsonHTTPServer 0.1");
