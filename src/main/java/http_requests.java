@@ -7,9 +7,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,19 +23,20 @@ class http_requests extends common_API {
         long start = System.currentTimeMillis();
         HttpResponse response = client.execute(request);
         long finish = System.currentTimeMillis();
-        System.out.println("request time: " + (int)(finish-start) + "ms");
+        System.out.print("request time: " + (int)(finish-start) + "ms");
+
+        ArrayList what_found = check_buffer(read_buffer(new StringBuilder(),response).toString(),patterns);
 
         ArrayList result = new ArrayList();
-        patterns = check_body_response(read_buffer(new StringBuilder(),response).toString(),patterns);
-
         result.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        result.add(1, patterns.get(1));
-        result.add(2, patterns.get(2));
+        for (int i=1; i<what_found.size(); i++) {
+            result.add(i, what_found.get(i));
+        }
         System.out.println("response data: " + result);
         return result;
     }
 
-    ArrayList post(String url) throws IOException {
+    ArrayList post(String url, ArrayList patterns) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(url);
         post.setHeader("User-Agent", USER_AGENT);
@@ -53,18 +52,23 @@ class http_requests extends common_API {
         long start = System.currentTimeMillis();
         HttpResponse response = client.execute(post);
         long finish = System.currentTimeMillis();
-        System.out.println("request time: " + (int)(finish-start));
+        System.out.print("request time: " + (int)(finish-start));
+
+        ArrayList what_found = check_buffer(read_buffer(new StringBuilder(),response).toString(),patterns);
+
         ArrayList result = new ArrayList();
         result.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+        for (int i=1; i<what_found.size(); i++) {
+            result.add(i, what_found.get(i));
+        }
 
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        /*BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         StringBuffer buffer = new StringBuffer();
         String line;
         while ((line = reader.readLine()) != null) {
             buffer.append(line);
-        }
-        result.add(1, buffer);
+        }*/
         System.out.println("response data: " + result);
         return result;
     }

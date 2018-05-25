@@ -17,6 +17,7 @@ import org.json.simple.parser.ParseException;
 import java.io.*;
 import java.net.URI;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static org.apache.http.HttpHeaders.ALLOW;
@@ -32,11 +33,11 @@ class common_API extends JsonHTTPServer {
     final String expected500 = "500 Internal Server Error";
     final String expected504 = "504 Server data timeout";
 
+    boolean show_response_body = true;
+    boolean show_response_json = false;
     private boolean show_debug_level = true;
     private boolean show_info_level = true;
     private boolean show_generated_json = true;
-    boolean show_response_json = true;
-    boolean show_response_body = false;
     private int count_pairs = 5;
     String host = "localhost";
     int port = 8080;
@@ -60,7 +61,7 @@ class common_API extends JsonHTTPServer {
     }
 
     StringBuilder read_buffer(StringBuilder buffer, HttpResponse response) throws IOException {
-        /*//todo 1st: from www:
+        /*//todo 1st: from www http get:
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         //StringBuffer buffer = new StringBuffer();
         String line;
@@ -73,31 +74,44 @@ class common_API extends JsonHTTPServer {
 
 
         //todo 2nd my variant:
-        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), StandardCharsets.UTF_8));
         //StringBuilder buffer = new StringBuilder();
         for (String line; (line = reader.readLine()) != null;) {
             buffer.append(line);
-            if (reader.readLine() == null) {
-                System.out.println();
-            }
         }
-        if(true){
+        if (reader.readLine() == null) {
+            System.out.println();
+        }
+        if(show_response_body){
             System.out.println("response body: " + buffer);
         }
+
+
+        //todo from www http post:
+        /*BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer buffer = new StringBuffer();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            buffer.append(line);
+        }*/
+
         return buffer;
     }
 
 
-    ArrayList check_body_response(String body, ArrayList patterns) {
+    /** Check response buffer for expected_patterns and fill new ArrayList_result for returning
+     * @param body
+     * @param patterns
+     * @return
+     */
+    ArrayList check_buffer(String body, ArrayList patterns) {
         ArrayList result = new ArrayList();
-        //if(body.contains("<!doctype html>")){
-            //result += "<!doctype html>";
-        //}
         for (int i=0; i<patterns.size(); i++){
             if(body.contains(patterns.get(i).toString())) {
                 result.add(i,patterns.get(i));
+            } else {
+                result.add(i,"<>");
             }
-
         }
         return result;
     }
@@ -190,7 +204,7 @@ class common_API extends JsonHTTPServer {
 
         ArrayList arrayList = new ArrayList<>();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        arrayList.add(1, check_body_response(read_buffer(new StringBuilder(),response).toString(), ""));
+        //arrayList.add(1, check_buffer(read_buffer(new StringBuilder(),response).toString(), ""));
 
         if(show_info_level) {
             System.out.println("[INF] return data: " + arrayList + "\n");
@@ -225,6 +239,7 @@ class common_API extends JsonHTTPServer {
     }
 
     void process_context_main(String context, HttpServer server){
+        System.out.println("context:" + context);
         server.createContext(context, httpExchange -> {
             try {
                 Headers headers = httpExchange.getResponseHeaders();
@@ -264,6 +279,7 @@ class common_API extends JsonHTTPServer {
     }
 
     void process_context_reminders(String context, HttpServer server) {
+        System.out.println("context:" + context);
         //ArrayList arrayList = new ArrayList();
         server.createContext(context, httpExchange -> {
             try {
@@ -306,6 +322,7 @@ class common_API extends JsonHTTPServer {
     }
 
     void process_context_stop(String context, HttpServer server) {
+        System.out.println("context:" + context);
         server.createContext(context, httpExchange -> {
             try {
                 Headers headers = httpExchange.getResponseHeaders();

@@ -25,7 +25,7 @@ public class JsonHTTPServer {
 
     private static ArrayList list_params;
 
-    public static void main(final String... args) throws IOException {
+    public static void main(final String... args) throws IOException, InterruptedException {
         common_API api = new common_API();
         HttpServer server = HttpServer.create(new InetSocketAddress(host, port), BACKLOG);
 
@@ -38,7 +38,9 @@ public class JsonHTTPServer {
         api.process_context_reminders("/reminders", server);
         api.process_context_stop("/stop", server);
         server.start();
-
+        System.out.println("before LONG sleep");
+        Thread.sleep(Long.MAX_VALUE);
+        System.out.println("after LONG sleep");
     }
 
 }
