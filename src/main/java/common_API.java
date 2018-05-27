@@ -47,7 +47,7 @@ class common_API extends JsonHTTPServer {
     private List<String> count_reminders;
     private List<String> count_iterations;
 
-    private String html = "json_HTTP_server:";
+    private String html = "json_server 0.1:";
     /*private String list_params = "testname=" + testname.get(0) + ", " +
             "macaddress=" + macaddress.get(0) + ", " +
             "count_reminders="+ count_reminders.get(0) + ", " +
@@ -261,12 +261,9 @@ class common_API extends JsonHTTPServer {
                 }
                 switch (requestMethod) {
                     case METHOD_GET:
-                        print_out("case METHOD_GET");
-
                         http_response(httpExchange, headers, response);
                         break;
                     case METHOD_POST:
-                        print_out("case METHOD_POST");
                         http_response(httpExchange, headers, response);
                         break;
                     case METHOD_OPTIONS:
@@ -314,13 +311,12 @@ class common_API extends JsonHTTPServer {
                 }
                 switch (requestMethod) {
                     case METHOD_GET:
-                        print_out("case METHOD_GET");
                         //Map<String, List<String>> requestParameters = getRequestParameters(httpExchange.getRequestURI());
                         // do something with the request parameters
                         http_response(httpExchange, headers, response);
                         break;
                     case METHOD_POST:
-                        print_out("case METHOD_POST");
+                        http_response(httpExchange, headers, response);
                         break;
                     case METHOD_OPTIONS:
                         print_out("case METHOD_OPTIONS");
