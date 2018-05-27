@@ -80,7 +80,7 @@ class common_API extends JsonHTTPServer {
             System.out.println();
         }
         if(show_response_body){
-            System.out.println("response body: " + buffer);
+            System.out.println("server response body: " + buffer);
         }
 
 

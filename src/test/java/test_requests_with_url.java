@@ -16,7 +16,7 @@ class test_requests_with_url extends common_API {
         expected.add(0,"");
         expected.add(1, "<title>Google</title>");
 
-        ArrayList actual = request.get("http://google.ru", expected);
+        ArrayList actual = request.get("http://192.168.0.103:8080/reminders", expected);
         assertEquals(expected200, actual.get(0));
         assertEquals(expected.get(1), actual.get(1));
     }
@@ -58,6 +58,7 @@ class test_requests_with_url extends common_API {
 
     @Test
     void test_get_request__localhost________() throws IOException {
+        String host = "localhost";
         common_API api = new common_API();
         HttpServer server = HttpServer.create(new InetSocketAddress(host, 8080), BACKLOG);
         api.process_context_main("/", server);
@@ -84,6 +85,19 @@ class test_requests_with_url extends common_API {
         actual = request.get("http://localhost:8080/stop", expected);
         assertEquals(expected200, actual.get(0));
         assertEquals("json_HTTP_server: GET /stop", actual.get(3));
+    }
+
+    @Test
+    void test_get_request__TO_TEST() throws IOException {
+        String host = "192.168.0.103";
+        String post = "8080";
+        ArrayList expected = new ArrayList();
+        expected.add(0,"");
+        expected.add(1, "json_server 0.1: GET /reminders");
+
+        ArrayList actual = request.get("http://" + host + ":" + port + "/reminders?test=1", expected);
+        assertEquals(expected200, actual.get(0));
+        assertEquals(expected.get(1), actual.get(1));
     }
 
 }

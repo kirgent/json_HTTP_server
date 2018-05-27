@@ -32,7 +32,7 @@ class http_requests extends common_API {
         for (int i=1; i<what_found.size(); i++) {
             result.add(i, what_found.get(i));
         }
-        System.out.println("response data: " + result);
+        System.out.println("server response data: " + result);
         return result;
     }
 
