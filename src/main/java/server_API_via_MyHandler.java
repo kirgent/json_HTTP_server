@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 import java.util.Date;
 
 @Deprecated
-class server_MyHandler implements HttpHandler {
+class server_API_via_MyHandler implements HttpHandler {
 
     @Deprecated
     public void handle(HttpExchange he) throws IOException {
@@ -32,7 +32,7 @@ class server_MyHandler implements HttpHandler {
         int port = 8081;
         int BACKLOG = -1;
         HttpServer server = HttpServer.create(new InetSocketAddress(host, port),BACKLOG);
-        server.createContext("/xxx", new server_MyHandler());
+        server.createContext("/xxx", new server_API_via_MyHandler());
         server.setExecutor(null); // creates a default executor!?!?
         server.start();
         Thread.sleep(Long.MAX_VALUE);

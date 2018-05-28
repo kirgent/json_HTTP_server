@@ -59,19 +59,19 @@ class testServer_requests_with_url extends client_API {
 
     @Test
     void test_get_request__TO_TEST() throws IOException {
-        String host = "localhost";
-        String port = "8080";
-        String context = "/reminders";
-        String params = "test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10";
-        String url = "http://" + host + ":" + port + context + "?" + params;
-
         ArrayList expected = new ArrayList();
         expected.add(0, "");
         expected.add(1, "json_server 0.1: GET /reminders");
         expected.add(2, "somebody");
         //expected.add(2, );
 
-        ArrayList actual = get(url, expected);
+        String host = "localhost";
+        String port = "8080";
+        String context = "/temperature";
+        String params = "test=test";
+        String url = "http://" + host + ":" + port + context + "?" + params;
+        String json = generate_json();
+        ArrayList actual = post(url, expected, json);
         assertEquals(expected200, actual.get(0));
         assertEquals(expected.get(1), actual.get(1));
         assertEquals(expected.get(2), actual.get(2));
@@ -80,7 +80,7 @@ class testServer_requests_with_url extends client_API {
     @Test
     @Disabled
     void test_server_MyHandler() throws IOException, InterruptedException {
-        server_MyHandler handler = new server_MyHandler();
+        server_API_via_MyHandler handler = new server_API_via_MyHandler();
         handler.start();
         //assertEquals(expected200, actual);
     }

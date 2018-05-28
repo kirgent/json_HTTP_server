@@ -1251,3 +1251,134 @@ json_HTTP_server: GET / null
 180ms request
 126ms request
 137ms request
+154ms request
+server response data: [200 OK, <>]
+133ms request
+server response body: json_server 0.1: POST / [Add_Modify_Delete_Purge] [123123123] [10]
+server response data: [200 OK, <>]
+349ms request
+
+server response body: json_server 0.1: GET /reminders [Add_Modify_Delete_Purge] [123123123] [10]
+
+server response data: [200 OK, json_server 0.1: GET /reminders, <>]
+
+server started: on /127.0.0.1:8080
+
+server started: on /127.0.0.1:8080
+
+136ms request
+
+server response body: json_server 0.1: GET /reminders [Add_Modify_Delete_Purge] [123123123] [10]
+
+server response data: [200 OK, json_server 0.1: GET /reminders, <>]
+
+82ms request
+
+server response body: json_server 0.1: GET /reminders [Add_Modify_Delete_Purge] [123123123] [10]
+
+server response data: [200 OK, json_server 0.1: GET /reminders, <>]
+
+[SERVER] process_context_main: /temperature
+
+[SERVER] process_context_reminders(): /reminders
+
+[SERVER] process_context_stop(): /stop
+
+[SERVER] server started: on /127.0.0.1:8080
+
+client: 125ms request
+
+server response body: json_server 0.1: GET /reminders [Add_Modify_Delete_Purge] [123123123] [10]
+
+client: response data from server: [200 OK, json_server 0.1: GET /reminders, <>]
+
+clint: 231ms request
+
+server response body: json_server 0.1: POST /temperature [test]
+
+client: response data from server: [200 OK, <>, <>]
+
+[JSON] generated json: {"measurements":[{"date":Mon May 28 20:34:43 MSK 2018,"unit":"C","temperature":541},{"date":Mon May 28 20:34:43 MSK 2018,"unit":"C","temperature":687},{"date":Mon May 28 20:34:43 MSK 2018,"unit":"C","temperature":642},{"date":Mon May 28 20:34:43 MSK 2018,"unit":"C","temperature":508},{"date":Mon May 28 20:34:43 MSK 2018,"unit":"C","temperature":334}]}
+clint: 128ms request
+server response body: json_server 0.1: POST /temperature [test]
+client: response data from server: [200 OK, <>, <>]
+[JSON] generated json: {"measurements":[{"date":Mon May 28 20:35:44 MSK 2018,"unit":"C","temperature":534},{"date":Mon May 28 20:35:44 MSK 2018,"unit":"C","temperature":500},{"date":Mon May 28 20:35:44 MSK 2018,"unit":"C","temperature":436},{"date":Mon May 28 20:35:44 MSK 2018,"unit":"C","temperature":769},{"date":Mon May 28 20:35:44 MSK 2018,"unit":"C","temperature":721}]}
+clint: 121ms request
+client: server response body: json_server 0.1: POST /temperature [test]
+client: response data from server: [200 OK, <>, <>]
+[JSON] generated json: {"measurements":[{"date":Mon May 28 20:36:20 MSK 2018,"unit":"C","temperature":293},{"date":Mon May 28 20:36:20 MSK 2018,"unit":"C","temperature":342},{"date":Mon May 28 20:36:20 MSK 2018,"unit":"C","temperature":380},{"date":Mon May 28 20:36:20 MSK 2018,"unit":"C","temperature":368},{"date":Mon May 28 20:36:20 MSK 2018,"unit":"C","temperature":403}]}
+clint: 162ms request
+client: server response body: json_server 0.1: POST /temperature [test]
+client: response data: [200 OK, <>, <>]
+generated json: {"measurements":[{"date":Mon May 28 20:57:29 MSK 2018,"unit":"C","temperature":912},{"date":Mon May 28 20:57:29 MSK 2018,"unit":"C","temperature":24},{"date":Mon May 28 20:57:29 MSK 2018,"unit":"C","temperature":66},{"date":Mon May 28 20:57:29 MSK 2018,"unit":"C","temperature":934},{"date":Mon May 28 20:57:29 MSK 2018,"unit":"C","temperature":288}]}
+clint: 91ms request
+
+
+server response body: json_server 0.1: POST /temperature [test]
+response data: [200 OK, <>, <>]
+generated json: {"measurements":[{"date":Mon May 28 21:25:12 MSK 2018,"unit":"C","temperature":931},{"date":Mon May 28 21:25:12 MSK 2018,"unit":"C","temperature":99},{"date":Mon May 28 21:25:12 MSK 2018,"unit":"C","temperature":773},{"date":Mon May 28 21:25:12 MSK 2018,"unit":"C","temperature":162},{"date":Mon May 28 21:25:12 MSK 2018,"unit":"C","temperature":861}]}
+clint: 91ms request
+[INF] response_json: json_server 0.1: POST /temperature [test]
+generated json: {"measurements":[{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":907},{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":72},{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":682},{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":918},{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":970}]}
+clint: 182ms request
+[INF] response_json: json_server 0.1: POST /temperature [test]
+generated json: {"measurements":[{"date":Mon May 28 21:44:07 MSK 2018,"unit":"C","temperature":381},{"date":Mon May 28 21:44:07 MSK 2018,"unit":"C","temperature":632},{"date":Mon May 28 21:44:07 MSK 2018,"unit":"C","temperature":388},{"date":Mon May 28 21:44:07 MSK 2018,"unit":"C","temperature":52},{"date":Mon May 28 21:44:07 MSK 2018,"unit":"C","temperature":142}]}
+clint: 163ms request
+[INF] response_json: json_server 0.1: POST /temperature [test]
+generated json: {"measurements":[{"date":Mon May 28 21:44:40 MSK 2018,"unit":"C","temperature":678},{"date":Mon May 28 21:44:40 MSK 2018,"unit":"C","temperature":527},{"date":Mon May 28 21:44:40 MSK 2018,"unit":"C","temperature":600},{"date":Mon May 28 21:44:40 MSK 2018,"unit":"C","temperature":603},{"date":Mon May 28 21:44:40 MSK 2018,"unit":"C","temperature":500}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+generated json: {"measurements":[{"date":Mon May 28 21:44:53 MSK 2018,"unit":"C","temperature":80},{"date":Mon May 28 21:44:53 MSK 2018,"unit":"C","temperature":783},{"date":Mon May 28 21:44:53 MSK 2018,"unit":"C","temperature":882},{"date":Mon May 28 21:44:53 MSK 2018,"unit":"C","temperature":362},{"date":Mon May 28 21:44:53 MSK 2018,"unit":"C","temperature":361}]}
+[SERVER] new client connected: /127.0.0.1:53554 HTTP/1.1 POST /temperature?test=test
+clint: 166ms request
+[INF] response_json: {"measurements":[{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":907}]}
+generated json: {"measurements":[{"date":Mon May 28 21:47:03 MSK 2018,"unit":"C","temperature":825},{"date":Mon May 28 21:47:03 MSK 2018,"unit":"C","temperature":184},{"date":Mon May 28 21:47:03 MSK 2018,"unit":"C","temperature":695},{"date":Mon May 28 21:47:03 MSK 2018,"unit":"C","temperature":546},{"date":Mon May 28 21:47:03 MSK 2018,"unit":"C","temperature":169}]}
+[SERVER] new client connected: /127.0.0.1:53578 HTTP/1.1 POST /temperature?test=test
+clint: 130ms request
+[INF] response_json: {"measurements":[{"date":Mon May 28 21:35:00 MSK 2018,"unit":"C","temperature":907}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+generated json: {"measurements":[{"date":Mon May 28 21:47:18 MSK 2018,"unit":"C","temperature":502},{"date":Mon May 28 21:47:18 MSK 2018,"unit":"C","temperature":282},{"date":Mon May 28 21:47:18 MSK 2018,"unit":"C","temperature":338},{"date":Mon May 28 21:47:18 MSK 2018,"unit":"C","temperature":397},{"date":Mon May 28 21:47:18 MSK 2018,"unit":"C","temperature":120}]}
+[SERVER] new client connected: /127.0.0.1:53592 HTTP/1.1 POST /temperature?test=test
+clint: 192ms request
+[INF] response_json: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+generated json: {"measurements":[{"date":Mon May 28 21:48:48 MSK 2018,"unit":"C","temperature":162},{"date":Mon May 28 21:48:48 MSK 2018,"unit":"C","temperature":52},{"date":Mon May 28 21:48:48 MSK 2018,"unit":"C","temperature":963},{"date":Mon May 28 21:48:48 MSK 2018,"unit":"C","temperature":937},{"date":Mon May 28 21:48:48 MSK 2018,"unit":"C","temperature":282}]}
+[SERVER] new client connected: /127.0.0.1:53608 HTTP/1.1 POST /temperature?test=test
+clint: 103ms request
+[INF] response_json: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+generated json: {"measurements":[{"date":Mon May 28 21:52:15 MSK 2018,"unit":"C","temperature":893},{"date":Mon May 28 21:52:15 MSK 2018,"unit":"C","temperature":699},{"date":Mon May 28 21:52:15 MSK 2018,"unit":"C","temperature":924},{"date":Mon May 28 21:52:15 MSK 2018,"unit":"C","temperature":136},{"date":Mon May 28 21:52:15 MSK 2018,"unit":"C","temperature":66}]}
+[SERVER] new client connected: /127.0.0.1:53660 HTTP/1.1 POST /temperature?test=test
+105ms request
+json_response from server: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]
+generated json: {"measurements":[{"date":Mon May 28 21:52:56 MSK 2018,"unit":"C","temperature":792},{"date":Mon May 28 21:52:56 MSK 2018,"unit":"C","temperature":242},{"date":Mon May 28 21:52:56 MSK 2018,"unit":"C","temperature":107},{"date":Mon May 28 21:52:56 MSK 2018,"unit":"C","temperature":562},{"date":Mon May 28 21:52:56 MSK 2018,"unit":"C","temperature":691}]}
+[SERVER] new client connected: /127.0.0.1:53674 HTTP/1.1 POST /temperature?test=test
+135ms request
+json_response from server: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+JSONParser: [{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]
+generated json: {"measurements":[{"date":Mon May 28 21:55:13 MSK 2018,"unit":"C","temperature":541},{"date":Mon May 28 21:55:13 MSK 2018,"unit":"C","temperature":438},{"date":Mon May 28 21:55:13 MSK 2018,"unit":"C","temperature":644},{"date":Mon May 28 21:55:13 MSK 2018,"unit":"C","temperature":621},{"date":Mon May 28 21:55:13 MSK 2018,"unit":"C","temperature":924}]}
+[SERVER] new client connected: /127.0.0.1:53694 HTTP/1.1 POST /temperature?test=test
+153ms request
+json_response from server: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+JSONParser: [{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]
+return data from server: []
+
+generated json: {"measurements":[{"date":Mon May 28 21:58:44 MSK 2018,"unit":"C","temperature":799},{"date":Mon May 28 21:58:44 MSK 2018,"unit":"C","temperature":779},{"date":Mon May 28 21:58:44 MSK 2018,"unit":"C","temperature":842},{"date":Mon May 28 21:58:44 MSK 2018,"unit":"C","temperature":743},{"date":Mon May 28 21:58:44 MSK 2018,"unit":"C","temperature":799}]}
+[SERVER] new client connected: /127.0.0.1:53736 HTTP/1.1 POST /temperature?test=test
+89ms request
+json_response from server: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+JSONParser: [{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]
+return data from server: [[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+generated json: {"measurements":[{"date":Mon May 28 22:13:24 MSK 2018,"unit":"C","temperature":337},{"date":Mon May 28 22:13:24 MSK 2018,"unit":"C","temperature":211},{"date":Mon May 28 22:13:24 MSK 2018,"unit":"C","temperature":754},{"date":Mon May 28 22:13:24 MSK 2018,"unit":"C","temperature":247},{"date":Mon May 28 22:13:24 MSK 2018,"unit":"C","temperature":2}]}
+[SERVER] new client connected: /127.0.0.1:53880 HTTP/1.1 POST /temperature?test=test
+176ms request
+full json_response from server: {"measurements":[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]}
+JSONParser: [{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]
+return data from server: [[{"date":"Mon May 28 21:35:00 MSK 2018","unit":"C","temperature":907}]]
+
