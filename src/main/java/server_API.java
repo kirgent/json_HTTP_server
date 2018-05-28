@@ -2,6 +2,7 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -82,6 +83,9 @@ public class server_API extends common_API{
                     he.getProtocol() + " " +
                     he.getRequestMethod() + " " +
                     he.getRequestURI());
+
+            String json_from_client = EntityUtils.toString(server..getEntity(), StandardCharsets.UTF_8);
+
             try {
                 Headers headers = he.getResponseHeaders();
                 String requestMethod = he.getRequestMethod().toUpperCase();

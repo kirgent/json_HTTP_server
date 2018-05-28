@@ -274,6 +274,14 @@ public class client_API  extends common_API{
                 arrayList.add(0, obj.get("measurements"));
                 logger(INFO_LEVEL, "JSONParser: " + arrayList.get(0));
             }
+
+
+            //todo VARIANT 2
+          /*  JSONArray jsonArray = new JSONArray(json_response);
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JSONObject obj=jsonArray.getJSONObject(i);
+                String str1=obj.getString("name");...}*/
+
         } catch (ParseException e) {
             //todo: handle exception
             System.out.println( "! catch exception: JSONParser:");
