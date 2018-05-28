@@ -8,8 +8,10 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.util.Date;
 
+@Deprecated
 class server_MyHandler implements HttpHandler {
 
+    @Deprecated
     public void handle(HttpExchange he) throws IOException {
         System.out.println(new Date() + " : handle() method");
         InputStream is = he.getRequestBody();
@@ -20,22 +22,20 @@ class server_MyHandler implements HttpHandler {
         he.sendResponseHeaders(200, response.length());
         OutputStream os = he.getResponseBody();
         os.write(response.getBytes());
-        //os.close();
+        os.close();
     }
 
-    String start() throws IOException, InterruptedException {
-        System.out.println(new Date() + " : 1");
-        HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8000),-1);
-        System.out.println(new Date() + " : 2");
+    @Deprecated
+    void start() throws IOException, InterruptedException {
+        //String host = "192.168.0.103";
+        String host = "localhost";
+        int port = 8081;
+        int BACKLOG = -1;
+        HttpServer server = HttpServer.create(new InetSocketAddress(host, port),BACKLOG);
         server.createContext("/xxx", new server_MyHandler());
-        System.out.println(new Date() + " : 3");
-        server.setExecutor(null); // creates a default executor
-        System.out.println(new Date() + " : 4 before start");
+        server.setExecutor(null); // creates a default executor!?!?
         server.start();
-        System.out.println(new Date() + " : 5 after start");
-        //Thread.sleep(10000);
-        System.out.println(new Date() + " : 6 after sleep");
-        return "200 OK";
+        Thread.sleep(Long.MAX_VALUE);
     }
 
 }
