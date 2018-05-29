@@ -9,7 +9,7 @@ class common_API extends json_server {
     final String expected404 = "404 Not Found";
     final String expected500 = "500 Internal Server Error";
 
-    boolean show_response_body = true;
+    boolean show_response_body = false;
     boolean show_response_json = true;
     boolean show_debug_level = true;
     boolean show_info_level = true;
@@ -38,20 +38,17 @@ class common_API extends json_server {
 
 
     ArrayList<String> read_config() throws IOException {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList arrayList = new ArrayList();
         Properties p = new Properties();
         String fileName= "src/main/resources/config.properties";
         p.load(new FileInputStream(fileName));
 
-        list.add(0, p.getProperty("app.name", "default_name"));
-        list.add(1, p.getProperty("app.version", "default_version"));
-        list.add(2, p.getProperty("app.vendor","Java"));
-
-        //System.out.println("app.name=" + list.get(0));
-        //System.out.println("app.version=" + list.get(1));
-        //System.out.println("app.vendor=" + list.get(2));
-        return list;
-        }
+        arrayList.add(0, p.getProperty("list_of_contexts", "default_contexts"));
+        arrayList.add(1, p.getProperty("list_of_params", "default_params"));
+        arrayList.add(2, p.getProperty("enable_context_temperature", "true"));
+        arrayList.add(3, p.getProperty("enable_context_stop", "true"));
+        return arrayList;
+    }
 
     void write_config(String key, String value) throws IOException {
             try {

@@ -2,7 +2,6 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,15 +22,31 @@ public class server_API extends common_API{
 
     private List<String> test;
     private List<String> macaddress;
-    private List<String> count_reminders;
-    private List<String> count_iterations;
 
+
+    /** There are SERVER implementations
+     * @param he
+     * @param header
+     * @param responseBody
+     * @throws IOException
+     */
+    private void send_response(HttpExchange he, Headers header, String responseBody) throws IOException {
+        System.out.println("[SERVER] send response: " + responseBody);
+        header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
+        header.set("HTTP/1.1", "200 OK");
+        header.set("Server", "json_server 0.1");
+        //headers.set("Content-Length", responseBody);
+        //headers.set("Connection", "close");
+        byte[] rawResponseBody = responseBody.getBytes(StandardCharsets.UTF_8);
+        he.sendResponseHeaders(STATUS_OK, rawResponseBody.length);
+        he.getResponseBody().write(rawResponseBody);
+    }
 
     /** SERVER side
      * @param server
      * @param context
      */
-    void process_context_main(HttpServer server, String context){
+/*    void process_context_main(HttpServer server, String context){
         System.out.println("[SERVER] process_context_main: " + context);
         server.createContext(context, he -> {
             try {
@@ -68,6 +83,7 @@ public class server_API extends common_API{
             }
         });
     }
+*/
 
     /** SERVER side
      * @param server
@@ -84,19 +100,35 @@ public class server_API extends common_API{
                     he.getRequestMethod() + " " +
                     he.getRequestURI());
 
-            String json_from_client = EntityUtils.toString(server..getEntity(), StandardCharsets.UTF_8);
+            //String json_from_client = EntityUtils.toString(server.getEntity(), StandardCharsets.UTF_8);
 
             try {
                 Headers headers = he.getResponseHeaders();
                 String requestMethod = he.getRequestMethod().toUpperCase();
                 Map<String, List<String>> requestParameters = getRequestParameters(he.getRequestURI());
 
+                //EntityUtils.toString(new StringBuilder(),Stand)
+
                 //String server_response = html + " " + requestMethod + " " + context;
-                String server_response= "{\"measurements\":[{\"date\":\"Mon May 28 21:35:00 MSK 2018\",\"unit\":\"C\",\"temperature\":907}]}";
+                String server_response= "{\"measurements\":[{\"date\":\"2018-29-05\",\"unit\":\"C\",\"temperature\":907}]}";
                 /*server_response += add_params_if_not_null(requestParameters.get("test"),
                         requestParameters.get("macaddress"),
                         requestParameters.get("count_reminders"),
                         requestParameters.get("count_iterations"));*/
+
+                boolean response_correct = true;
+                String json = "";
+                if(response_correct) {
+                    json = "{\"success\":true}";
+                } else {
+                    json = "{\"success\":false," +
+                            "error:" +
+                            "{" +
+                            "\"code\":401," +
+                            "\"message\" : \"incorrect json format\"" +
+                            "}" +
+                            "}";
+                }
 
                 switch (requestMethod) {
                     case METHOD_GET:
@@ -136,10 +168,8 @@ public class server_API extends common_API{
                 Map<String, List<String>> requestParameters = getRequestParameters(he.getRequestURI());
                 test = requestParameters.get("test");
                 macaddress = requestParameters.get("macaddress");
-                count_reminders = requestParameters.get("count_reminders");
-                count_iterations = requestParameters.get("count_iterations");
                 String response = html + " " + requestMethod + " " + context;
-                response += add_params_if_not_null(test, macaddress, count_reminders, count_iterations);
+                response += add_params_if_not_null(test, macaddress);
                 switch (requestMethod) {
                     case METHOD_GET:
                         send_response(he, headers, response);
@@ -155,7 +185,7 @@ public class server_API extends common_API{
         });
     }
 
-    private String add_params_if_not_null(List test, List macaddress, List count_reminders, List count_iterations) {
+    private String add_params_if_not_null(List test, List macaddress) {
         String result = "";
         if(test!=null){
             result += " " + test;
@@ -163,31 +193,7 @@ public class server_API extends common_API{
         if(macaddress!=null){
             result += " " + macaddress;
         }
-        if(count_reminders!=null){
-            result += " " + count_reminders;
-        }
-        if(count_iterations!=null){
-            result += " " + count_iterations;
-        }
         return result;
-    }
-
-    /** There are SERVER implementations
-     * @param he
-     * @param header
-     * @param responseBody
-     * @throws IOException
-     */
-    private void send_response(HttpExchange he, Headers header, String responseBody) throws IOException {
-        System.out.println("[SERVER] send_response: " + responseBody);
-        header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
-        header.set("HTTP/1.1", "200 OK");
-        header.set("Server", "json_server 0.1");
-        //headers.set("Content-Length", responseBody);
-        //headers.set("Connection", "close");
-        byte[] rawResponseBody = responseBody.getBytes(StandardCharsets.UTF_8);
-        he.sendResponseHeaders(STATUS_OK, rawResponseBody.length);
-        he.getResponseBody().write(rawResponseBody);
     }
 
     /** this code from WWW

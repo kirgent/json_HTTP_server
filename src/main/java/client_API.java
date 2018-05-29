@@ -13,18 +13,20 @@ import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import static org.apache.http.HttpHeaders.ACCEPT;
+import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 import static org.apache.http.HttpHeaders.USER_AGENT;
 
 public class client_API  extends common_API{
 
     private int count_pairs = 5;
+    private boolean prepare_xml = true;
 
     //todo
     @Deprecated
@@ -121,7 +123,7 @@ public class client_API  extends common_API{
         json.put("measurements", array_measurements);
         for (int i = 0; i < count_pairs; i++) {
             JSONObject object_in_measurements = new JSONObject();
-            object_in_measurements.put("date", new Date());
+            object_in_measurements.put("date", new Date().toString());
             object_in_measurements.put("temperature", generate_t_value());
             object_in_measurements.put("unit", "C");
             //object_in_measurements.put("unit", "K");
@@ -129,98 +131,57 @@ public class client_API  extends common_API{
             array_measurements.add(object_in_measurements);
         }
 
-        String result = json.toString();
         if(show_generated_json) {
-            logger(INFO_LEVEL, "generated json: " + result);
+            logger(INFO_LEVEL, "generated json: " + json);
         }
-        return result;
+        return json.toString();
     }
 
     private int generate_t_value() {
-        Random random = new Random();
-        return Math.abs(random.nextInt(1000));
+        return Math.abs(new Random().nextInt(1000));
     }
 
-    private String read_buffer(StringBuilder buffer, HttpResponse response) throws IOException {
-        /*//todo 1st: from www http get:
-        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-        //StringBuffer buffer = new StringBuffer();
-        String line;
-        StringBuilder s = new StringBuilder();
-        while ((line = reader.readLine()) != null) {
-            s.append(buffer.append(line));
-            System.out.print("response body: " + s);
-        }
-        return buffer;*/
-
-        InputStream in = response.getEntity().getContent(); //Get the data in the entity
-
-        //todo 2nd my variant:
+    private String read_response(StringBuilder buffer, HttpResponse response) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), StandardCharsets.UTF_8));
-        //StringBuilder buffer = new StringBuilder();
         for (String line; (line = reader.readLine()) != null;) {
             buffer.append(line);
         }
-        if (reader.readLine() == null) {
-            logger(INFO_LEVEL, "\n");
-        }
+        //if (reader.readLine() == null) {
+        //    logger(INFO_LEVEL, "\n");
+        //}
         if(show_response_body){
-            logger(INFO_LEVEL, "server response body: " + buffer);
+            logger(INFO_LEVEL, "response body: " + buffer);
         }
-
-
-        //todo from www http post:
-        /*BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-        StringBuffer buffer = new StringBuffer();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            buffer.append(line);
-        }*/
-
         return buffer.toString();
-    }
-
-    /** Check response buffer for expected_patterns and fill new ArrayList_result for returning
-     * @param body
-     * @param patterns
-     * @return
-     */
-    private ArrayList check_buffer(String body, ArrayList patterns) {
-        ArrayList result = new ArrayList();
-        for (int i=0; i<patterns.size(); i++){
-            if(body.contains(patterns.get(i).toString())) {
-                result.add(i,patterns.get(i));
-            } else {
-                result.add(i,"<>");
-            }
-        }
-        return result;
     }
 
 
     ArrayList get(String url, ArrayList patterns) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(url);
-        request.addHeader("User-Agent", USER_AGENT);
+        request.addHeader(ACCEPT,"application/json");
+        request.addHeader(CONTENT_TYPE, "application/json");
+        //request.addHeader(USER_AGENT, "afent");
         long start = System.currentTimeMillis();
         HttpResponse response = client.execute(request);
         long finish = System.currentTimeMillis();
         int diff = (int)(finish-start);
         logger(INFO_LEVEL, diff + "ms request");
 
-        /*Checking response */
-        ArrayList what_found = new ArrayList();
-        if (response != null) {
-            what_found = check_buffer(read_buffer(new StringBuilder(),response),patterns);
+        String buffer = read_response(new StringBuilder(), response);
+
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+        for (int i=1; i<patterns.size(); i++){
+            if(buffer.contains(patterns.get(i).toString())) {
+                arrayList.add(i,patterns.get(i));
+            } else {
+                arrayList.add(i,"<>");
+            }
         }
 
-        ArrayList result = new ArrayList();
-        result.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        for (int i=1; i<what_found.size(); i++) {
-            result.add(i, what_found.get(i));
-        }
-        logger(INFO_LEVEL, "response data: " + result);
-        return result;
+        logger(INFO_LEVEL, "filtered  data: " + arrayList);
+        return arrayList;
     }
 
     ArrayList post(String url, ArrayList patterns, String json) throws IOException {
@@ -237,6 +198,7 @@ public class client_API  extends common_API{
         urlParameters.add(new BasicNameValuePair("caller", ""));
         urlParameters.add(new BasicNameValuePair("num", "12345"));*/
         //request.setEntity(new UrlEncodedFormEntity(urlParameters));
+        logger(INFO_LEVEL, "json for sending: " + json);
         request.setEntity(new StringEntity(json));
 
         long start = System.currentTimeMillis();
@@ -245,12 +207,25 @@ public class client_API  extends common_API{
         int diff = (int)(finish-start);
         logger(INFO_LEVEL, diff + "ms request");
 
+        /*
+        String buffer = read_response(new StringBuilder(), response);
 
-        String json_response = "";
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
+        for (int i=1; i<patterns.size(); i++){
+            if(buffer.contains(patterns.get(i).toString())) {
+                arrayList.add(i,patterns.get(i));
+            } else {
+                arrayList.add(i,"<>");
+            }
+        }*/
+
+
+        String json_response_from_server = "";
         try {
-            json_response = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
+            json_response_from_server = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
             if(show_response_json){
-                logger(INFO_LEVEL,"full json_response from server: " + json_response);
+                logger(INFO_LEVEL,"full response data: " + json_response_from_server);
             }
         }
         catch (IOException e) {
@@ -258,46 +233,35 @@ public class client_API  extends common_API{
             e.printStackTrace();
         }
 
-        ArrayList arrayList = new ArrayList();
+        ArrayList parsed = new ArrayList();
         try {
             JSONParser parser = new JSONParser();
-            Object resultObject = parser.parse(json_response);
-            if (resultObject instanceof JSONArray) {
-                JSONArray array=(JSONArray)resultObject;
+            Object resultObject = parser.parse(json_response_from_server);
+
+            if (resultObject instanceof JSONObject) {
+                JSONObject obj = (JSONObject) resultObject;
+                parsed.add(obj.get("measurements"));
+                //parsed.add(obj.get("date"));
+                logger(INFO_LEVEL, "JSONObject JSONParser-ed data: " + parsed);
+            } else if (resultObject instanceof JSONArray) {
+                JSONArray array = (JSONArray) resultObject;
                 for (Object object : array) {
-                    JSONObject obj = (JSONObject)object;
-                    arrayList.add(0, obj.get("date"));
-                    logger(INFO_LEVEL, "JSONParser: " + arrayList.get(0));
+                    JSONObject obj = (JSONObject) object;
+                    parsed.add(obj.get("measurements"));
+                    //parsed.add(obj.get("date"));
+                    logger(INFO_LEVEL, "JSONArray JSONParser-ed data: " + parsed);
                 }
-            } else if (resultObject instanceof JSONObject) {
-                JSONObject obj =(JSONObject)resultObject;
-                arrayList.add(0, obj.get("measurements"));
-                logger(INFO_LEVEL, "JSONParser: " + arrayList.get(0));
             }
 
-
-            //todo VARIANT 2
-          /*  JSONArray jsonArray = new JSONArray(json_response);
-            for (int i = 0; i < jsonArray.size(); i++) {
-                JSONObject obj=jsonArray.getJSONObject(i);
-                String str1=obj.getString("name");...}*/
-
-        } catch (ParseException e) {
+        }
+        catch (ParseException e) {
             //todo: handle exception
             System.out.println( "! catch exception: JSONParser:");
             e.printStackTrace();
         }
 
-
-
-/*        ArrayList what_found = check_buffer(read_buffer(new StringBuilder(),response),patterns);
-        arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        for (int i=1; i<what_found.size(); i++) {
-            arrayList.add(i, what_found.get(i));
-        }*/
-
-        logger(INFO_LEVEL, "return data from server: " + arrayList + "\n");
-        return arrayList;
+        logger(INFO_LEVEL, "filtered  data: " + parsed + "\n");
+        return parsed;
     }
 
     private String prepare_url(String host, int port, String context){
