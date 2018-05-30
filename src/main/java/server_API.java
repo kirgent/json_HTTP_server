@@ -13,33 +13,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static org.apache.http.HttpHeaders.ALLOW;
-import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 
 public class server_API extends common_API{
 
     private List<String> test;
     private List<String> macaddress;
+    private boolean show_request_headers = true;
+    private boolean show_request_body = true;
 
-
-    /** There are SERVER implementations
-     * @param exchange
-     * @param header
-     * @param responseCode
-     * @param responseBody
-     * @throws IOException
-     */
-    private void send_response_to_client(HttpExchange exchange, Headers header, int responseCode, String responseBody) throws IOException {
-        System.out.println("send response:\n" + responseBody);
-        header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
-        header.set("HTTP/1.1", responseCode + "OK");
-        header.set("Server", "json_server 0.1");
-        //headers.set("Content-Length", responseBody);
-        //headers.set("Connection", "close");
-        byte[] rawResponseBody = responseBody.getBytes(StandardCharsets.UTF_8);
-        exchange.sendResponseHeaders(responseCode, rawResponseBody.length);
-        exchange.getResponseBody().write(rawResponseBody);
-        exchange.getResponseBody().close();
-    }
 
     /** SERVER side
      * @param server
@@ -83,7 +64,6 @@ public class server_API extends common_API{
         });
     }
 */
-
     /** SERVER side
      * @param server
      * @param context
@@ -93,22 +73,26 @@ public class server_API extends common_API{
         logger(INFO_LEVEL,"[SERVER] process_context_temperature: " + context);
         //http://www.javenue.info/post/java-http-server
         server.createContext(context, exchange-> {
-            logger(INFO_LEVEL, "[SERVER] new client connected: " +
-                    exchange.getRemoteAddress() + " " +
-                    exchange.getProtocol() + " " +
-                    exchange.getRequestMethod() + " " +
-                    exchange.getRequestURI());
+            if(show_info_level) {
+                logger(INFO_LEVEL, "[SERVER] new client connected: " +
+                        exchange.getRemoteAddress() + " " +
+                        exchange.getProtocol() + " " +
+                        exchange.getRequestMethod() + " " +
+                        exchange.getRequestURI());
+            }
 
             //get request headers
-            //ArrayList requestHeaders = new ArrayList();
-            String requestHeaders;
-            requestHeaders = my_getRequestHeaders(exchange);
-            logger(INFO_LEVEL, "requestHeaders: \n" + requestHeaders);
+            String requestHeaders = my_getRequestHeaders(exchange);
+            if(show_request_headers) {
+                logger(INFO_LEVEL, "requestHeaders: \n" + requestHeaders);
+            }
 
             //get request body
             String requestbody = my_getRequestBody(exchange);
-            if(!requestbody.isEmpty()){
-                logger(INFO_LEVEL, "requestBody: \n" + requestbody);
+            if(show_request_body) {
+                if (!requestbody.isEmpty()) {
+                    logger(INFO_LEVEL, "requestBody: " + requestbody);
+                }
             }
 
             //parsing params in URI
@@ -129,40 +113,41 @@ public class server_API extends common_API{
                     "}" +
                     "}";*/
 
-            int responsecode = STATUS_OK;
-            String responsebody = "";
+            int responseCode = STATUS_OK;
+            String responseBody = "";
             String correct_json = "{\"Measurements\":[{\"Date\":\"Wed May 30 16:31:04 MSK 2018\",\"Unit\":\"C\",\"Temperature\":123}]}";
 
-            System.out.println("1: " + correct_json);
-            System.out.println("2: " + requestbody);
-
             if (requestbody.equals(correct_json + "\n")) {
-                responsebody = "{\"success\":true}";
+                responseBody = "{\"success\":true}";
 
             } else if (requestbody.equals("")) {
-                responsebody = "{\"success\":false,\"error\":\"incorrect json: empty body\"}";
+                responseBody = "{\"success\":false,\"error\":\"incorrect json: empty body\"}";
 
             } else if (requestbody.equals("{}\n")) {
-                responsebody = "{\"success\":false,\"error\":\"incorrect json: empty json in body\"}";
+                responseBody = "{\"success\":false,\"error\":\"incorrect json: empty json in body\"}";
 
             } else  if (requestbody.equals("{\"test\":123123123}\n")) {
-                responsecode = STATUS_SERVER_INTERNAL_ERROR;
-                responsebody = "{\"success\":false,\"error\":\"incorrect json: incorrect json format\"}";
+                responseCode = STATUS_SERVER_INTERNAL_ERROR;
+                responseBody = "{\"success\":false,\"error\":\"incorrect json: incorrect json format\"}";
 
             } else {
-                responsecode = STATUS_SERVER_INTERNAL_ERROR;
-                responsebody = "incorrect request\n";
+                responseCode = STATUS_SERVER_INTERNAL_ERROR;
+                responseBody = "incorrect request\n";
             }
 
             try {
                 switch (requestMethod) {
                     case METHOD_GET:
-                        logger(INFO_LEVEL,"[SERVER] case METHOD_GET");
-                        send_response_to_client(exchange, headers, responsecode, responsebody);
+                        /*Headers header = new Headers();
+                        header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
+                        header.set("HTTP/1.1", responseCode + "");
+                        header.set("Server", "json_server 0.1");*/
+                        //headers.set("Content-Length", responseBody);
+                        //headers.set("Connection", "close");
+                        send_response(exchange, responseCode, responseBody);
                         break;
                     case METHOD_POST:
-                        logger(INFO_LEVEL,"[SERVER] case METHOD_POST");
-                        send_response_to_client(exchange, headers, responsecode, responsebody);
+                        send_response(exchange, responseCode, responseBody);
                         break;
                     case METHOD_OPTIONS:
                         logger(INFO_LEVEL,"[SERVER] case METHOD_OPTIONS");
@@ -240,29 +225,28 @@ public class server_API extends common_API{
      */
     void process_context_stop(HttpServer server, String context) throws IOException {
         logger(INFO_LEVEL,"[SERVER] process_context_stop(): " + context);
-        server.createContext(context, he -> {
+        server.createContext(context, exchange -> {
             logger(INFO_LEVEL, "[SERVER] new client connected: " +
-                    he.getRemoteAddress() + " " +
-                    he.getProtocol() + " " +
-                    he.getRequestMethod() + " " +
-                    he.getRequestURI());
+                    exchange.getRemoteAddress() + " " +
+                    exchange.getProtocol() + " " +
+                    exchange.getRequestMethod() + " " +
+                    exchange.getRequestURI());
 
-            String requestHeaders = my_getRequestHeaders(he);
+            String requestHeaders = my_getRequestHeaders(exchange);
             logger(INFO_LEVEL, "[SERVER] requestHeaders: \n" + requestHeaders);
 
             try {
-                Headers headers = he.getResponseHeaders();
-                String requestMethod = he.getRequestMethod().toUpperCase();
-                Map<String, List<String>> requestParameters = getRequestParameters(he.getRequestURI());
+                Headers headers = exchange.getResponseHeaders();
+                String requestMethod = exchange.getRequestMethod().toUpperCase();
+                Map<String, List<String>> requestParameters = getRequestParameters(exchange.getRequestURI());
                 test = requestParameters.get("test");
                 macaddress = requestParameters.get("macaddress");
                 String responseBody = html + " " + requestMethod + " " + context;
-                int responseCode = STATUS_OK;
                 responseBody += add_params_if_not_null(test, macaddress);
 
                 switch (requestMethod) {
                     case METHOD_GET:
-                        send_response_to_client(he, headers, responseCode, responseBody);
+                        send_response(exchange, STATUS_OK, responseBody);
                         server.stop(0);
                         break;
                     default:
@@ -270,7 +254,7 @@ public class server_API extends common_API{
                         break;
                 }
             } finally {
-                he.close();
+                exchange.close();
             }
         });
     }
@@ -318,14 +302,29 @@ public class server_API extends common_API{
         }
     }
 
+    /** There are SERVER implementations
+     * @param exchange
+     * @param responseCode
+     * @param responseBody
+     * @throws IOException
+     */
+    private void send_response(HttpExchange exchange, int responseCode, String responseBody) throws IOException {
+        System.out.println("send responseBody: " + responseBody);
+        byte[] rawResponseBody = responseBody.getBytes(StandardCharsets.UTF_8);
+        exchange.sendResponseHeaders(responseCode, rawResponseBody.length);
+        exchange.getResponseBody().write(rawResponseBody);
+        exchange.getResponseBody().close();
+    }
+
     private String read_response(HttpResponse response) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), StandardCharsets.UTF_8));
         StringBuilder builder = new StringBuilder();
         for (String line; (line = reader.readLine()) != null; ) {
             builder.append(line);
-            if (reader.readLine() == null) {
+            //todo
+            /*if (reader.readLine() == null) {
                 builder.append("\n");
-            }
+            }*/
         }
         return builder.toString();
     }

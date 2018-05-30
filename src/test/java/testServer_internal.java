@@ -18,10 +18,10 @@ class testServer_internal extends client_API {
 
         ArrayList expected = new ArrayList();
         expected.add(0, expected200);
-        expected.add(1, "Measurements");
-        expected.add(2, "\"Date\";");
-        expected.add(3, "\"Unit\":");
-        expected.add(4, "\"Temperature\":");
+        expected.add(1, "\"success\":true");
+        //expected.add(2, "\"Date\";");
+        //expected.add(3, "\"Unit\":");
+        //expected.add(4, "\"Temperature\":");
 
         ArrayList actual = post(url, expected, json, false);
         for(int i = 0; i< expected.size(); i++){

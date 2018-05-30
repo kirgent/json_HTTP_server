@@ -31,7 +31,7 @@ public class client_API  extends common_API{
     @Deprecated
     ArrayList request(String method, String host, int port, String context, String json) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
-        HttpGet request = new HttpGet(prepare_url(host, port, context));
+        HttpGet request = new HttpGet(prepare_url(host, port, context, ""));
         //request.addHeader("User-Agent", USER_AGENT);
         request.setHeader("content-type", "application/json");
         //request.setHeader("Connection", "close");
@@ -86,7 +86,7 @@ public class client_API  extends common_API{
             }
         } catch (ParseException e) {
             //todo: handle exception
-            logger(DEBUG_LEVEL, "!!! catch exception: JSONParser: " + e);
+            logger(INFO_LEVEL, "!!! catch exception: JSONParser: " + e);
             arrayList.add(2, e);
             //e.printStackTrace();
         }
@@ -97,7 +97,7 @@ public class client_API  extends common_API{
     //todo
     @Deprecated
     ArrayList request(String host, int port, String context) throws IOException {
-        HttpPost request = new HttpPost(prepare_url(host, port, context));
+        HttpPost request = new HttpPost(prepare_url(host, port, context, ""));
         request.setHeader("Accept", "application/json");
         request.setHeader("Content-type", "application/json");
         request.setEntity(new StringEntity(generate_json(1)));
@@ -161,15 +161,15 @@ public class client_API  extends common_API{
         int diff = (int)(finish-start);
         logger(INFO_LEVEL, diff + "ms request");
 
-        String responsebody = read_response(response);
-        if(show_response_body){
-            logger(INFO_LEVEL, "response body: " + responsebody);
+        String responseBody = read_response(response);
+        if(show_response_body=false){
+            logger(INFO_LEVEL, "responseBody: " + responseBody);
         }
 
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
         for (int i=1; i<patterns.size(); i++){
-            if(responsebody.contains(patterns.get(i).toString())) {
+            if(responseBody.contains(patterns.get(i).toString())) {
                 arrayList.add(i,patterns.get(i));
             } else {
                 arrayList.add(i,"<>");
@@ -206,9 +206,9 @@ public class client_API  extends common_API{
         logger(INFO_LEVEL, diff + "ms request");
 
 
-        String responsebody = read_response(response);
+        String responseBody = read_response(response);
         if(show_response_body){
-            logger(INFO_LEVEL, "response body: " + responsebody);
+            logger(INFO_LEVEL, "responseBody: " + responseBody);
         }
 
 
@@ -217,19 +217,18 @@ public class client_API  extends common_API{
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
         for (int i=1; i<patterns.size(); i++){
-            if(responsebody.contains(patterns.get(i).toString())) {
-                int a = responsebody.indexOf(patterns.get(i).toString());
+            if(responseBody.contains(patterns.get(i).toString())) {
+                int a = responseBody.indexOf(patterns.get(i).toString());
                 int l = patterns.get(i).toString().length();
 
-                arrayList.add(i,responsebody.substring(a, a+l));
+                arrayList.add(i,responseBody.substring(a, a+l));
             } else {
                 arrayList.add(i,"<>");
             }
         }
         finish = System.currentTimeMillis();
         diff = (int)(finish-start);
-        logger(INFO_LEVEL, diff + "ms for search substring-s");
-
+        logger(INFO_LEVEL, diff + "ms for substring");
 
         /*String responsebody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
         if(show_response_json){
@@ -240,7 +239,7 @@ public class client_API  extends common_API{
             ArrayList arrayList_parsed = new ArrayList();
             try {
                 JSONParser parser = new JSONParser();
-                Object resultObject = parser.parse(responsebody);
+                Object resultObject = parser.parse(responseBody);
 
                 if (resultObject instanceof JSONArray) {
                     JSONArray array = (JSONArray) resultObject;
@@ -262,17 +261,19 @@ public class client_API  extends common_API{
                 e.printStackTrace();
             }
 
-            logger(INFO_LEVEL, "response  data: " + arrayList_parsed + "\n");
+            logger(INFO_LEVEL, "response data parsed: " + arrayList_parsed);
         }
 
-
-        logger(INFO_LEVEL, "response data: " + arrayList + "\n");
-        //return parsed_arrayList;
+        logger(INFO_LEVEL, "filtered data: " + arrayList);
         return arrayList;
     }
 
-    private String prepare_url(String host, int port, String context){
-        return "http://" + host + ":" + port + context;
+    String prepare_url(String host, int port, String context, String params){
+        if(params.isEmpty()) {
+            return "http://" + host + ":" + port + context;
+        } else {
+            return "http://" + host + ":" + port + context + "?" + params;
+        }
     }
 
 

@@ -3987,3 +3987,208 @@ response body: {"success":false,"error":"incorrect json: empty body"}
 0ms for search substring-s
 response data: [200 OK, "success":false, incorrect json: empty body]
 
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:58882 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+[SERVER] case METHOD_POST
+448ms request
+
+
+response body: {"success":true}
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:58912 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+[SERVER] case METHOD_POST
+801ms request
+
+
+response body: {"success":true}
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:58920 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+[SERVER] case METHOD_POST
+297ms request
+
+
+response body: {"success":true}
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:58952 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+[SERVER] case METHOD_POST
+643ms request
+
+
+response body: {"success":true}
+0ms for search substring-s
+response data: [200 OK, "success":true]
+
+248770ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:59076 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+828ms request
+
+
+response body: {"success":true}
+0ms for search substring-s
+response data: [200 OK, "success":true]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:59160 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+501ms request
+
+
+response body: {"success":true}
+0ms for search substring-s
+response data: [200 OK, "success":true]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:59204 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+258ms request
+
+
+response body: {"success":true}
+1ms for substring
+response data: [200 OK, "success":true]
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:59226 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=87
+
+requestBody: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+541ms request
+
+
+responseBody: {"success":true}
+0ms for substring
+response data: [200 OK, "success":true]
+502ms request
+
+
+response body: <!DOCTYPE html>  <meta charset=utf-8>  <title>Error 404 (Not Found)!!1</title>    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>  <p>The requested URL <code>/somepage</code> was not found on this server.  <ins>That’s all we know.</ins>
+filtered  data: [404 Not Found, <>, The requested URL <code>/somepage</code> was not found on this server.]
+1487ms request
+response body: <!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="ru"><head><meta content="����� ���������� � ���������: ��� ��������, ��������, ����� � ������ ������." name="description"><meta content="noodp" name="robots"><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"><title>Google</title><script nonce="hroELLCV/Bbu/ke9U/BikQ==">(function(){window.google={kEI:'_QoPW5aADbGW6QSXyp-4CQ',kEXPI:'0,18167,1335580,57,1111,847,1017,440,1207,273,162,297,168,15,68,143,154,2340356,207,220,32,21,302968,26305,1294,12383,2349,2506,32692,15247,864,319,453,7,792,7,4481,6107,14324,2197,369,430,118,332,221,2213,113,2201,3191,726,5,346,35,129,1201,130,130,3741,1366,103,472,1119,2,579,663,64,310,851,34,869,158,210,254,495,355,255,2,388,789,166,369,28,849,498,506,730,1617,479,38,7,152,58,1039,8,538,8,828,196,222,491,9,51,359,358,515,974,47,278,2,840,503,558,354,199,54,282,26,9,428,330,878,393,154,38,100,42,424,2,154,399,106,438,3,1,219,2,590,118,269,117,2,78,470,5,50,408,7,244,2,145,29,272,4,29,56,303,505,511,494,121,80,544,345,215,82,187,107,427,21,68,463,77,11,500,150,140,8,289,15,2,14,318,78,45,58,406,207,2335236,3685999,12,2533,9,56,5997556,2800039,135,194,1382,549,332,445,1,2,1,1,77,1,1,900,207,1,1,1,1,1,363,17,304,6,3,1,2,1,1,657,102,11,4,137,2,2,3,69,19,4,3,11',authuser:0,kscs:'c9c918f0__QoPW5aADbGW6QSXyp-4CQ',kGL:'RU'};google.kHL='ru';})();google.time=function(){return(new Date).getTime()};(function(){google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&&(!a.getAttribute||!(b=a.getAttribute("eid")));)a=a.parentNode;return b||google.kEI};google.getLEI=function(a){for(var b=null;a&&(!a.getAttribute||!(b=a.getAttribute("leid")));)a=a.parentNode;return b};google.https=function(){return"https:"==window.location.protocol};google.ml=function(){return null};google.wl=function(a,b){try{google.ml(Error(a),!1,b)}catch(d){}};google.log=function(a,b,d,c,g){if(a=google.logUrl(a,b,d,c,g)){b=new Image;var e=google.lc,f=google.li;e[f]=b;b.onerror=b.onload=b.onabort=function(){delete e[f]};google.vel&&google.vel.lu&&google.vel.lu(a);b.src=a;google.li=f+1}};google.logUrl=function(a,b,d,c,g){var e="",f=google.ls||"";d||-1!=b.search("&ei=")||(e="&ei="+google.getEI(c),-1==b.search("&lei=")&&(c=google.getLEI(c))&&(e+="&lei="+c));c="";!d&&google.cshid&&-1==b.search("&cshid=")&&(c="&cshid="+google.cshid);a=d||"/"+(g||"gen_204")+"?atyp=i&ct="+a+"&cad="+b+e+f+"&zx="+google.time()+c;/^http:/i.test(a)&&google.https()&&(google.ml(Error("a"),!1,{src:a,glmm:1}),a="");return a};}).call(this);(function(){google.y={};google.x=function(a,b){if(a)var c=a.id;else{do c=Math.random();while(google.y[c])}google.y[c]=[a,b];return!1};google.lm=[];google.plm=function(a){google.lm.push.apply(google.lm,a)};google.lq=[];google.load=function(a,b,c){google.lq.push([[a],b,c])};google.loadAll=function(a,b){google.lq.push([a,b])};}).call(this);google.f={};var a=window.location,b=a.href.indexOf("#");if(0<=b){var c=a.href.substring(b+1);/(^|&)q=/.test(c)&&-1==c.indexOf("#")&&a.replace("/search?"+c.replace(/(^|&)fp=[^&]*/g,"")+"&cad=h")};</script><style>#gbar,#guser{font-size:13px;padding-top:1px !important;}#gbar{height:22px}#guser{padding-bottom:7px !important;text-align:right}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}@media all{.gb1{height:22px;margin-right:.5em;vertical-align:top}#gbar{float:left}}a.gb1,a.gb4{text-decoration:underline !important}a.gb1,a.gb4{color:#00c !important}.gbi .gb4{color:#dd8e27 !important}.gbf .gb4{color:#900 !important}if (!iesg){document.f&&document.f.q.focus();document.gbqf&&document.gbqf.q.focus();}})();</script><div id="mngb"> <div id=gbar><nobr><b class=gb1>�����</b> <a class=gb1 href="http://www.google.ru/imghp?hl=ru&tab=wi">��������</a> <a class=gb1 href="http://maps.google.ru/maps?hl=ru&tab=wl">�����</a> <a class=gb1 href="https://play.google.com/?hl=ru&tab=w8">Play</a> <a class=gb1 href="http://www.youtube.com/?gl=RU&tab=w1">YouTube</a> <a class=gb1 href="http://news.google.ru/nwshp?hl=ru&tab=wn">�������</a> <a class=gb1 href="https://mail.google.com/mail/?tab=wm">�����</a> <a class=gb1 href="https://drive.google.com/?tab=wo">����</a> <a class=gb1 style="text-decoration:none" href="https://www.google.ru/intl/ru/options/"><u>���</u> &raquo;</a></nobr></div><div id=guser width=100%><nobr><span id=gbn class=gbi></span><span id=gbf class=gbf></span><span id=gbe></span><a href="http://www.google.ru/history/optout?hl=ru" class=gb4>������� ���-������</a> | <a  href="/preferences?hl=ru" class=gb4>���������</a> | <a target=_top id=gb_70 href="https://accounts.google.com/ServiceLogin?hl=ru&passive=true&continue=http://www.google.ru/" class=gb4>�����</a></nobr></div><div class=gbh style=left:0></div><div class=gbh style=right:0></div> </div><center><br clear="all" id="lgpd"><div id="lga"><img alt="Google" height="92" src="/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png" style="padding:28px 0 14px" width="272" id="hplogo" onload="window.lol&&lol()"><br><br></div><form action="/search" name="f"><table cellpadding="0" cellspacing="0"><tr valign="top"><td width="25%">&nbsp;</td><td align="center" nowrap=""><input name="ie" value="windows-1251" type="hidden"><input value="ru" name="hl" type="hidden"><input name="source" type="hidden" value="hp"><input name="biw" type="hidden"><input name="bih" type="hidden"><div class="ds" style="height:32px;margin:4px 0"><div style="position:relative;zoom:1"><input style="color:#000;margin:0;padding:5px 8px 0 6px;vertical-align:top;padding-right:38px" autocomplete="off" class="lst tiah" value="" title="����� � Google" maxlength="2048" name="q" size="57"><img src="/textinputassistant/tia.png" style="position:absolute;cursor:pointer;right:5px;top:4px;z-index:300" onclick="(function(){var src='/textinputassistant/11/ru_tia.js';var s=document.createElement('script');s.src=src;(document.getElementById('xjsc')||document.body).appendChild(s);})();" alt="" height="23" width="27"></div></div><br style="line-height:0"><span class="ds"><span class="lsbb"><input class="lsb" value="����� � Google" name="btnG" type="submit"></span></span><span class="ds"><span class="lsbb"><input class="lsb" value="��� ������!" name="btnI" onclick="if(this.form.q.value)this.checked=1; else top.location='/doodles/'" type="submit"></span></span></td><td class="fl sblc" align="left" nowrap="" width="25%"><a href="/advanced_search?hl=ru&amp;authuser=0">����������� �����</a><a href="/language_tools?hl=ru&amp;authuser=0">�������� �����������</a></td></tr></table><input id="gbv" name="gbv" type="hidden" value="1"></form><div id="gac_scont"></div><div style="font-size:83%;min-height:3.5em"><br></div><span id="footer"><div style="font-size:10pt"><div style="margin:19px auto;text-align:center" id="fll"><a href="/intl/ru/ads/">��������� ���������</a><a href="http://www.google.ru/intl/ru/services/">������� ��� �������</a><a href="https://plus.google.com/108954345031389568444" rel="publisher">+Google</a><a href="/intl/ru/about.html">�� � Google</a><a href="http://www.google.ru/setprefdomain?prefdom=US&amp;sig=__lz-D2nUVozAdWazo2-4Z_bg1Q5A%3D" id="fehl">Google.com</a></div></div><p style="color:#767676;font-size:8pt">&copy; 2018 - <a href="/intl/ru/policies/privacy/">������������������</a> - <a href="/intl/ru/policies/terms/">�������</a></p></span></center><script nonce="hroELLCV/Bbu/ke9U/BikQ==">(function(){window.google.cdo={height:0,width:0};(function(){var a=window.innerWidth,b=window.innerHeight;if(!a||!b){var c=window.document,d="CSS1Compat"==c.compatMode?c.documentElement:c.body;a=d.clientWidth;b=d.clientHeight}a&&b&&(a!=google.cdo.width||b!=google.cdo.height)&&google.log("","","/client_204?&atyp=i&biw="+a+"&bih="+b+"&ei="+google.kEI);}).call(this);})();</script><div id="xjsd"></div><div id="xjsi"><script nonce="hroELLCV/Bbu/ke9U/BikQ==">(function(){function c(b){window.setTimeout(function(){var a=document.createElement("script");a.src=b;google.timers&&google.timers.load.t&&google.tick&&google.tick("load",{gen204:"xjsls",clearcut:31});document.getElementById("xjsd").appendChild(a)},0)}google.dljp=function(b,a){google.xjsu=b;c(a)};google.dlj=c;}).call(this);if(!google.xjs){window._=window._||{};window._DumpException=window._._DumpException=function(e){throw e};window._F_installCss=window._._F_installCss=function(c){};google.dljp('/xjs/_/js/k\x3dxjs.hp.en.C88NUpp3u_A.O/m\x3dsb_he,d/am\x3dVDA2/rt\x3dj/d\x3d1/rs\x3dACT90oG2X50pstZKsUMVsREDEANwdDZ03w','/xjs/_/js/k\x3dxjs.hp.en.C88NUpp3u_A.O/m\x3dsb_he,d/am\x3dVDA2/rt\x3dj/d\x3d1/rs\x3dACT90oG2X50pstZKsUMVsREDEANwdDZ03w');google.xjs=1;}google.pmc={"sb_he":{"agen":true,"cgen":true,"client":"heirloom-hp","dh":true,"dhqt":true,"ds":"","fl":true,"host":"google.ru","isbh":28,"jsonp":true,"msgs":{"cibl":"������� ��������� ������","dym":"��������, �� ����� � ����:","lcky":"��� ������!","lml":"���������...","oskt":"�������� ����������","psrc":"���� ������ ��� ������ �� ����� \u003Ca href=\"/history\"\u003E������� ���-������\u003C/a\u003E","psrl":"�������","sbit":"����� �� ��������","srch":"����� � Google"},"nds":true,"ovr":{},"pq":"","refpd":true,"rfs":[],"sbpl":24,"sbpr":24,"scd":10,"sce":5,"stok":"lPPI8a_NtjSDCo8u3Zkyht51ZZ8"},"d":{},"ZI/YVQ":{},"U5B21g":{},"DPBNMg":{},"YFCs/g":{}};google.x(null,function(){});(function(){var r=[];google.plm(r);})();(function(){var m=[]
+filtered  data: [200 OK, <title>Google</title>]
+1419ms request
+filtered  data: [200 OK, <title>Google</title>]
+1368ms request
+filtered  data: [200 OK, <title>Google</title>]
+generated json: 
+2512ms request
+responseBody: 
+0ms for substring
+filtered data: [404 Not Found, <>]
+1176ms request
+
+
+filtered  data: [404 Not Found, <>, The requested URL <code>/somepage</code> was not found on this server.]

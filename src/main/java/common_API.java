@@ -74,13 +74,6 @@ class common_API extends json_server {
                 write_to_file(s + "\n");
             }
         }
-
-        if(level.equals("DBG") && show_debug_level) {
-            System.out.println(s);
-            if (write_file) {
-                write_to_file(s + "\n");
-            }
-        }
     }
 
     private void write_to_file(String string) throws IOException {

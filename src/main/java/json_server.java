@@ -27,9 +27,8 @@ public class json_server {
         server.start();
         if(server.getExecutor()!=null){
             api.logger(api.INFO_LEVEL, "[SERVER] server started: on " + server.getAddress());
-            api.logger(api.INFO_LEVEL, "[SERVER] [to_test] in console mode type CTRL+C to quit");
+            api.logger(api.INFO_LEVEL, "[SERVER] in console mode type CTRL+C to quit");
         }
-        //Thread.sleep(Long.MAX_VALUE);
     }
 
 }
