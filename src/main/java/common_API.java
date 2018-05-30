@@ -9,7 +9,7 @@ class common_API extends json_server {
     final String expected404 = "404 Not Found";
     final String expected500 = "500 Internal Server Error";
 
-    boolean show_response_body = false;
+    boolean show_response_body = true;
     boolean show_response_json = true;
     boolean show_debug_level = true;
     boolean show_info_level = true;
@@ -26,6 +26,7 @@ class common_API extends json_server {
     static final int STATUS_OK = 200;
     static final int STATUS_METHOD_NOT_ALLOWED = 405;
     static final int STATUS_NOT_FOUND = 404;
+    static final int STATUS_SERVER_INTERNAL_ERROR = 500;
     static final int NO_RESPONSE_LENGTH = -1;
 
     String html = "json_server 0.1:";

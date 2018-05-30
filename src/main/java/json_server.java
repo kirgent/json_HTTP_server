@@ -11,6 +11,8 @@ public class json_server {
     public static void main(final String... args) throws IOException {
         server_API api = new server_API();
         HttpServer server = HttpServer.create(new InetSocketAddress(host, port), -1);
+        //HttpServer server = HttpServer.create();
+        //server.bind(new InetSocketAddress(8080),0);
 
         ArrayList list_params = api.read_config();
         System.out.println("[SERVER] params from config.properties: "
@@ -19,7 +21,6 @@ public class json_server {
                 + "\nenable_context_temperature: " + list_params.get(2)
                 + "\nenable_context_stop: " + list_params.get(3));
 
-        //api.write_config("app.name", "1111111111111");
         //api.process_context_main(server, "/");
         api.process_context_temperature(server, "/temperature");
         api.process_context_stop(server, "/stop");

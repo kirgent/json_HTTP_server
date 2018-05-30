@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class testServer_requests_with_url extends client_API {
+class testServer_extenal_www extends client_API {
     private String host = "localhost";
     private int port = 8080;
 
@@ -52,7 +52,7 @@ class testServer_requests_with_url extends client_API {
         expected.add(0, expected403);
         expected.add(1, "<title>403 Forbidden</title>");
 
-        ArrayList actual = post("https://selfsolve.apple.com/wcResults.do", expected, "");
+        ArrayList actual = post("https://selfsolve.apple.com/wcResults.do", expected, "", false);
         assertEquals(expected.get(0), actual.get(0));
         assertEquals(expected.get(1), actual.get(1));
     }
@@ -70,9 +70,9 @@ class testServer_requests_with_url extends client_API {
         String context = "/temperature";
         String params = "test=test";
         String url = "http://" + host + ":" + port + context + "?" + params;
-        String json = generate_json();
+        String json = generate_json(1);
 
-        ArrayList actual = post(url, expected, json);
+        ArrayList actual = post(url, expected, json, false);
         assertEquals(expected.get(0), actual.get(0));
         assertEquals(expected.get(1), actual.get(1));
         assertEquals(expected.get(2), actual.get(2));

@@ -1665,3 +1665,1820 @@ full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperatur
 JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
 filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
 
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48296 HTTP/1.1 GET /temperature
+[SERVER] new client connected: /127.0.0.1:48298 HTTP/1.1 GET /temperature
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48312 HTTP/1.1 GET /temperature
+[SERVER] new client connected: /127.0.0.1:48312 HTTP/1.1 GET /temperature
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48322 HTTP/1.1 GET /temperature
+[SERVER] new client connected: /127.0.0.1:48322 HTTP/1.1 GET /temperature
+[SERVER] new client connected: /127.0.0.1:48322 HTTP/1.1 GET /temperature
+[SERVER] new client connected: /127.0.0.1:48322 HTTP/1.1 GET /temperature
+generated json: {"measurements":[{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":949},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":795},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":157},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":869},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":751}]}
+json for sending: {"measurements":[{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":949},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":795},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":157},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":869},{"date":"Wed May 30 12:49:48 MSK 2018","unit":"C","temperature":751}]}
+[SERVER] new client connected: /127.0.0.1:48330 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+71ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] new client connected: /127.0.0.1:48332 HTTP/1.1 GET /temperature
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /0:0:0:0:0:0:0:0:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /0:0:0:0:0:0:0:0:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48488 HTTP/1.1 GET /temperature sun.net.httpserver.UnmodifiableHeaders@20d3f9a0
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /0:0:0:0:0:0:0:0:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48504 HTTP/1.1 GET /temperature sun.net.httpserver.UnmodifiableHeaders@20d3f9a0
+<p>Accept-encoding=gzip, deflate, br</p><p>Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</p><p>Connection=keep-alive</p><p>Host=127.0.0.1:8080</p><p>Dnt=1</p><p>User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36</p><p>Accept-language=en-US,en;q=0.9</p><p>Upgrade-insecure-requests=1</p><p>Cache-control=max-age=0</p>
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /0:0:0:0:0:0:0:0:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48516 HTTP/1.1 GET /temperature
+Accept-encoding=gzip, deflate, brAccept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8Connection=keep-aliveHost=127.0.0.1:8080Dnt=1User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36Accept-language=en-US,en;q=0.9Upgrade-insecure-requests=1Cache-control=max-age=0
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /0:0:0:0:0:0:0:0:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48524 HTTP/1.1 GET /temperature
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] new client connected: /127.0.0.1:48558 HTTP/1.1 GET /temperature
+Accept-encoding=gzip, deflate
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+User-agent=Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept-language=en-US,en;q=0.5
+Upgrade-insecure-requests=1
+
+generated json: {"measurements":[{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":956},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":192},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":74},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":540},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":949}]}
+json for sending: {"measurements":[{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":956},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":192},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":74},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":540},{"date":"Wed May 30 13:21:05 MSK 2018","unit":"C","temperature":949}]}
+[SERVER] new client connected: /127.0.0.1:48578 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=User-Agent
+Content-type=application/json
+Content-length=362
+
+54ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /0:0:0:0:0:0:0:0:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:48606 HTTP/1.1 GET /temperature
+Accept-encoding=gzip, deflate
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+User-agent=Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept-language=en-US,en;q=0.5
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] new client connected: /127.0.0.1:48606 HTTP/1.1 GET /stop
+Accept-encoding=gzip, deflate
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+User-agent=Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept-language=en-US,en;q=0.5
+Upgrade-insecure-requests=1
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49130 HTTP/1.1 GET /temperature
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49142 HTTP/1.1 GET /temperature
+[SERVER] requestHeaders: Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49150 HTTP/1.1 GET /temperature
+[SERVER] requestHeaders: 
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+generated json: {"measurements":[{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":890},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":969},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":487},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":144},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":975}]}
+json for sending: {"measurements":[{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":890},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":969},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":487},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":144},{"date":"Wed May 30 14:31:18 MSK 2018","unit":"C","temperature":975}]}
+[SERVER] new client connected: /127.0.0.1:49174 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=User-Agent
+Content-type=application/json
+Content-length=363
+
+59ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: {"measurements":[{"date":"Wed May 30 14:32:10 MSK 2018","unit":"C","temperature":767},{"date":"Wed May 30 14:32:10 MSK 2018","unit":"C","temperature":174},{"date":"Wed May 30 14:32:10 MSK 2018","unit":"C","temperature":436},{"date":"Wed May 30 14:32:10 MSK 2018","unit":"C","temperature":422},{"date":"Wed May 30 14:32:10 MSK 2018","unit":"C","temperature":155}]}
+[SERVER] new client connected: /127.0.0.1:49184 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=User-Agent
+Content-type=application/json
+Content-length=363
+
+117ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: {"measurements":[{"date":"Wed May 30 14:32:32 MSK 2018","unit":"C","temperature":263},{"date":"Wed May 30 14:32:32 MSK 2018","unit":"C","temperature":747},{"date":"Wed May 30 14:32:32 MSK 2018","unit":"C","temperature":841},{"date":"Wed May 30 14:32:32 MSK 2018","unit":"C","temperature":910},{"date":"Wed May 30 14:32:32 MSK 2018","unit":"C","temperature":780}]}
+[SERVER] new client connected: /127.0.0.1:49190 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=363
+
+127ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49202 HTTP/1.1 GET /temperature
+[SERVER] requestHeaders: 
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] requestBody: 
+x
+
+generated json: {"measurements":[{"date":"Wed May 30 14:38:58 MSK 2018","unit":"C","temperature":799},{"date":"Wed May 30 14:38:58 MSK 2018","unit":"C","temperature":26},{"date":"Wed May 30 14:38:58 MSK 2018","unit":"C","temperature":194},{"date":"Wed May 30 14:38:58 MSK 2018","unit":"C","temperature":864},{"date":"Wed May 30 14:38:58 MSK 2018","unit":"C","temperature":36}]}
+[SERVER] new client connected: /127.0.0.1:49236 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=361
+
+[SERVER] requestBody: 
+x
+
+194ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: {"measurements":[{"date":"Wed May 30 14:40:37 MSK 2018","unit":"C","temperature":701},{"date":"Wed May 30 14:40:37 MSK 2018","unit":"C","temperature":481},{"date":"Wed May 30 14:40:37 MSK 2018","unit":"C","temperature":677},{"date":"Wed May 30 14:40:37 MSK 2018","unit":"C","temperature":854},{"date":"Wed May 30 14:40:37 MSK 2018","unit":"C","temperature":8}]}
+[SERVER] new client connected: /127.0.0.1:49242 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=361
+
+[SERVER] requestBody: 
+x
+
+116ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: {"measurements":[{"date":"Wed May 30 14:43:25 MSK 2018","unit":"C","temperature":236},{"date":"Wed May 30 14:43:25 MSK 2018","unit":"C","temperature":208},{"date":"Wed May 30 14:43:25 MSK 2018","unit":"C","temperature":450},{"date":"Wed May 30 14:43:25 MSK 2018","unit":"C","temperature":361},{"date":"Wed May 30 14:43:25 MSK 2018","unit":"C","temperature":15}]}
+[SERVER] new client connected: /127.0.0.1:49316 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=362
+
+[SERVER] requestBody: 
+x
+
+110ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49398 HTTP/1.1 GET /temperature
+[SERVER] requestHeaders: 
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] requestBody: 
+x
+
+generated json: {"measurements":[{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":431},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":999},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":48},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":602},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":942}]}
+[SERVER] new client connected: /127.0.0.1:49406 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=362
+
+{"measurements":[{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":431},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":999},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":48},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":602},{"date":"Wed May 30 14:55:06 MSK 2018","unit":"C","temperature":942}]}[SERVER] requestBody: 
+x
+
+228ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":237},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":641},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":604},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":7},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":99}]}
+[SERVER] new client connected: /127.0.0.1:49420 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=360
+
+{"measurements":[{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":237},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":641},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":604},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":7},{"date":"Wed May 30 14:56:16 MSK 2018","unit":"C","temperature":99}]}
+158ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49518 HTTP/1.1 GET /temperature
+[SERVER] requestHeaders: 
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+[SERVER] requestBody: 
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":528},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":126},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":485},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":655},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":238}]}
+[SERVER] new client connected: /127.0.0.1:49604 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=363
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":528},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":126},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":485},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":655},{"date":"Wed May 30 15:02:51 MSK 2018","unit":"C","temperature":238}]}
+198ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:49610 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] requestBody: 
+
+131ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:49616 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] requestBody: 
+
+107ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 
+[SERVER] new client connected: /127.0.0.1:49632 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+171ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] new client connected: /127.0.0.1:49660 HTTP/1.1 GET /temperature
+[SERVER] requestHeaders: 
+Accept-encoding=gzip, deflate, br
+Accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Connection=keep-alive
+Host=127.0.0.1:8080
+Dnt=1
+User-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Accept-language=en-US,en;q=0.9
+Upgrade-insecure-requests=1
+Cache-control=max-age=0
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:49668 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+144ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+generated json: {"measurements":[{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":404},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":59},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":228},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":5},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":266}]}
+[SERVER] new client connected: /127.0.0.1:50002 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=360
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":404},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":59},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":228},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":5},{"date":"Wed May 30 15:57:54 MSK 2018","unit":"C","temperature":266}]}
+
+104ms request
+full response data: {"measurements":[{"date":"2018-29-05","unit":"C","temperature":907}]}
+JSONObject JSONParser-ed data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+filtered  data: [[{"date":"2018-29-05","unit":"C","temperature":907}]]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"success":true)}
+[SERVER] new client connected: /127.0.0.1:50446 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=17
+
+[SERVER] requestBody: 
+{"success":true)}
+
+191ms request
+full response data: 
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":847},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":503},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":769},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":808},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":976}]}
+[SERVER] new client connected: /127.0.0.1:50534 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=363
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":847},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":503},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":769},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":808},{"date":"Wed May 30 16:30:01 MSK 2018","unit":"C","temperature":976}]}
+
+120ms request
+full response data: 
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":47},{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":201}]}
+[SERVER] new client connected: /127.0.0.1:50548 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=155
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":47},{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":201}]}
+
+131ms request
+full response data: 
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 17:13:43 MSK 2018","unit":"C","temperature":204}]}
+[SERVER] new client connected: /127.0.0.1:51538 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 17:13:43 MSK 2018","unit":"C","temperature":204}]}
+
+94ms request
+response data as is: 
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 17:23:12 MSK 2018","unit":"C","temperature":997}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 17:23:26 MSK 2018","unit":"C","temperature":380}]}
+[SERVER] new client connected: /127.0.0.1:51584 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 17:23:26 MSK 2018","unit":"C","temperature":380}]}
+
+325ms request
+response data as is: 
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 17:26:54 MSK 2018","unit":"C","temperature":796}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 17:27:08 MSK 2018","unit":"C","temperature":967}]}
+[SERVER] new client connected: /127.0.0.1:51618 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 17:27:08 MSK 2018","unit":"C","temperature":967}]}
+
+173ms request
+response data as is: 
+filtered  data: []
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 17:38:29 MSK 2018","unit":"C","temperature":967}]}
+[SERVER] new client connected: /127.0.0.1:51670 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 17:38:29 MSK 2018","unit":"C","temperature":967}]}
+
+261ms request
+generated json: {"measurements":[{"date":"Wed May 30 17:44:16 MSK 2018","unit":"C","temperature":617}]}
+[SERVER] new client connected: /127.0.0.1:51702 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 17:44:16 MSK 2018","unit":"C","temperature":617}]}
+
+124ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+[SERVER] new client connected: /127.0.0.1:51732 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+
+218ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+[SERVER] new client connected: /127.0.0.1:51854 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+
+170ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+[SERVER] new client connected: /127.0.0.1:51866 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+
+90ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+[SERVER] new client connected: /127.0.0.1:51876 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":xxx}]}
+
+148ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:51884 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+102ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52170 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52178 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52204 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+169ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52214 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+102ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52236 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+209ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52276 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+152ms request
+
+
+response body: incorrect request
+filtered  data: []
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52282 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+143ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52298 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+126ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52306 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+101ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52316 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+83ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52322 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+122ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52328 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+74ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52356 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+124ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52362 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+95ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52368 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+113ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52374 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+135ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52380 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+80ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52388 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+110ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52406 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+
+117ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect request]
+
+generated json: {"Measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","unit":"C","temperature":123}]}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:52446 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+175ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect request]
+
+generated json: 123123123123
+[SERVER] new client connected: /127.0.0.1:52456 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=12
+
+requestBody: 
+123123123123
+
+149ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, <>]
+
+generated json: 123123123123
+[SERVER] new client connected: /127.0.0.1:52470 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=12
+
+requestBody: 
+123123123123
+
+165ms request
+
+
+response body: incorrect request
+filtered  data: [200 OK, incorrect request]
+
+generated json: 123123123123
+[SERVER] new client connected: /127.0.0.1:52482 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=12
+
+requestBody: 
+123123123123
+
+66ms request
+
+
+response body: incorrect request
+response data: [200 OK, incorrect request]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52488 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+165ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52494 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+71ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52508 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+155ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, {"success":false,"error":"incorrect json: empty body"}]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52514 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+92ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, {"success":false,"error":"incorrect json: empty body"}]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52774 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+80ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, [Ljava.lang.String;@5db45159]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52782 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+118ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, [Ljava.lang.String;@5db45159]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52878 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+111ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, [Ljava.lang.String;@5db45159]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52886 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+99ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, [Ljava.lang.String;@5db45159]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:52896 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+131ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, [Ljava.lang.String;@5db45159]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:53030 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+149ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, incorrect json: empty body]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:53036 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+92ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, incorrect json: empty body, json: empty]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:53042 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+73ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, incorrect json: empty body, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:53052 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+158ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, incorrect json: empty body, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:53058 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+102ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, incorrect json: empty body, json: empty]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:53064 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+128ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+response data: [200 OK, "success":false, incorrect json: empty body]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53078 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+86ms request
+
+
+response body: incorrect request
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53092 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+156ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53098 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+61ms request
+
+
+response body: incorrect request
+1ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53104 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+82ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53120 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+146ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53130 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+233ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+[SERVER] new client connected: /127.0.0.1:53140 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=87
+
+requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+
+95ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>, <>, <>, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:54926 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+269ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>]
+
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:54934 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+129ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:54944 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+104ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+0ms for search substring-s
+response data: [200 OK, "success":false, incorrect json: empty body]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 
+[SERVER] new client connected: /127.0.0.1:54956 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+185ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+0ms for search substring-s
+response data: [200 OK, "success":false, incorrect json: empty body]
+
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:54962 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+109ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [200 OK, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:54990 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+165ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55000 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+76ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55016 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+[SERVER] case METHOD_POST
+207ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: {}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55042 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+[SERVER] case METHOD_POST
+197ms request
+
+
+response body: incorrect request
+1ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
