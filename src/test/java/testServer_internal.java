@@ -47,7 +47,8 @@ class testServer_internal extends client_API {
     void testServer__empty_json_in_body() throws IOException {
         ArrayList expected = new ArrayList();
         expected.add(0, expected500);
-        expected.add(1, "incorrect json: empty json in body");
+        expected.add(1, "\"success\":false");
+        expected.add(2, "incorrect json: empty json in body");
 
         String json = "{}";
         ArrayList actual = post(url, expected, json, false);
@@ -59,8 +60,9 @@ class testServer_internal extends client_API {
     @Test
     void testServer__incorrect_json_format() throws IOException {
         ArrayList expected = new ArrayList();
-        expected.add(0, expected200);
-        expected.add(1, "{\"success\":false, \"error\":\"incorrect json: incorrect json format\"}");
+        expected.add(0, expected500);
+        expected.add(1, "\"success\":false");
+        expected.add(2, "incorrect json: incorrect json format");
 
         String json = "{\"temp\":\"123123123\"}";
         ArrayList actual = post(url, expected, json, false);
@@ -72,7 +74,7 @@ class testServer_internal extends client_API {
     @Test
     void testServer__incorrect_request() throws IOException {
         ArrayList expected = new ArrayList();
-        expected.add(0, expected200);
+        expected.add(0, expected500);
         expected.add(1, "incorrect request");
 
         String json = "123123123";

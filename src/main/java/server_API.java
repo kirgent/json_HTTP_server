@@ -130,32 +130,26 @@ public class server_API extends common_API{
                     "}";*/
 
             int responsecode = STATUS_OK;
-            String responsebody;
+            String responsebody = "";
             String correct_json = "{\"Measurements\":[{\"Date\":\"Wed May 30 16:31:04 MSK 2018\",\"Unit\":\"C\",\"Temperature\":123}]}";
 
             System.out.println("1: " + correct_json);
             System.out.println("2: " + requestbody);
-            if (correct_json.equals(requestbody)) {
+
+            if (requestbody.equals(correct_json + "\n")) {
                 responsebody = "{\"success\":true}";
 
-            } else if ("".equals(requestbody)) {
-                System.out.println("1: " + correct_json);
-                System.out.println("2: " + requestbody);
+            } else if (requestbody.equals("")) {
                 responsebody = "{\"success\":false,\"error\":\"incorrect json: empty body\"}";
 
-            } else if ("{}".equals(requestbody)) {
-                System.out.println("1: " + correct_json);
-                System.out.println("2: " + requestbody);
+            } else if (requestbody.equals("{}\n")) {
                 responsebody = "{\"success\":false,\"error\":\"incorrect json: empty json in body\"}";
 
-            } else if ("{\"test\":123123123}".equals(requestbody)) {
-                System.out.println("1: " + correct_json);
-                System.out.println("2: " + requestbody);
+            } else  if (requestbody.equals("{\"test\":123123123}\n")) {
+                responsecode = STATUS_SERVER_INTERNAL_ERROR;
                 responsebody = "{\"success\":false,\"error\":\"incorrect json: incorrect json format\"}";
 
             } else {
-                System.out.println("1: " + correct_json);
-                System.out.println("2: " + requestbody);
                 responsecode = STATUS_SERVER_INTERNAL_ERROR;
                 responsebody = "incorrect request\n";
             }

@@ -3482,3 +3482,508 @@ response body: incorrect request
 1ms for search substring-s
 response data: [500 Internal Server Error, <>]
 
+generated json: {}
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55068 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+[SERVER] case METHOD_POST
+157ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55082 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+requestBody: 
+{}
+
+requestBody: 
+{}
+
+requestBody: 
+{}
+
+[SERVER] case METHOD_POST
+112ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55100 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+[SERVER] case METHOD_POST
+141ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {}
+[SERVER] new client connected: /127.0.0.1:55110 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+requestBody: 
+{}
+
+[SERVER] case METHOD_POST
+147ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: {"Measurements":"123"}
+[SERVER] new client connected: /127.0.0.1:55120 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=22
+
+requestBody: 
+{"Measurements":"123"}
+
+[SERVER] case METHOD_POST
+140ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: {"test":123123123}
+[SERVER] new client connected: /127.0.0.1:55130 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=18
+
+requestBody: 
+{"test":123123123}
+
+[SERVER] case METHOD_POST
+119ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: {"temp":"123123123"}
+[SERVER] new client connected: /127.0.0.1:55136 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=20
+
+requestBody: 
+{"temp":"123123123"}
+
+[SERVER] case METHOD_POST
+69ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: 123123123
+[SERVER] new client connected: /127.0.0.1:55142 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+requestBody: 
+123123123
+
+[SERVER] case METHOD_POST
+97ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, incorrect request]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 123123123
+[SERVER] new client connected: /127.0.0.1:55162 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+requestBody: 
+123123123
+
+[SERVER] case METHOD_POST
+164ms request
+response body: 
+0ms for search substring-s
+response data: [200 OK, <>]
+
+generated json: 123123123
+[SERVER] new client connected: /127.0.0.1:55170 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+requestBody: 
+123123123
+
+[SERVER] case METHOD_POST
+92ms request
+response body: 
+0ms for search substring-s
+response data: [200 OK, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 123123123
+[SERVER] new client connected: /127.0.0.1:55180 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+requestBody: 
+123123123
+
+[SERVER] case METHOD_POST
+195ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, incorrect request]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 123123123
+[SERVER] new client connected: /127.0.0.1:55198 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+requestBody: 
+123123123
+
+[SERVER] case METHOD_POST
+68157ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, incorrect request]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 123123123
+[SERVER] new client connected: /127.0.0.1:55216 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+requestBody: 
+123123123
+
+[SERVER] case METHOD_POST
+172ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, incorrect request]
+
+generated json: {"temp":"123123123"}
+[SERVER] new client connected: /127.0.0.1:55222 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=20
+
+requestBody: 
+{"temp":"123123123"}
+
+[SERVER] case METHOD_POST
+144ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: {"temp":"123123123"}
+[SERVER] new client connected: /127.0.0.1:55228 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=20
+
+requestBody: 
+{"temp":"123123123"}
+
+[SERVER] case METHOD_POST
+76ms request
+
+
+response body: incorrect request
+1ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: {"temp":"123123123"}
+[SERVER] new client connected: /127.0.0.1:55238 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=20
+
+requestBody: 
+{"temp":"123123123"}
+
+[SERVER] case METHOD_POST
+231ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:55246 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] case METHOD_POST
+154ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>, <>]
+
+generated json: 
+[SERVER] new client connected: /127.0.0.1:55254 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] case METHOD_POST
+88ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 
+[SERVER] new client connected: /127.0.0.1:55268 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] case METHOD_POST
+149ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 
+[SERVER] new client connected: /127.0.0.1:55284 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] case METHOD_POST
+67640ms request
+
+
+response body: incorrect request
+0ms for search substring-s
+response data: [500 Internal Server Error, <>, <>]
+
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] [to_test] in console mode type CTRL+C to quit
+generated json: 
+[SERVER] new client connected: /127.0.0.1:55302 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] case METHOD_POST
+11638ms request
+
+
+response body: {"success":false,"error":"incorrect json: empty body"}
+0ms for search substring-s
+response data: [200 OK, "success":false, incorrect json: empty body]
+
