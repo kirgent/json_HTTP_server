@@ -124,7 +124,7 @@ public class server_API extends common_API{
 
             } else if (!requestbody.contains("\"measurements\":[") || !requestbody.contains("\"date\":")){
                 json.put("success", false);
-                json.put("error", "incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and/or date");
+                json.put("error", "incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date");
                 json.put("message", message);
                 responseCode = STATUS_SERVER_INTERNAL_ERROR;
 
@@ -140,6 +140,7 @@ public class server_API extends common_API{
                 json.put("message", message);
                 responseCode = STATUS_SERVER_INTERNAL_ERROR;
             }
+            String responseBody = json.toJSONString();
 
             /*Headers header = new Headers();
             header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
@@ -148,7 +149,6 @@ public class server_API extends common_API{
             //headers.set("Content-Length", responseBody);
             //headers.set("Connection", "close");
 
-            String responseBody = json.toJSONString();
             try {
                 switch (requestMethod) {
                     case METHOD_GET:
@@ -343,10 +343,6 @@ public class server_API extends common_API{
         StringBuilder builder = new StringBuilder();
         for (String line; (line = reader.readLine()) != null; ) {
             builder.append(line);
-            //todo
-            /*if (reader.readLine() == null) {
-                builder.append("\n");
-            }*/
         }
         return builder.toString();
     }

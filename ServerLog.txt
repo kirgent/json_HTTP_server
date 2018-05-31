@@ -4948,3 +4948,238 @@ Content-length=67
 {"measurements":[{"date":1527782624,"unit":"C","temperature":185}]}
 used: json.xml
 [SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:35:44 MSK 2018: new client connected: /127.0.0.1:35518 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=67
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1527784543,"unit":"C","temperature":495}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:35:58 MSK 2018: new client connected: /127.0.0.1:35528 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=67
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1527784557,"unit":"C","temperature":533}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:38:46 MSK 2018: new client connected: /127.0.0.1:35558 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=67
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1527784725,"unit":"C","temperature":937}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:39:28 MSK 2018: new client connected: /127.0.0.1:35568 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=67
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1527784767,"unit":"C","temperature":925}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:40:21 MSK 2018: new client connected: /127.0.0.1:35580 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=65
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1527784820,"unit":"C","temperature":9}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:47:06 MSK 2018: new client connected: /127.0.0.1:35648 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=58
+
+[SERVER] requestBody: 
+{"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018"}]}
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and\/or date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+[SERVER] Thu May 31 19:47:34 MSK 2018: new client connected: /127.0.0.1:35656 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=58
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018"}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:47:37 MSK 2018: new client connected: /127.0.0.1:35662 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=55
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1233123123}, "unitttttt":"L"]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+[SERVER] Thu May 31 19:47:44 MSK 2018: new client connected: /127.0.0.1:35668 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] requestBody: 
+
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: empty body"}
+[SERVER] Thu May 31 19:48:03 MSK 2018: new client connected: /127.0.0.1:35676 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=0
+
+[SERVER] requestBody: 
+
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: empty body"}
+[SERVER] Thu May 31 19:48:23 MSK 2018: new client connected: /127.0.0.1:35688 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+[SERVER] requestBody: 
+{}
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: empty json in body"}
+[SERVER] Thu May 31 19:48:29 MSK 2018: new client connected: /127.0.0.1:35694 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=20
+
+[SERVER] requestBody: 
+{"temp":"123123123"}
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and\/or date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+[SERVER] Thu May 31 19:48:39 MSK 2018: new client connected: /127.0.0.1:35702 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+[SERVER] requestBody: 
+123123123
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and\/or date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+[SERVER] Thu May 31 19:49:31 MSK 2018: new client connected: /127.0.0.1:35714 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+[SERVER] requestBody: 
+123123123
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and\/or date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+[SERVER] Thu May 31 19:50:06 MSK 2018: read src/main/resources/config.properties:
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature="true"
+enable_context_stop="true"
+fileName_xml=json.xml
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Thu May 31 19:50:10 MSK 2018: new client connected: /127.0.0.1:35732 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+[SERVER] requestBody: 
+123123123
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and\/\/or date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+[SERVER] Thu May 31 19:50:47 MSK 2018: read src/main/resources/config.properties:
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature="true"
+enable_context_stop="true"
+fileName_xml=json.xml
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Thu May 31 19:50:59 MSK 2018: new client connected: /127.0.0.1:35756 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=9
+
+[SERVER] requestBody: 
+123123123
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}

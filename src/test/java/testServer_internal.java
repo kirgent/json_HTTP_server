@@ -18,8 +18,6 @@ class testServer_internal extends client_API {
     void testServer__correct_json() throws IOException {
         expected.add(0, expected200);
         expected.add(1, "\"success\":true");
-        expected.add(2, "\"measurements\":[");
-        expected.add(3, "\"date\":");
 
         String json = generate_json(1);
         ArrayList actual = post(url, expected, json, false);
@@ -33,7 +31,19 @@ class testServer_internal extends client_API {
         expected.add(0, expected200);
         expected.add(1, "\"success\":true");
 
-        String json = "{\"Measurements\":[{\"Date\":\"Wed May 30 16:31:04 MSK 2018\",\"Unit\":\"C\",\"Temperature\":123}]}";
+        String json = "{\"measurements\":[{\"date\":\"Wed May 30 16:31:04 MSK 2018\"}]}";
+        ArrayList actual = post(url, expected, json, false);
+        for(int i = 0; i< expected.size(); i++){
+            assertEquals(expected.get(i), actual.get(i));
+        }
+    }
+
+    @Test
+    void testServer__correct_json3() throws IOException {
+        expected.add(0, expected200);
+        expected.add(1, "\"success\":true");
+
+        String json = "{\"measurements\":[{\"date\":1233123123}, \"unitttttt\":\"L\"]}";
         ArrayList actual = post(url, expected, json, false);
         for(int i = 0; i< expected.size(); i++){
             assertEquals(expected.get(i), actual.get(i));
@@ -42,7 +52,7 @@ class testServer_internal extends client_API {
 
     @Test
     void testServer__empty_body() throws IOException {
-        expected.add(0, expected200);
+        expected.add(0, expected500);
         expected.add(1, "\"success\":false");
         expected.add(2, "incorrect json: empty body");
 
@@ -82,7 +92,7 @@ class testServer_internal extends client_API {
     @Test
     void testServer__incorrect_request() throws IOException {
         expected.add(0, expected500);
-        expected.add(1, "incorrect request");
+        expected.add(1, "incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date");
 
         String json = "123123123";
         ArrayList actual = post(url, expected, json, false);
