@@ -166,13 +166,7 @@ public class server_API extends common_API{
         });
     }
 
-    private boolean check_responsebody() {
-        if(true){
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
     private String my_getRequestBody(HttpExchange he) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(he.getRequestBody()));

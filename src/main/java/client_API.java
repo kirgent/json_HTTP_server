@@ -141,11 +141,24 @@ public class client_API  extends common_API{
         StringBuilder builder = new StringBuilder();
         for (String line; (line = reader.readLine()) != null;) {
             builder.append(line);
-            if (reader.readLine() == null) {
+            //todo
+            /*if (reader.readLine() == null) {
                 logger(INFO_LEVEL, "\n");
-            }
+            }*/
         }
         return builder.toString();
+    }
+
+    private void check_responsebody(String responseBody, ArrayList patterns, ArrayList arrayList) {
+        for (int i=1; i<patterns.size(); i++){
+            if(responseBody.contains(patterns.get(i).toString())) {
+                int a = responseBody.indexOf(patterns.get(i).toString());
+                int l = patterns.get(i).toString().length();
+                arrayList.add(i,responseBody.substring(a, a+l));
+            } else {
+                arrayList.add(i,"<>");
+            }
+        }
     }
 
 
@@ -155,6 +168,7 @@ public class client_API  extends common_API{
         request.addHeader(ACCEPT,"application/json");
         request.addHeader(CONTENT_TYPE, "application/json");
         //request.addHeader(USER_AGENT, "afent");
+
         long start = System.currentTimeMillis();
         HttpResponse response = client.execute(request);
         long finish = System.currentTimeMillis();
@@ -162,7 +176,7 @@ public class client_API  extends common_API{
         logger(INFO_LEVEL, diff + "ms request");
 
         String responseBody = read_response(response);
-        if(show_response_body=false){
+        if(show_response_body){
             logger(INFO_LEVEL, "responseBody: " + responseBody);
         }
 
@@ -213,19 +227,10 @@ public class client_API  extends common_API{
 
 
         //todo
-        start = System.currentTimeMillis();
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        for (int i=1; i<patterns.size(); i++){
-            if(responseBody.contains(patterns.get(i).toString())) {
-                int a = responseBody.indexOf(patterns.get(i).toString());
-                int l = patterns.get(i).toString().length();
-
-                arrayList.add(i,responseBody.substring(a, a+l));
-            } else {
-                arrayList.add(i,"<>");
-            }
-        }
+        start = System.currentTimeMillis();
+        check_responsebody(responseBody, patterns, arrayList);
         finish = System.currentTimeMillis();
         diff = (int)(finish-start);
         logger(INFO_LEVEL, diff + "ms for substring");

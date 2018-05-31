@@ -7,6 +7,7 @@ class common_API extends json_server {
     final String expected200 = "200 OK";
     final String expected403 = "403 Forbidden";
     final String expected404 = "404 Not Found";
+    final String expected405 = "405 Method Not Allowed";
     final String expected500 = "500 Internal Server Error";
 
     boolean show_response_body = true;
@@ -69,6 +70,13 @@ class common_API extends json_server {
 
     void logger(String level, String s) throws IOException {
         if(level.equals("INF") && show_info_level) {
+            System.out.println(s);
+            if (write_file) {
+                write_to_file(s + "\n");
+            }
+        }
+
+        if(level.equals("DBG") && show_debug_level) {
             System.out.println(s);
             if (write_file) {
                 write_to_file(s + "\n");
