@@ -1,0 +1,132 @@
+Thu May 31 13:41:53 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: 
+173ms request
+responseBody: {"success":false,"error":"incorrect json: empty body"}
+0ms for substring
+filtered data: [200 OK, "success":false, incorrect json: empty body]
+Thu May 31 13:47:08 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: 
+170ms request
+responseBody: {"success":false,"error":"incorrect json: empty body"}
+0ms for substring
+filtered data: [200 OK, "success":false, incorrect json: empty body]
+Thu May 31 13:48:55 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {}
+139ms request
+responseBody: incorrect request
+0ms for substring
+filtered data: [500 Internal Server Error, <>, <>]
+Thu May 31 13:50:04 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {}
+142348ms request
+responseBody: incorrect request
+0ms for substring
+filtered data: [500 Internal Server Error, <>, <>]
+Thu May 31 13:52:39 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {}
+214ms request
+responseBody: {"success":false,"error":"incorrect json: empty json in body"}
+1ms for substring
+filtered data: [200 OK, "success":false, incorrect json: empty json in body]
+Thu May 31 14:37:15 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {}
+123ms request
+responseBody: {"success":false,"error":"incorrect json: empty json in body"}
+1ms for substring
+filtered data: [500 Internal Server Error, "success":false, incorrect json: empty json in body]
+Thu May 31 14:37:51 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: 
+111ms request
+responseBody: {"success":false,"error":"incorrect json: empty body"}
+0ms for substring
+filtered data: [200 OK, "success":false, incorrect json: empty body]
+Thu May 31 17:11:11 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+125ms request
+responseBody: {"success":true}
+0ms for substring
+filtered data: [200 OK, "success":true]
+Thu May 31 17:12:57 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Meas3urements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+111ms request
+responseBody: {"success":false,"error":"incorrect request"}
+0ms for substring
+filtered data: [500 Internal Server Error, <>]
+Thu May 31 17:45:06 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Meas3urements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+228ms request
+responseBody: {"success":false,"error":"incorrect json: incorrect one or more field in json"}
+0ms for substring
+filtered data: [200 OK, <>]
+Thu May 31 17:45:30 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+133ms request
+responseBody: {"success":false,"error":"incorrect json: incorrect one or more field in json"}
+0ms for substring
+filtered data: [200 OK, <>]
+Thu May 31 18:35:47 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+125ms request
+responseBody: {"success":false,"error":"incorrect request"}
+0ms for substring
+filtered data: [500 Internal Server Error, <>]
+Thu May 31 18:43:13 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Measurements":[{"Date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+66ms request
+responseBody: {"success":false,"error":"incorrect request"}
+0ms for substring
+filtered data: [500 Internal Server Error, <>]
+Thu May 31 18:43:42 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+85ms request
+responseBody: {"success":false,"error":"incorrect json: incorrect one or more mandatory field in json","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+0ms for substring
+filtered data: [500 Internal Server Error, <>]
+Thu May 31 18:47:18 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+154ms request
+responseBody: {"success":false,"error":"incorrect json: incorrect one or more mandatory field in json","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+0ms for substring
+filtered data: [500 Internal Server Error, <>]
+Thu May 31 18:47:43 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018","Unit":"C","Temperature":123}]}
+218ms request
+responseBody: {"success":true}
+0ms for substring
+filtered data: [200 OK, "success":true]
+Thu May 31 18:57:38 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527782258,"unit":"C","temperature":667}]}
+103ms request
+responseBody: {"success":true}
+0ms for substring
+filtered data: [200 OK, "success":true]
+Thu May 31 19:00:11 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527782411,"unit":"C","temperature":374}]}
+124ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
+Thu May 31 19:00:38 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"Measurements":[{"date":1527782438,"unit":"C","temperature":1}]}
+146ms request
+responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and\/or date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
+filtered data: [500 Internal Server Error, <>]
+Thu May 31 19:01:05 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527782465,"unit":"C","temperature":345},{"date":1527782465,"unit":"C","temperature":351},{"date":1527782465,"unit":"C","temperature":603},{"date":1527782465,"unit":"C","temperature":662},{"date":1527782465,"unit":"C","temperature":961},{"date":1527782465,"unit":"C","temperature":44},{"date":1527782465,"unit":"C","temperature":577},{"date":1527782465,"unit":"C","temperature":146},{"date":1527782465,"unit":"C","temperature":818},{"date":1527782465,"unit":"C","temperature":719}]}
+82ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
+Thu May 31 19:02:07 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527782527,"unit":"C","temperature":763}]}
+114ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true, <>, <>]
+Thu May 31 19:02:25 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527782545,"unit":"C","temperature":443}]}
+108ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true, <>, <>]
+Thu May 31 19:03:44 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527782624,"unit":"C","temperature":185}]}
+118ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true, <>, <>]

@@ -24,9 +24,6 @@ import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 
 public class client_API  extends common_API{
 
-    private int count_pairs = 5;
-    private boolean prepare_xml = true;
-
     //todo
     @Deprecated
     ArrayList request(String method, String host, int port, String context, String json) throws IOException {
@@ -50,7 +47,7 @@ public class client_API  extends common_API{
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, server_response.getStatusLine().getStatusCode() + " " + server_response.getStatusLine().getReasonPhrase());
         //arrayList.add(1, check_body_response(read_response(new StringBuilder(),server_response).toString()));
-        logger(INFO_LEVEL,"[INF] response code: " + arrayList.get(0));
+        logger(CLIENTLOG, INFO_LEVEL,"response code: " + arrayList.get(0));
         //logger(INFO_LEVEL,"[INF] response body: " + arrayList.get(1));
         //}
         /*catch (Exception e) {
@@ -63,11 +60,11 @@ public class client_API  extends common_API{
         try {
             json_response = EntityUtils.toString(server_response.getEntity(), "UTF-8");
             if(show_response_json){
-                logger(INFO_LEVEL,"[INF] response_json: " + json_response);
+                logger(CLIENTLOG, INFO_LEVEL,"response_json: " + json_response);
             }
         }
         catch (IOException e) {
-            System.out.println("! catch exception 2");
+            System.out.println("!catch exception 2");
             e.printStackTrace();
         }
 
@@ -78,19 +75,19 @@ public class client_API  extends common_API{
                 JSONArray array=(JSONArray)resultObject;
                 for (Object object : array) {
                     JSONObject obj =(JSONObject)object;
-                    logger(INFO_LEVEL, obj.get("measurements").toString());
+                    logger(CLIENTLOG, INFO_LEVEL, obj.get("measurements").toString());
                 }
             } else if (resultObject instanceof JSONObject) {
                 JSONObject obj =(JSONObject)resultObject;
-                logger(INFO_LEVEL, obj.get("temperature").toString());
+                logger(CLIENTLOG, INFO_LEVEL, obj.get("temperature").toString());
             }
         } catch (ParseException e) {
             //todo: handle exception
-            logger(INFO_LEVEL, "!!! catch exception: JSONParser: " + e);
+            logger(CLIENTLOG, INFO_LEVEL, "!catch exception: JSONParser: " + e);
             arrayList.add(2, e);
             //e.printStackTrace();
         }
-        logger(INFO_LEVEL, "[INF] return data: " + arrayList + "\n");
+        logger(CLIENTLOG, INFO_LEVEL, "filtered data: " + arrayList + "\n");
         return arrayList;
     }
 
@@ -101,18 +98,18 @@ public class client_API  extends common_API{
         request.setHeader("Accept", "application/json");
         request.setHeader("Content-type", "application/json");
         request.setEntity(new StringEntity(generate_json(1)));
-        logger(INFO_LEVEL, "request string: " + request);
+        logger(CLIENTLOG, INFO_LEVEL, "request string: " + request);
 
         long start = System.currentTimeMillis();
         HttpResponse response = HttpClients.createDefault().execute(request);
         long finish = System.currentTimeMillis();
         int diff = (int)(finish-start);
-        logger(INFO_LEVEL, diff + "ms request");
+        logger(CLIENTLOG, INFO_LEVEL, diff + "ms request");
 
         ArrayList arrayList = new ArrayList<>();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
         //arrayList.add(1, check_buffer(read_buffer(new StringBuilder(),response).toString(), ""));
-        logger(INFO_LEVEL, "return data: " + arrayList + "\n");
+        logger(CLIENTLOG, INFO_LEVEL, "return data: " + arrayList + "\n");
         return arrayList;
     }
 
@@ -122,7 +119,8 @@ public class client_API  extends common_API{
         json.put("measurements", array_measurements);
         for (int i = 0; i < count_pairs; i++) {
             JSONObject object_in_measurements = new JSONObject();
-            object_in_measurements.put("date", new Date().toString());
+
+            object_in_measurements.put("date", (int) (System.currentTimeMillis() / 1000L));
             object_in_measurements.put("temperature", generate_t_value());
             object_in_measurements.put("unit", "C");
             //object_in_measurements.put("unit", "K");
@@ -163,6 +161,7 @@ public class client_API  extends common_API{
 
 
     ArrayList get(String url, ArrayList patterns) throws IOException {
+        logger(CLIENTLOG, INFO_LEVEL, new Date() + ": get request to: " + url);
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(url);
         request.addHeader(ACCEPT,"application/json");
@@ -173,11 +172,11 @@ public class client_API  extends common_API{
         HttpResponse response = client.execute(request);
         long finish = System.currentTimeMillis();
         int diff = (int)(finish-start);
-        logger(INFO_LEVEL, diff + "ms request");
+        logger(CLIENTLOG, INFO_LEVEL, diff + "ms request");
 
         String responseBody = read_response(response);
         if(show_response_body){
-            logger(INFO_LEVEL, "responseBody: " + responseBody);
+            logger(CLIENTLOG, INFO_LEVEL, "responseBody: " + responseBody);
         }
 
         ArrayList arrayList = new ArrayList();
@@ -190,11 +189,12 @@ public class client_API  extends common_API{
             }
         }
 
-        logger(INFO_LEVEL, "filtered  data: " + arrayList);
+        logger(CLIENTLOG, INFO_LEVEL, "filtered  data: " + arrayList);
         return arrayList;
     }
 
     ArrayList post(String url, ArrayList patterns, String json, boolean parse_json) throws IOException {
+        logger(CLIENTLOG, INFO_LEVEL, new Date() + ": post request to: " + url);
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost request = new HttpPost(url);
         //request.setHeader("User-Agent", USER_AGENT);
@@ -209,7 +209,7 @@ public class client_API  extends common_API{
         urlParameters.add(new BasicNameValuePair("num", "12345"));*/
         //request.setEntity(new UrlEncodedFormEntity(urlParameters));
         if(show_generated_json) {
-            logger(INFO_LEVEL, "generated json: " + json);
+            logger(CLIENTLOG, INFO_LEVEL, "generated json: " + json);
         }
         request.setEntity(new StringEntity(json));
 
@@ -217,24 +217,19 @@ public class client_API  extends common_API{
         HttpResponse response = client.execute(request);
         long finish = System.currentTimeMillis();
         int diff = (int)(finish-start);
-        logger(INFO_LEVEL, diff + "ms request");
+        logger(CLIENTLOG, INFO_LEVEL, diff + "ms request");
 
 
         String responseBody = read_response(response);
         if(show_response_body){
-            logger(INFO_LEVEL, "responseBody: " + responseBody);
+            logger(CLIENTLOG, INFO_LEVEL, "responseBody: " + responseBody);
         }
 
 
         //todo
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase());
-        start = System.currentTimeMillis();
         check_responsebody(responseBody, patterns, arrayList);
-        finish = System.currentTimeMillis();
-        diff = (int)(finish-start);
-        logger(INFO_LEVEL, diff + "ms for substring");
-
         /*String responsebody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
         if(show_response_json){
             logger(INFO_LEVEL,"response body: " + responsebody);
@@ -252,13 +247,13 @@ public class client_API  extends common_API{
                         JSONObject obj = (JSONObject) object;
                         arrayList_parsed.add(obj.get("measurements"));
                         //parsed.add(obj.get("date"));
-                        logger(INFO_LEVEL, "JSONArray JSONParser-ed data: " + arrayList_parsed);
+                        logger(CLIENTLOG, INFO_LEVEL, "JSONArray JSONParser-ed data: " + arrayList_parsed);
                     }
                 } else if (resultObject instanceof JSONObject) {
                     JSONObject obj = (JSONObject) resultObject;
                     arrayList_parsed.add(obj.get("measurements"));
                     //parsed.add(obj.get("date"));
-                    logger(INFO_LEVEL, "JSONObject JSONParser-ed data: " + arrayList_parsed);
+                    logger(CLIENTLOG, INFO_LEVEL, "JSONObject JSONParser-ed data: " + arrayList_parsed);
                 }
             } catch (ParseException e) {
                 //todo: handle exception
@@ -266,10 +261,10 @@ public class client_API  extends common_API{
                 e.printStackTrace();
             }
 
-            logger(INFO_LEVEL, "response data parsed: " + arrayList_parsed);
+            logger(CLIENTLOG, INFO_LEVEL, "filtered data parsed: " + arrayList_parsed);
         }
 
-        logger(INFO_LEVEL, "filtered data: " + arrayList);
+        logger(CLIENTLOG, INFO_LEVEL, "filtered data: " + arrayList);
         return arrayList;
     }
 

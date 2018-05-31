@@ -2,6 +2,7 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import org.apache.http.HttpResponse;
+import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,11 +17,8 @@ import static org.apache.http.HttpHeaders.ALLOW;
 
 public class server_API extends common_API{
 
-    private List<String> test;
-    private List<String> macaddress;
     private boolean show_request_headers = true;
     private boolean show_request_body = true;
-
 
     /** SERVER side
      * @param server
@@ -70,11 +68,13 @@ public class server_API extends common_API{
      * @throws IOException
      */
     void process_context_temperature(HttpServer server, String context) throws IOException {
-        logger(INFO_LEVEL,"[SERVER] process_context_temperature: " + context);
+        logger(SERVERLOG, INFO_LEVEL,"[SERVER] process_context_temperature: " + context);
         //http://www.javenue.info/post/java-http-server
         server.createContext(context, exchange-> {
+            count_of_received_requests++;
+
             if(show_info_level) {
-                logger(INFO_LEVEL, "[SERVER] new client connected: " +
+                logger(SERVERLOG, INFO_LEVEL, "[SERVER] " + new Date() + ": new client connected: " +
                         exchange.getRemoteAddress() + " " +
                         exchange.getProtocol() + " " +
                         exchange.getRequestMethod() + " " +
@@ -84,15 +84,13 @@ public class server_API extends common_API{
             //get request headers
             String requestHeaders = my_getRequestHeaders(exchange);
             if(show_request_headers) {
-                logger(INFO_LEVEL, "requestHeaders: \n" + requestHeaders);
+                logger(SERVERLOG, INFO_LEVEL, "[SERVER] requestHeaders: \n" + requestHeaders);
             }
 
             //get request body
             String requestbody = my_getRequestBody(exchange);
             if(show_request_body) {
-                if (!requestbody.isEmpty()) {
-                    logger(INFO_LEVEL, "requestBody: " + requestbody);
-                }
+                logger(SERVERLOG, INFO_LEVEL, "[SERVER] requestBody: \n" + requestbody);
             }
 
             //parsing params in URI
@@ -104,58 +102,68 @@ public class server_API extends common_API{
 
             //check_responsebody();
 
-            //String responsebody = html + " " + requestMethod + " " + context;
-            //String responsebody= "{\"measurements\":[{\"date\":\"2018-29-05\",\"unit\":\"C\",\"temperature\":907}]}";
-            /*responsebody = "{\"success\":false,\"error:" +
-                    "{" +
-                    "\"code\":1," +
-                    "\"message\" : \"incorrect json format\"" +
-                    "}" +
-                    "}";*/
+            String message = "example of correct json: " +
+                    "\n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:" +
+                    "\nmeasurements - array is mandatory." +
+                    "\ndate         - field is mandatory, value is unix timestamp" +
+                    "\ntemperature  - field is optional, value is type short" +
+                    "\nunit         - field is optional, value is string, can be: K, k, C, c, F, f";
 
-            int responseCode = STATUS_OK;
-            String responseBody = "";
-            String correct_json = "{\"Measurements\":[{\"Date\":\"Wed May 30 16:31:04 MSK 2018\",\"Unit\":\"C\",\"Temperature\":123}]}";
+            int responseCode;
+            JSONObject json = new JSONObject();
 
-            if (requestbody.equals(correct_json + "\n")) {
-                responseBody = "{\"success\":true}";
-
-            } else if (requestbody.equals("")) {
-                responseBody = "{\"success\":false,\"error\":\"incorrect json: empty body\"}";
-
-            } else if (requestbody.equals("{}\n")) {
-                responseBody = "{\"success\":false,\"error\":\"incorrect json: empty json in body\"}";
-
-            } else  if (requestbody.equals("{\"test\":123123123}\n")) {
+            if (requestbody.equals("")) {
+                json.put("success", false);
+                json.put("error", "incorrect json: empty body");
                 responseCode = STATUS_SERVER_INTERNAL_ERROR;
-                responseBody = "{\"success\":false,\"error\":\"incorrect json: incorrect json format\"}";
+
+            } else if (requestbody.equals("{}")) {
+                json.put("success", false);
+                json.put("error", "incorrect json: empty json in body");
+                responseCode = STATUS_SERVER_INTERNAL_ERROR;
+
+            } else if (!requestbody.contains("\"measurements\":[") || !requestbody.contains("\"date\":")){
+                json.put("success", false);
+                json.put("error", "incorrect json: incorrect json format, incorrect one or more mandatory field: measurements and/or date");
+                json.put("message", message);
+                responseCode = STATUS_SERVER_INTERNAL_ERROR;
+
+            } else if (requestbody.contains("\"measurements\":[") && requestbody.contains("\"date\":")){
+                json.put("success", true);
+                responseCode = STATUS_OK;
+
+                generate_xml(global_config.get(4).toString());
 
             } else {
+                json.put("success", false);
+                json.put("error", "incorrect json: incorrect json format");
+                json.put("message", message);
                 responseCode = STATUS_SERVER_INTERNAL_ERROR;
-                responseBody = "incorrect request\n";
             }
 
+            /*Headers header = new Headers();
+            header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
+            header.set("HTTP/1.1", responseCode + "");
+            header.set("Server", "json_server 0.1");*/
+            //headers.set("Content-Length", responseBody);
+            //headers.set("Connection", "close");
+
+            String responseBody = json.toJSONString();
             try {
                 switch (requestMethod) {
                     case METHOD_GET:
-                        /*Headers header = new Headers();
-                        header.set(CONTENT_TYPE, String.format("application/json; charset=%s", StandardCharsets.UTF_8));
-                        header.set("HTTP/1.1", responseCode + "");
-                        header.set("Server", "json_server 0.1");*/
-                        //headers.set("Content-Length", responseBody);
-                        //headers.set("Connection", "close");
                         send_response(exchange, responseCode, responseBody);
                         break;
                     case METHOD_POST:
                         send_response(exchange, responseCode, responseBody);
                         break;
                     case METHOD_OPTIONS:
-                        logger(INFO_LEVEL,"[SERVER] case METHOD_OPTIONS");
+                        logger(SERVERLOG, INFO_LEVEL,"[SERVER] case METHOD_OPTIONS");
                         headers.set(ALLOW, ALLOWED_METHODS);
                         exchange.sendResponseHeaders(STATUS_OK, NO_RESPONSE_LENGTH);
                         break;
                     default:
-                        logger(INFO_LEVEL,"[SERVER] case default");
+                        logger(SERVERLOG, INFO_LEVEL,"[SERVER] case default");
                         headers.set(ALLOW, ALLOWED_METHODS);
                         exchange.sendResponseHeaders(STATUS_METHOD_NOT_ALLOWED, NO_RESPONSE_LENGTH);
                         break;
@@ -166,16 +174,23 @@ public class server_API extends common_API{
         });
     }
 
+    private void generate_xml(String fileName) throws IOException {
 
+        logger(SERVERLOG, INFO_LEVEL, "used: " + fileName);
+        /*try {
+            FileOutputStream os = new FileOutputStream(new File(fileName));
+            os.close();
+        } catch (Exception e) {
+            System.out.println("catch exception! write_config: " + e);
+            e.printStackTrace();
+        }*/
+    }
 
     private String my_getRequestBody(HttpExchange he) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(he.getRequestBody()));
         StringBuilder builder = new StringBuilder();
         for (String line; (line = reader.readLine()) != null; ) {
             builder.append(line);
-            if (reader.readLine() == null) {
-                builder.append("\n");
-            }
         }
         return builder.toString();
     }
@@ -218,33 +233,45 @@ public class server_API extends common_API{
      * @throws IOException
      */
     void process_context_stop(HttpServer server, String context) throws IOException {
-        logger(INFO_LEVEL,"[SERVER] process_context_stop(): " + context);
+        logger(SERVERLOG, INFO_LEVEL,"[SERVER] process_context_stop(): " + context);
         server.createContext(context, exchange -> {
-            logger(INFO_LEVEL, "[SERVER] new client connected: " +
+            count_of_received_requests++;
+
+            logger(SERVERLOG, INFO_LEVEL, "[SERVER] " + new Date() + ": new client connected: " +
                     exchange.getRemoteAddress() + " " +
                     exchange.getProtocol() + " " +
                     exchange.getRequestMethod() + " " +
                     exchange.getRequestURI());
 
+            //get request headers
             String requestHeaders = my_getRequestHeaders(exchange);
-            logger(INFO_LEVEL, "[SERVER] requestHeaders: \n" + requestHeaders);
+            if(show_request_headers) {
+                logger(SERVERLOG, INFO_LEVEL, "[SERVER] requestHeaders: \n" + requestHeaders);
+            }
 
+            //get request body
+            String requestbody = my_getRequestBody(exchange);
+            if(show_request_body) {
+                logger(SERVERLOG, INFO_LEVEL, "[SERVER] requestBody: \n" + requestbody);
+            }
+
+            //Headers headers = exchange.getResponseHeaders();
+            String requestMethod = exchange.getRequestMethod().toUpperCase();
+            //Map<String, List<String>> requestParameters = getRequestParameters(exchange.getRequestURI());
+            //test = requestParameters.get("test");
+            //macaddress = requestParameters.get("macaddress");
+            //String responseBody = html + " " + requestMethod + " " + context;
+            //responseBody += add_params_if_not_null(test, macaddress);
+            String responseBody = "server was stopped by request";
             try {
-                Headers headers = exchange.getResponseHeaders();
-                String requestMethod = exchange.getRequestMethod().toUpperCase();
-                Map<String, List<String>> requestParameters = getRequestParameters(exchange.getRequestURI());
-                test = requestParameters.get("test");
-                macaddress = requestParameters.get("macaddress");
-                String responseBody = html + " " + requestMethod + " " + context;
-                responseBody += add_params_if_not_null(test, macaddress);
-
                 switch (requestMethod) {
                     case METHOD_GET:
                         send_response(exchange, STATUS_OK, responseBody);
                         server.stop(0);
+                        logger(SERVERLOG, INFO_LEVEL, "[SERVER] shutdown, count of received requests: " + count_of_received_requests);
                         break;
                     default:
-                        logger(INFO_LEVEL,"[SERVER] case default");
+                        logger(SERVERLOG, INFO_LEVEL,"[SERVER] case default");
                         break;
                 }
             } finally {
@@ -253,6 +280,7 @@ public class server_API extends common_API{
         });
     }
 
+    @Deprecated
     private String add_params_if_not_null(List test, List macaddress) {
         String result = "";
         if(test!=null){
@@ -303,7 +331,7 @@ public class server_API extends common_API{
      * @throws IOException
      */
     private void send_response(HttpExchange exchange, int responseCode, String responseBody) throws IOException {
-        System.out.println("send responseBody: " + responseBody);
+        logger(SERVERLOG, INFO_LEVEL, "[SERVER] send responseBody: " + responseBody);
         byte[] rawResponseBody = responseBody.getBytes(StandardCharsets.UTF_8);
         exchange.sendResponseHeaders(responseCode, rawResponseBody.length);
         exchange.getResponseBody().write(rawResponseBody);

@@ -19,6 +19,9 @@ class common_API extends json_server {
     final String DEBUG_LEVEL = "DBG";
     final String INFO_LEVEL = "INF";
 
+    final String SERVERLOG = "ServerLog.txt";
+    final String CLIENTLOG = "ClientLog.txt";
+
     static final String METHOD_GET = "GET";
     static final String METHOD_POST = "POST";
     static final String METHOD_OPTIONS = "OPTIONS";
@@ -33,23 +36,19 @@ class common_API extends json_server {
     String html = "json_server 0.1:";
     private String supported_context = "/ /reminders /stop";
     private boolean write_file = true;
-    /*private String list_params = "test=" + test.get(0) + ", " +
-            "macaddress=" + macaddress.get(0) + ", " +
-            "count_reminders="+ count_reminders.get(0) + ", " +
-            "count_iterations=" + count_iterations.get(0);*/
 
+    ArrayList global_config = new ArrayList();
 
-    ArrayList<String> read_config() throws IOException {
-        ArrayList arrayList = new ArrayList();
-        Properties p = new Properties();
-        String fileName= "src/main/resources/config.properties";
-        p.load(new FileInputStream(fileName));
+    ArrayList<String> read_config(String fileName) throws IOException {
+        Properties property = new Properties();
+        property.load(new FileInputStream(fileName));
 
-        arrayList.add(0, p.getProperty("list_of_contexts", "default_contexts"));
-        arrayList.add(1, p.getProperty("list_of_params", "default_params"));
-        arrayList.add(2, p.getProperty("enable_context_temperature", "true"));
-        arrayList.add(3, p.getProperty("enable_context_stop", "true"));
-        return arrayList;
+        global_config.add(0, property.getProperty("list_of_contexts"));
+        global_config.add(1, property.getProperty("list_of_params"));
+        global_config.add(2, property.getProperty("enable_context_temperature", "true"));
+        global_config.add(3, property.getProperty("enable_context_stop", "true"));
+        global_config.add(4, property.getProperty("fileName_xml", "json.xml"));
+        return global_config;
     }
 
     void write_config(String key, String value) throws IOException {
@@ -68,24 +67,28 @@ class common_API extends json_server {
 
         }
 
-    void logger(String level, String s) throws IOException {
+    void logger(String log, String level, String s) throws IOException {
         if(level.equals("INF") && show_info_level) {
             System.out.println(s);
             if (write_file) {
-                write_to_file(s + "\n");
+                write_to_file(log, s + "\n");
             }
         }
 
         if(level.equals("DBG") && show_debug_level) {
             System.out.println(s);
             if (write_file) {
-                write_to_file(s + "\n");
+                write_to_file(log, s + "\n");
             }
         }
     }
 
-    private void write_to_file(String string) throws IOException {
-        FileWriter writer = new FileWriter("ServerLog.txt", true);
+    private void write_to_file(String log, String string) throws IOException {
+        String fileName = "ServerLog.txt";
+        if (log.equals(CLIENTLOG)) {
+            fileName = "ClientLog.txt";
+        }
+        FileWriter writer = new FileWriter(fileName, true);
         writer.write(string);
         //writer.append('\n');
         writer.flush();
