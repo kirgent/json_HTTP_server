@@ -5318,3 +5318,62 @@ fileName_xml=json.xml
 [SERVER] process_context_stop(): /stop
 [SERVER] server started: on /127.0.0.1:8080
 [SERVER] in console mode type CTRL+C to quit
+[SERVER] Fri Jun 01 17:30:00 MSK 2018: read src/main/resources/config.properties:
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature="true"
+enable_context_stop="true"
+fileName_xml=json.xml
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Fri Jun 01 17:30:08 MSK 2018: new client connected: /127.0.0.1:40182 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+[SERVER] requestBody: 
+{}
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: empty json in body"}
+[SERVER] Fri Jun 01 17:30:28 MSK 2018: read src/main/resources/config.properties:
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature="true"
+enable_context_stop="true"
+fileName_xml=json.xml
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Fri Jun 01 17:38:19 MSK 2018: new client connected: /127.0.0.1:40266 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+[SERVER] requestBody: 
+{}
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: empty json in body"}
+[SERVER] Fri Jun 01 17:38:32 MSK 2018: new client connected: /127.0.0.1:40270 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=localhost:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=2
+
+[SERVER] requestBody: 
+{}
+[SERVER] send responseBody: {"success":false,"error":"incorrect json: empty json in body"}
