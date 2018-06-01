@@ -194,7 +194,7 @@ public class client_API  extends common_API{
     }
 
     ArrayList post(String url, ArrayList patterns, String json, boolean parse_json) throws IOException {
-        logger(CLIENTLOG, INFO_LEVEL, new Date() + ": post request to: " + url);
+        logger(CLIENTLOG, INFO_LEVEL, "post request to: " + url);
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost request = new HttpPost(url);
         //request.setHeader("User-Agent", USER_AGENT);

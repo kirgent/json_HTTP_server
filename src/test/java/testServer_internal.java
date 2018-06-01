@@ -9,18 +9,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class testServer_internal extends client_API {
     private ArrayList expected = new ArrayList();
-    private common_API api = new common_API();
     private String url;
 
 
     @BeforeEach
     void setup() throws IOException {
         String client_fileName_config = "src/main/resources/config.properties.client";
-        ArrayList propertiesList = api.read_config_client(client_fileName_config);
+        ArrayList propertiesList = read_config_client(client_fileName_config);
         String host = (String) propertiesList.get(0);
         String port = (String) propertiesList.get(1);
         String params = "test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10";
-        api.logger(api.SERVERLOG, api.INFO_LEVEL, new Date() + ": read " + client_fileName_config + ":\n"
+        logger(CLIENTLOG, INFO_LEVEL, new Date() + ": read " + client_fileName_config + ":\n"
                 + "server_host=" + host + "\n"
                 + "server_port=" + port);
         String context = "/temperature";
