@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -5,6 +6,8 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled
+@Deprecated
 class testServer_extenal_www extends client_API {
     private String host = "localhost";
     private int port = 8080;
@@ -12,6 +15,8 @@ class testServer_extenal_www extends client_API {
     private ArrayList expected = new ArrayList();
 
     @Test
+    @Disabled
+    @Deprecated
     void test_1_get_request__200_OK() throws IOException {
         expected.add(0, expected200);
         expected.add(1, "<title>Google</title>");
@@ -23,6 +28,8 @@ class testServer_extenal_www extends client_API {
     }
 
     @Test
+    @Disabled
+    @Deprecated
     void test_2_get_request__200_OK__search() throws IOException {
         expected.add(0, expected200);
         expected.add(1, "<title>httpClient - ");
@@ -34,6 +41,8 @@ class testServer_extenal_www extends client_API {
     }
 
     @Test
+    @Disabled
+    @Deprecated
     void test_3_get_request__404_Not_Found() throws IOException {
         expected.add(0, expected404);
         expected.add(1, "<title>Error 404 (Not Found)!!1</title>");
@@ -46,6 +55,8 @@ class testServer_extenal_www extends client_API {
     }
 
     @Test
+    @Disabled
+    @Deprecated
     void test_4_post_request__405_Method_Not_Allowed() throws IOException {
         expected.add(0, expected405);
         expected.add(1, " <title>Error 405 (Method Not Allowed)!!1</title>");
