@@ -5432,3 +5432,63 @@ Content-length=0
 [SERVER] requestBody: 
 
 [SERVER] send responseBody: {"success":false,"error":"incorrect json: empty body"}
+Fri Jun 01 17:57:48 MSK 2018: read src/main/resources/config.properties.client:
+server_host=null
+server_port=null
+Fri Jun 01 17:58:13 MSK 2018: read src/main/resources/config.properties.client:
+server_host=null
+server_port=null
+Fri Jun 01 18:00:17 MSK 2018: read src/main/resources/config.properties.client:
+server_host="127.0.0.1"
+server_port="8080"
+Fri Jun 01 18:00:36 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+[SERVER] Fri Jun 01 18:00:37 MSK 2018: new client connected: /127.0.0.1:40518 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=67
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1527865236,"unit":"C","temperature":606}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+Fri Jun 01 18:02:35 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+[SERVER] Fri Jun 01 18:02:35 MSK 2018: new client connected: /127.0.0.1:40556 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=58
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018"}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}
+Fri Jun 01 18:02:45 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+[SERVER] Fri Jun 01 18:02:46 MSK 2018: new client connected: /127.0.0.1:40564 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=58
+
+[SERVER] requestBody: 
+{"measurements":[{"date":"Wed May 30 16:31:04 MSK 2018"}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}

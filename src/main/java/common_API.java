@@ -42,12 +42,19 @@ class common_API extends json_server {
     ArrayList<String> read_config(String fileName) throws IOException {
         Properties property = new Properties();
         property.load(new FileInputStream(fileName));
-
         global_config.add(0, property.getProperty("list_of_contexts"));
         global_config.add(1, property.getProperty("list_of_params"));
         global_config.add(2, property.getProperty("enable_context_temperature", "true"));
         global_config.add(3, property.getProperty("enable_context_stop", "true"));
         global_config.add(4, property.getProperty("fileName_xml", "json.xml"));
+        return global_config;
+    }
+
+    ArrayList<String> read_config_client(String fileName) throws IOException {
+        Properties property = new Properties();
+        property.load(new FileInputStream(fileName));
+        global_config.add(0, property.getProperty("server_host"));
+        global_config.add(1, property.getProperty("server_port"));
         return global_config;
     }
 
