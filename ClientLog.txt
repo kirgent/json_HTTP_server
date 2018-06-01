@@ -215,3 +215,18 @@ generated json: {"measurements":[{"date":1527836794,"unit":"C","temperature":84}
 612ms request
 responseBody: {"success":true}
 filtered data: [200 OK, "success":true]
+Fri Jun 01 12:45:33 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527846333,"unit":"C","temperature":819}]}
+143ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
+Fri Jun 01 12:54:09 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527846849,"unit":"C","temperature":668}]}
+178ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
+Fri Jun 01 12:54:18 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {}
+141ms request
+responseBody: {"success":false,"error":"incorrect json: empty json in body"}
+filtered data: [500 Internal Server Error, "success":false, incorrect json: empty json in body]

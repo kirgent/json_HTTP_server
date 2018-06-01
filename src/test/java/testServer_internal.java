@@ -15,7 +15,7 @@ class testServer_internal extends client_API {
     private ArrayList expected = new ArrayList();
 
     @Test
-    void testServer__correct_json() throws IOException {
+    void test1_Server_correct_json() throws IOException {
         expected.add(0, expected200);
         expected.add(1, "\"success\":true");
 
@@ -27,7 +27,7 @@ class testServer_internal extends client_API {
     }
 
     @Test
-    void testServer__correct_json2() throws IOException {
+    void test2_Server_correct_json2() throws IOException {
         expected.add(0, expected200);
         expected.add(1, "\"success\":true");
 
@@ -39,7 +39,7 @@ class testServer_internal extends client_API {
     }
 
     @Test
-    void testServer__correct_json3() throws IOException {
+    void test3_Server_correct_json3() throws IOException {
         expected.add(0, expected200);
         expected.add(1, "\"success\":true");
 
@@ -51,7 +51,7 @@ class testServer_internal extends client_API {
     }
 
     @Test
-    void testServer__empty_body() throws IOException {
+    void test4_Server_empty_body() throws IOException {
         expected.add(0, expected500);
         expected.add(1, "\"success\":false");
         expected.add(2, "incorrect json: empty body");
@@ -64,7 +64,7 @@ class testServer_internal extends client_API {
     }
 
     @Test
-    void testServer__empty_json_in_body() throws IOException {
+    void test5_Server_empty_json_in_body() throws IOException {
         expected.add(0, expected500);
         expected.add(1, "\"success\":false");
         expected.add(2, "incorrect json: empty json in body");
@@ -77,7 +77,7 @@ class testServer_internal extends client_API {
     }
 
     @Test
-    void testServer__incorrect_json_format() throws IOException {
+    void test6_Server_incorrect_json_format() throws IOException {
         expected.add(0, expected500);
         expected.add(1, "\"success\":false");
         expected.add(2, "incorrect json: incorrect json format");
@@ -90,7 +90,7 @@ class testServer_internal extends client_API {
     }
 
     @Test
-    void testServer__incorrect_request() throws IOException {
+    void test7_Server_incorrect_json_format2() throws IOException {
         expected.add(0, expected500);
         expected.add(1, "incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date");
 
@@ -100,15 +100,5 @@ class testServer_internal extends client_API {
             assertEquals(expected.get(i), actual.get(i));
         }
     }
-
-    @Test
-    void testServer_for_incorrect_method() throws IOException {
-        //ArrayList actual = request("PUT", host, port, context, "{}");
-        //assertEquals(expected200, actual.get(0));
-        //assertEquals("incorrect http method!", actual.get(1));
-    }
-
-
-
 
 }
