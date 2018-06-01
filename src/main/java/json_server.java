@@ -13,14 +13,14 @@ public class json_server {
         server_API api = new server_API();
         String host = "localhost";
         int port = 8080;
-        String fileName_config = "src/main/resources/config.properties";
+        String server_fileName_config = "src/main/resources/config.properties";
         //String fileName_xml = "json.xml";
         HttpServer server = HttpServer.create(new InetSocketAddress(host, port), -1);
         //HttpServer server = HttpServer.create();
         //server.bind(new InetSocketAddress(8080),0);
 
-        ArrayList propertiesList = api.read_config(fileName_config);
-        api.logger(api.SERVERLOG, api.INFO_LEVEL, "[SERVER] " + new Date() + ": read " + fileName_config + ":\n"
+        ArrayList propertiesList = api.read_config(server_fileName_config);
+        api.logger(api.SERVERLOG, api.INFO_LEVEL, "[SERVER] " + new Date() + ": read " + server_fileName_config + ":\n"
                 + "list_of_contexts=" + propertiesList.get(0) + "\n"
                 + "list_of_params=" + propertiesList.get(1) + "\n"
                 + "enable_context_temperature=" + propertiesList.get(2) + "\n"

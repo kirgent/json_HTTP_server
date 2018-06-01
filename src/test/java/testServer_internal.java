@@ -1,7 +1,9 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,7 +14,18 @@ class testServer_internal extends client_API {
     private String params = "test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10";
     private String url = "http://" + host + ":" + port + context + "?" + params;
 
+    String client_fileName_config = "src/main/resources/config.properties.client";
+
     private ArrayList expected = new ArrayList();
+    common_API api = new common_API();
+
+    @BeforeEach
+    void setup() throws IOException {
+        ArrayList propertiesList = api.read_config(client_fileName_config);
+        api.logger(api.SERVERLOG, api.INFO_LEVEL, new Date() + ": read " + client_fileName_config + ":\n"
+                + "server_host=" + propertiesList.get(0) + "\n"
+                + "server_port=" + propertiesList.get(1));
+    }
 
     @Test
     void test1_Server_correct_json() throws IOException {
