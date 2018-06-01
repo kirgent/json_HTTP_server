@@ -210,3 +210,8 @@ generated json: 123123123
 153ms request
 responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
 filtered data: [500 Internal Server Error, incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date]
+Fri Jun 01 10:06:34 MSK 2018: post request to: http://localhost:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1527836794,"unit":"C","temperature":84}]}
+612ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
