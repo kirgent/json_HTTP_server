@@ -32,9 +32,8 @@ class common_API extends json_server {
     String html = "json_server 0.1:";
     private String supported_context = "/ /reminders /stop";
     private boolean write_file = true;
-
-
-
+    private boolean show_debug_level = true;
+    private boolean show_info_level = true;
 
 
     void write_config(String key, String value) throws IOException {

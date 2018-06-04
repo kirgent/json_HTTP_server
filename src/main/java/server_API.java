@@ -17,41 +17,38 @@ public class server_API extends common_API{
     private ArrayList server_config = new ArrayList();
     private boolean show_request_headers;
     private boolean show_request_body;
-    private boolean show_info_level;
-    private boolean show_debug_level;
+    private boolean show_converted_xml;
+    private String filename_xml;
+
+    private String message = "example of correct json: " +
+            "\n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:" +
+            "\nmeasurements - array is mandatory." +
+            "\ndate         - field is mandatory, value is unix timestamp" +
+            "\ntemperature  - field is optional, value is type short" +
+            "\nunit         - field is optional, value is string, can be: K, k, C, c, F, f";
 
     ArrayList read_server_config(String fileName) throws IOException {
         Properties property = new Properties();
         property.load(new FileInputStream(fileName));
-        server_host = property.getProperty("server_host");
+        server_host = property.getProperty("server_host", "127.0.0.1");
         server_config.add(0, server_host);
-        server_port = Integer.parseInt(property.getProperty("server_port"));
+        server_port = Integer.parseInt(property.getProperty("server_port", "8080"));
         server_config.add(1, server_port);
 
-        server_config.add(2, property.getProperty("list_of_contexts"));
+        server_config.add(2, property.getProperty("list_of_contexts", "/"));
         server_config.add(3, property.getProperty("list_of_params"));
         server_config.add(4, property.getProperty("enable_context_temperature", "true"));
         server_config.add(5, property.getProperty("enable_context_stop", "true"));
 
-        server_config.add(6, property.getProperty("fileName_xml", "json.xml"));
-
-        show_info_level = Boolean.parseBoolean(property.getProperty("show_info_level", "true"));
-        server_config.add(7, show_info_level);
-
-        show_debug_level = Boolean.parseBoolean(property.getProperty("show_debug_level", "true"));
-        server_config.add(8, show_debug_level);
-
-        show_response_body = property.getProperty("show_response_body", "true");
-        server_config.add(9, show)
-
-        server_config.add(9, property.getProperty("show_response_json", "true"));
-        server_config.add(10, property.getProperty("show_response_xml", "true"));
+        filename_xml = property.getProperty("fileName_xml", "json.xml");
+        server_config.add(6, filename_xml);
+        show_converted_xml = Boolean.parseBoolean(property.getProperty("show_response_xml", "true"));
+        server_config.add(7, show_converted_xml);
 
         show_request_headers = Boolean.parseBoolean(property.getProperty("show_request_headers", "true"));
-        server_config.add(11, show_request_headers);
-
+        server_config.add(8, show_request_headers);
         show_request_body = Boolean.parseBoolean(property.getProperty("show_request_body", "true"));
-        server_config.add(12, show_request_body);
+        server_config.add(9, show_request_body);
 
         return server_config;
     }
@@ -109,13 +106,11 @@ public class server_API extends common_API{
         server.createContext(context, exchange-> {
             count_of_received_requests++;
 
-            if(show_info_level) {
-                logger(SERVERLOG, INFO_LEVEL, "[SERVER] " + new Date() + ": new client connected: " +
-                        exchange.getRemoteAddress() + " " +
-                        exchange.getProtocol() + " " +
-                        exchange.getRequestMethod() + " " +
-                        exchange.getRequestURI());
-            }
+            logger(SERVERLOG, INFO_LEVEL, "[SERVER] " + new Date() + ": new client connected: " +
+                    exchange.getRemoteAddress() + " " +
+                    exchange.getProtocol() + " " +
+                    exchange.getRequestMethod() + " " +
+                    exchange.getRequestURI());
 
             //get request headers
             String requestHeaders = my_getRequestHeaders(exchange);
@@ -136,14 +131,6 @@ public class server_API extends common_API{
             String params = add_params_if_not_null(requestParameters.get("test"),
                        requestParameters.get("macaddress"));
 
-            //check_responsebody();
-
-            String message = "example of correct json: " +
-                    "\n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:" +
-                    "\nmeasurements - array is mandatory." +
-                    "\ndate         - field is mandatory, value is unix timestamp" +
-                    "\ntemperature  - field is optional, value is type short" +
-                    "\nunit         - field is optional, value is string, can be: K, k, C, c, F, f";
 
             int responseCode;
             JSONObject json = new JSONObject();
@@ -168,7 +155,11 @@ public class server_API extends common_API{
                 json.put("success", true);
                 responseCode = STATUS_OK;
 
-                generate_xml(server_config.get(4).toString());
+                String xml = generate_xml(requestbody, filename_xml);
+
+                if(show_converted_xml){
+                    logger(SERVERLOG, INFO_LEVEL, "[SERVER] generated xml:" + xml);
+                }
 
             } else {
                 json.put("success", false);
@@ -210,16 +201,12 @@ public class server_API extends common_API{
         });
     }
 
-    private void generate_xml(String fileName) throws IOException {
-
-        logger(SERVERLOG, INFO_LEVEL, "used: " + fileName);
-        /*try {
-            FileOutputStream os = new FileOutputStream(new File(fileName));
-            os.close();
-        } catch (Exception e) {
-            System.out.println("catch exception! write_config: " + e);
-            e.printStackTrace();
-        }*/
+    private String generate_xml(String requestbody, String fileName) throws IOException {
+        //todo
+        //System.out.println(xml);
+        //todo
+        //return xml;
+        return "";
     }
 
     private String my_getRequestBody(HttpExchange he) throws IOException {
@@ -367,7 +354,7 @@ public class server_API extends common_API{
      * @throws IOException
      */
     private void send_response(HttpExchange exchange, int responseCode, String responseBody) throws IOException {
-        logger(SERVERLOG, INFO_LEVEL, "[SERVER] send responseBody: " + responseBody);
+        logger(SERVERLOG, INFO_LEVEL, "[SERVER] send responseBody: " + responseBody + "\n");
         byte[] rawResponseBody = responseBody.getBytes(StandardCharsets.UTF_8);
         exchange.sendResponseHeaders(responseCode, rawResponseBody.length);
         exchange.getResponseBody().write(rawResponseBody);
