@@ -6360,3 +6360,18 @@ Content-length=165
 [SERVER] generated xml:
 [SERVER] send responseBody: {"success":true}
 
+[SERVER] Mon Jun 04 12:32:04 MSK 2018: read src/main/resources/config.properties:
+server_host=127.0.0.1
+server_port=8080
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature=true
+enable_context_stop=true
+fileName_xml=json.xml
+show_response_xml=true
+show_request_headers=true
+show_request_body=true
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit

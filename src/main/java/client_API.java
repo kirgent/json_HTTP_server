@@ -268,7 +268,7 @@ public class client_API  extends common_API{
             logger(CLIENTLOG, INFO_LEVEL, "filtered data parsed: " + arrayList_parsed);
         }
 
-        logger(CLIENTLOG, INFO_LEVEL, "filtered data: " + arrayList);
+        logger(CLIENTLOG, INFO_LEVEL, "filtered data: " + arrayList + "\n");
         return arrayList;
     }
 
