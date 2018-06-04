@@ -525,3 +525,19 @@ generated json: {"measurements":[{"date":1528104418,"unit":"C","temperature":760
 146ms request
 responseBody: {"success":true}
 filtered data: [200 OK, "success":true]
+Mon Jun 04 12:29:33 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+post request to: http://127.0.0.1:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104573,"unit":"C","temperature":985},{"date":1528104573,"unit":"C","temperature":427},{"date":1528104573,"unit":"C","temperature":138}]}
+104ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
+Mon Jun 04 12:30:55 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+post request to: http://127.0.0.1:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104655,"unit":"C","temperature":974},{"date":1528104655,"unit":"C","temperature":889},{"date":1528104655,"unit":"C","temperature":102}]}
+76ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]
