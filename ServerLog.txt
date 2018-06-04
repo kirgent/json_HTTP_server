@@ -6375,3 +6375,33 @@ show_request_body=true
 [SERVER] process_context_stop(): /stop
 [SERVER] server started: on /127.0.0.1:8080
 [SERVER] in console mode type CTRL+C to quit
+[SERVER] Mon Jun 04 12:32:37 MSK 2018: new client connected: /127.0.0.1:47334 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=165
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1528104756,"unit":"C","temperature":898},{"date":1528104756,"unit":"C","temperature":441},{"date":1528104756,"unit":"C","temperature":783}]}
+[SERVER] generated xml:
+[SERVER] send responseBody: {"success":true}
+
+[SERVER] Mon Jun 04 12:32:40 MSK 2018: new client connected: /127.0.0.1:47336 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=165
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1528104760,"unit":"C","temperature":598},{"date":1528104760,"unit":"C","temperature":370},{"date":1528104760,"unit":"C","temperature":250}]}
+[SERVER] generated xml:
+[SERVER] send responseBody: {"success":true}
+
