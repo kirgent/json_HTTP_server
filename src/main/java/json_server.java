@@ -8,24 +8,26 @@ import java.util.Date;
 public class json_server {
 
     int count_of_received_requests = 0;
+    static String server_host;
+    static int server_port;
 
     public static void main(final String... args) throws IOException {
         server_API api = new server_API();
-        String host = "localhost";
-        int port = 8080;
-        String server_fileName_config = "src/main/resources/config.properties";
-        //String fileName_xml = "json.xml";
-        HttpServer server = HttpServer.create(new InetSocketAddress(host, port), -1);
-        //HttpServer server = HttpServer.create();
-        //server.bind(new InetSocketAddress(8080),0);
 
-        ArrayList propertiesList = api.read_config(server_fileName_config);
+        String server_fileName_config = "src/main/resources/config.properties";
+        ArrayList propertiesList = api.read_server_config(server_fileName_config);
         api.logger(api.SERVERLOG, api.INFO_LEVEL, "[SERVER] " + new Date() + ": read " + server_fileName_config + ":\n"
-                + "list_of_contexts=" + propertiesList.get(0) + "\n"
-                + "list_of_params=" + propertiesList.get(1) + "\n"
-                + "enable_context_temperature=" + propertiesList.get(2) + "\n"
-                + "enable_context_stop=" + propertiesList.get(3) + "\n"
-                + "fileName_xml=" + propertiesList.get(4));
+                + "server_interface=" + propertiesList.get(0) + "\n"
+                + "server_port=" + propertiesList.get(1)
+                + "list_of_contexts=" + propertiesList.get(2) + "\n"
+                + "list_of_params=" + propertiesList.get(3) + "\n"
+                + "enable_context_temperature=" + propertiesList.get(4) + "\n"
+                + "enable_context_stop=" + propertiesList.get(5) + "\n"
+                + "fileName_xml=" + propertiesList.get(6));
+
+
+        HttpServer server = HttpServer.create(new InetSocketAddress(server_host, server_port), -1);
+        //String fileName_xml = "json.xml";
 
         //api.process_context_main(server, "/");
         api.process_context_temperature(server, "/temperature");

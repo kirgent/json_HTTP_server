@@ -4,10 +4,7 @@ import com.sun.net.httpserver.HttpServer;
 import org.apache.http.HttpResponse;
 import org.json.simple.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -17,8 +14,47 @@ import static org.apache.http.HttpHeaders.ALLOW;
 
 public class server_API extends common_API{
 
-    private boolean show_request_headers = true;
-    private boolean show_request_body = true;
+    private ArrayList server_config = new ArrayList();
+    private boolean show_request_headers;
+    private boolean show_request_body;
+    private boolean show_info_level;
+    private boolean show_debug_level;
+
+    ArrayList read_server_config(String fileName) throws IOException {
+        Properties property = new Properties();
+        property.load(new FileInputStream(fileName));
+        server_host = property.getProperty("server_host");
+        server_config.add(0, server_host);
+        server_port = Integer.parseInt(property.getProperty("server_port"));
+        server_config.add(1, server_port);
+
+        server_config.add(2, property.getProperty("list_of_contexts"));
+        server_config.add(3, property.getProperty("list_of_params"));
+        server_config.add(4, property.getProperty("enable_context_temperature", "true"));
+        server_config.add(5, property.getProperty("enable_context_stop", "true"));
+
+        server_config.add(6, property.getProperty("fileName_xml", "json.xml"));
+
+        show_info_level = Boolean.parseBoolean(property.getProperty("show_info_level", "true"));
+        server_config.add(7, show_info_level);
+
+        show_debug_level = Boolean.parseBoolean(property.getProperty("show_debug_level", "true"));
+        server_config.add(8, show_debug_level);
+
+        show_response_body = property.getProperty("show_response_body", "true");
+        server_config.add(9, show)
+
+        server_config.add(9, property.getProperty("show_response_json", "true"));
+        server_config.add(10, property.getProperty("show_response_xml", "true"));
+
+        show_request_headers = Boolean.parseBoolean(property.getProperty("show_request_headers", "true"));
+        server_config.add(11, show_request_headers);
+
+        show_request_body = Boolean.parseBoolean(property.getProperty("show_request_body", "true"));
+        server_config.add(12, show_request_body);
+
+        return server_config;
+    }
 
     /** SERVER side
      * @param server
@@ -132,7 +168,7 @@ public class server_API extends common_API{
                 json.put("success", true);
                 responseCode = STATUS_OK;
 
-                generate_xml(global_config.get(4).toString());
+                generate_xml(server_config.get(4).toString());
 
             } else {
                 json.put("success", false);

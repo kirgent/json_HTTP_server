@@ -12,17 +12,35 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Properties;
 import java.util.Random;
 
 import static org.apache.http.HttpHeaders.ACCEPT;
 import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 
 public class client_API  extends common_API{
+
+    private boolean show_response_json = true;
+    private boolean show_response_body = true;
+    boolean show_debug_level = true;
+    boolean show_info_level = true;
+    private boolean show_generated_json = true;
+
+    private ArrayList client_config = new ArrayList();
+
+    ArrayList read_client_config(String fileName) throws IOException {
+        Properties property = new Properties();
+        property.load(new FileInputStream(fileName));
+        client_config.add(0, property.getProperty("server_host"));
+        client_config.add(1, property.getProperty("server_port"));
+        return client_config;
+    }
 
     //todo
     @Deprecated

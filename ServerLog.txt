@@ -5837,3 +5837,27 @@ fileName_xml=json.xml
 [SERVER] process_context_stop(): /stop
 [SERVER] server started: on /127.0.0.1:8080
 [SERVER] in console mode type CTRL+C to quit
+[SERVER] Sun Jun 03 09:19:21 MSK 2018: read src/main/resources/config.properties:
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature="true"
+enable_context_stop="true"
+fileName_xml=json.xml
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Sun Jun 03 09:19:37 MSK 2018: new client connected: /127.0.0.1:34462 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_172)
+Content-type=application/json
+Content-length=67
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1528006776,"unit":"C","temperature":134}]}
+used: json.xml
+[SERVER] send responseBody: {"success":true}

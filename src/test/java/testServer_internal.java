@@ -14,12 +14,12 @@ class testServer_internal extends client_API {
 
     @BeforeEach
     void setup() throws IOException {
-        String client_fileName_config = "src/main/resources/config.properties.client";
-        ArrayList propertiesList = read_config_client(client_fileName_config);
-        String host = (String) propertiesList.get(0);
-        String port = (String) propertiesList.get(1);
+        String client_config_filename = "src/main/resources/config.properties.client";
+        ArrayList propertiesList = read_client_config(client_config_filename);
+        String host = String.valueOf(propertiesList.get(0));
+        String port = String.valueOf(propertiesList.get(1));
         String params = "test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10";
-        logger(CLIENTLOG, INFO_LEVEL, new Date() + ": read " + client_fileName_config + ":\n"
+        logger(CLIENTLOG, INFO_LEVEL, new Date() + ": read " + client_config_filename + ":\n"
                 + "server_host=" + host + "\n"
                 + "server_port=" + port);
         String context = "/temperature";

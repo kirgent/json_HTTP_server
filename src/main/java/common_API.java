@@ -1,5 +1,7 @@
-import java.io.*;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Properties;
 
 class common_API extends json_server {
@@ -9,12 +11,6 @@ class common_API extends json_server {
     final String expected404 = "404 Not Found";
     final String expected405 = "405 Method Not Allowed";
     final String expected500 = "500 Internal Server Error";
-
-    boolean show_response_body = true;
-    boolean show_response_json = true;
-    boolean show_debug_level = true;
-    boolean show_info_level = true;
-    boolean show_generated_json = true;
 
     final String DEBUG_LEVEL = "DBG";
     final String INFO_LEVEL = "INF";
@@ -37,26 +33,9 @@ class common_API extends json_server {
     private String supported_context = "/ /reminders /stop";
     private boolean write_file = true;
 
-    ArrayList global_config = new ArrayList();
 
-    ArrayList<String> read_config(String fileName) throws IOException {
-        Properties property = new Properties();
-        property.load(new FileInputStream(fileName));
-        global_config.add(0, property.getProperty("list_of_contexts"));
-        global_config.add(1, property.getProperty("list_of_params"));
-        global_config.add(2, property.getProperty("enable_context_temperature", "true"));
-        global_config.add(3, property.getProperty("enable_context_stop", "true"));
-        global_config.add(4, property.getProperty("fileName_xml", "json.xml"));
-        return global_config;
-    }
 
-    ArrayList<String> read_config_client(String fileName) throws IOException {
-        Properties property = new Properties();
-        property.load(new FileInputStream(fileName));
-        global_config.add(0, property.getProperty("server_host"));
-        global_config.add(1, property.getProperty("server_port"));
-        return global_config;
-    }
+
 
     void write_config(String key, String value) throws IOException {
             try {
