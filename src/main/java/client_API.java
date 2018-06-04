@@ -28,8 +28,6 @@ public class client_API  extends common_API{
 
     private boolean show_response_json = true;
     private boolean show_response_body = true;
-    boolean show_debug_level = true;
-    boolean show_info_level = true;
     private boolean show_generated_json = true;
 
     private ArrayList client_config = new ArrayList();
@@ -66,24 +64,12 @@ public class client_API  extends common_API{
         arrayList.add(0, server_response.getStatusLine().getStatusCode() + " " + server_response.getStatusLine().getReasonPhrase());
         //arrayList.add(1, check_body_response(read_response(new StringBuilder(),server_response).toString()));
         logger(CLIENTLOG, INFO_LEVEL,"response code: " + arrayList.get(0));
-        //logger(INFO_LEVEL,"[INF] response body: " + arrayList.get(1));
-        //}
-        /*catch (Exception e) {
-            //todo: handle exception
-            System.out.println("catch exception! client.execute(request): " + e);
-            e.printStackTrace();
-        }*/
 
         String json_response = "";
-        try {
-            json_response = EntityUtils.toString(server_response.getEntity(), "UTF-8");
-            if(show_response_json){
-                logger(CLIENTLOG, INFO_LEVEL,"response_json: " + json_response);
-            }
-        }
-        catch (IOException e) {
-            System.out.println("!catch exception 2");
-            e.printStackTrace();
+
+        json_response = EntityUtils.toString(server_response.getEntity(), "UTF-8");
+        if(show_response_json){
+            logger(CLIENTLOG, INFO_LEVEL,"response_json: " + json_response);
         }
 
         try {

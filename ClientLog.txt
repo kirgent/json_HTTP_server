@@ -492,3 +492,36 @@ generated json: {"temp":"123123123"}
 76ms request
 responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
 filtered data: [500 Internal Server Error, "success":false, incorrect json: incorrect json format]
+Mon Jun 04 12:25:45 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=80805
+post request to: http://127.0.0.1:80805/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104345,"unit":"C","temperature":366}]}
+Mon Jun 04 12:26:03 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8081
+post request to: http://127.0.0.1:8081/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104363,"unit":"C","temperature":364}]}
+Mon Jun 04 12:26:20 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.2
+server_port=8080
+post request to: http://127.0.0.2:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104380,"unit":"C","temperature":758}]}
+Mon Jun 04 12:26:32 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+post request to: http://127.0.0.1:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104392,"unit":"C","temperature":886}]}
+Mon Jun 04 12:26:51 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+post request to: http://127.0.0.1:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104411,"unit":"C","temperature":466},{"date":1528104411,"unit":"C","temperature":208},{"date":1528104411,"unit":"C","temperature":217}]}
+Mon Jun 04 12:26:58 MSK 2018: read src/main/resources/config.properties.client:
+server_host=127.0.0.1
+server_port=8080
+post request to: http://127.0.0.1:8080/temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+generated json: {"measurements":[{"date":1528104418,"unit":"C","temperature":760},{"date":1528104418,"unit":"C","temperature":65},{"date":1528104418,"unit":"C","temperature":508}]}
+146ms request
+responseBody: {"success":true}
+filtered data: [200 OK, "success":true]

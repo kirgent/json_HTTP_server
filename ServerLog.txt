@@ -6255,3 +6255,63 @@ Content-length=20
 {"temp":"123123123"}
 [SERVER] send responseBody: {"success":false,"error":"incorrect json: incorrect json format, incorrect one or more mandatory field: measurements, date","message":"example of correct json: \n{\"measurements\":[{\"date\":<unix timestamp>,\"temperature\":xxx,\"unit\":\"C\"}]}, where:\nmeasurements - array is mandatory.\ndate         - field is mandatory, value is unix timestamp\ntemperature  - field is optional, value is type short\nunit         - field is optional, value is string, can be: K, k, C, c, F, f"}
 
+[SERVER] Mon Jun 04 12:19:25 MSK 2018: read src/main/resources/config.properties:
+server_host=127.0.0.1
+server_port=8080
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature=true
+enable_context_stop=true
+fileName_xml=json.xml
+show_response_xml=true
+show_request_headers=true
+show_request_body=true
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Mon Jun 04 12:19:29 MSK 2018: read src/main/resources/config.properties:
+server_host=127.0.0.1
+server_port=8080
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature=true
+enable_context_stop=true
+fileName_xml=json.xml
+show_response_xml=true
+show_request_headers=true
+show_request_body=true
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Mon Jun 04 12:26:53 MSK 2018: read src/main/resources/config.properties:
+server_host=127.0.0.1
+server_port=8080
+list_of_contexts="/ /temperature /stop"
+list_of_params="temperature=100 unit=C"
+enable_context_temperature=true
+enable_context_stop=true
+fileName_xml=json.xml
+show_response_xml=true
+show_request_headers=true
+show_request_body=true
+[SERVER] process_context_temperature: /temperature
+[SERVER] process_context_stop(): /stop
+[SERVER] server started: on /127.0.0.1:8080
+[SERVER] in console mode type CTRL+C to quit
+[SERVER] Mon Jun 04 12:26:59 MSK 2018: new client connected: /127.0.0.1:47192 HTTP/1.1 POST /temperature?test=Add_Modify_Delete_Purge&macaddress=123123123&count_reminders=10
+[SERVER] requestHeaders: 
+Accept-encoding=gzip,deflate
+Accept=application/json
+Connection=Keep-Alive
+Host=127.0.0.1:8080
+User-agent=Apache-HttpClient/4.5.5 (Java/1.8.0_161)
+Content-type=application/json
+Content-length=164
+
+[SERVER] requestBody: 
+{"measurements":[{"date":1528104418,"unit":"C","temperature":760},{"date":1528104418,"unit":"C","temperature":65},{"date":1528104418,"unit":"C","temperature":508}]}
+[SERVER] generated xml:
+[SERVER] send responseBody: {"success":true}
+

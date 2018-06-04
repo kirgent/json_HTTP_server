@@ -31,7 +31,7 @@ class testServer_internal extends client_API {
         expected.add(0, expected200);
         expected.add(1, "\"success\":true");
 
-        String json = generate_json(1);
+        String json = generate_json(3);
         ArrayList actual = post(url, expected, json, false);
         for(int i = 0; i< expected.size(); i++){
             assertEquals(expected.get(i), actual.get(i));
